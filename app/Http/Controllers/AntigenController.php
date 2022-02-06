@@ -85,7 +85,7 @@ class AntigenController extends Controller
         ->whereDay('created_at', now()->day)
         ->sum('PIUTANG');
         $total=$cash+$BCA_Dr+$BRI_Dr+$BNI_Dr+$Mandiri_Pt+$BNI_Pt+$Piutang+$BJB_Pt+$BCA_Pt;
-
+        $a = 'coba';
         $nowTimeDate = Carbon::now()->translatedFormat('d F Y');
         
         return view('antigens.daily',compact('Onsite','DriveTHRU','HomeVisit','nowTimeDate','Antigen','totalSwab','totalSwabHarian','Positif','Negatif','tesAntigen','tesRapidantibodi','tesPCR','BCA_Dr','cash','BRI_Dr','BNI_Dr','Mandiri_Pt','BNI_Pt','total','Piutang','BJB_Pt','BCA_Pt','BNI_Pt'));
