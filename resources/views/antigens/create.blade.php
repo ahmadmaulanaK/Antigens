@@ -175,10 +175,20 @@
                                 <br>
                                 <div class="row">
                                     <div class=" col-6">
-                                        <label for="name">Lokasi </label>
-                                        <input type="text" name="lokasi" class="form-control" value="{{ old('Lokasi') }}"
-                                            required>
-                                        <p class="text-danger">{{ $errors->first('name') }}</p>
+                                        <div class="form-group">
+                                            <label for="status">Jenis Layanan</label>
+                                            <select name="lokasi" class="form-control" required>
+                                                <option value="" >Pilih Lokasi 
+                                                </option>
+                                                <option value="Klinik Utama Panggil Dokter" >Klinik Utama 305
+                                                </option>
+                                                <option value="Drive THRU" >Drive THRU
+                                                </option>
+                                               
+        
+                                            </select>
+                                            <p class="text-danger">{{ $errors->first('category') }}</p>
+                                        </div>
                                     </div>
 
                                     <div class=" col-6">
