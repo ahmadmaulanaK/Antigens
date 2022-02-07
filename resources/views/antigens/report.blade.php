@@ -237,12 +237,14 @@
                   
                 </div>
                 <div class="col-4">
-
-                  
+<br>
+<br>
+<br>
+                    <p class="text-center font-weight-bold">Dibuat oleh : {{$user_id}}</p>
                 </div>
             </div>
             <div style="background-color: #252a64;">
-                <h4 class="text-center" style="color:rgb(255, 255, 255);">LAPORAN HARIAN
+                <h4 class="text-center" style="color:rgb(255, 255, 255);">LAPORAN HARIAN {{$nowTimeDate,true}}
                     </h4>
             </div>
 
@@ -270,12 +272,25 @@
                         <p class="text-center h5">{{$totalSwabHarian->count()}}</p>                      
                     </div>
                     <div class="col-md-2">
-                        <p class="text-center font-weight-bold">Hasil Positif</p>
+                        <p class="text-center font-weight-bold">Hasil Positif 
+                            <span class=" font-weight-light " style="font-size:8px">(Swab Antigen)</span>
+                        </p>
                         <p class="text-center h5">{{$Positif->count()}}</p>                      
                     </div>
                     <div class="col-md-2">
-                        <p class="text-center font-weight-bold">Hasil Negatif</p>
+                        <p class="text-center font-weight-bold">Hasil Negatif 
+                            <span class=" font-weight-light " style="font-size:8px">(Swab Antigen)</span></p>
                         <p class="text-center h5">{{$Negatif->count()}}</p>                      
+                    </div>
+                    <div class="col-md-2">
+                        <p class="text-center font-weight-bold">PCR SAMEDAY
+                            </p>
+                        <p class="text-center h5">{{$Sameday->count()}}</p>                      
+                    </div>
+                    <div class="col-md-2">
+                        <p class="text-center font-weight-bold">PCR H+1
+                            </p>
+                        <p class="text-center h5">{{$H1->count()}}</p>                      
                     </div>
 
                 </div>
@@ -346,9 +361,11 @@
 
                                 <th>Jenis Test</th>
                                 <th>Hasil</th>
-                                <th>Created At</th>
-                                <th>Admin Input</th>
+                                <th>Jenis layanan</th>
+                               
+                                <th>Lokasi</th>
                                 <th>Swabber</th>
+                              
 
 
                             </tr>
@@ -373,15 +390,17 @@
                                 <td>{{ $row->customer->jenis_kelamin }} </td>
                                 <td>{{ $row->category->name }} </td>
                                 <td>{{ $row->hasil }} </td>
-                                <td>{{ $row->created_at->format('d F, Y H:i') }} </td>
-                                <td>{{ $row->user->name }}</td>
+                                <td>{{ $row->pelayanan }} </td>
+                                <td>{{ $row->lokasi }} </td>
+                               
+                            
                                 <td>{{ $row->swabber->name }}</td>
                                 {{-- <td>{{ $row->district->city->name }}</a></td> --}}
 
                                 <!-- KARENA BERISI HTML MAKA KITA GUNAKAN { !! UNTUK MENCETAK DATA -->
 
 
-
+                                   
                             </tr>
                             @empty
                             <tr>

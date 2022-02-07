@@ -242,41 +242,42 @@ public function destroy($id)
         // $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->orWhere('user_id', 6)->get();
         
         // $Antigen = Antigen::where('user_id', $id)->get();
+        $Sameday = Antigen::where('user_id', $id)->where('hasil', 'Sameday')->whereDay('created_at', now()->day)->get();
+        $H1 = Antigen::where('user_id', $id)->where('hasil', 'H(+1)')->whereDay('created_at', now()->day)->get();
         $Positif = Antigen::where('user_id', $id)->where('hasil', 'positif')->whereDay('created_at', now()->day)->get();
         $Negatif = Antigen::where('user_id', $id)->where('hasil', 'Negatif')->whereDay('created_at', now()->day)->get();
         $tesAntigen = Antigen::where('user_id', $id)->where('category_id', '1')->whereDay('created_at', now()->day)->get();
         $tesRapidantibodi = Antigen::where('user_id', $id)->where('category_id', '2')->whereDay('created_at', now()->day)->get();
         $tesPCR = Antigen::where('user_id', $id)->where('category_id', '3')->whereDay('created_at', now()->day)->get();
-        $cash = DB::table('antigens')
-                    ->where('user_id', $id)
-                    ->sum('cash');
-        $BCA_Dr = DB::table('antigens')
+        $cash = DB::table('antigens')->whereDay('created_at', now()->day)->where('user_id', $id)->sum('cash');
+        $BCA_Dr = DB::table('antigens')->whereDay('created_at', now()->day)
                     ->where('user_id', $id)
                     ->sum('BCA-Dr');
-        $BRI_Dr = DB::table('antigens')
+        $BRI_Dr = DB::table('antigens')->whereDay('created_at', now()->day)
                     ->where('user_id', $id)
                     ->sum('BRI-Dr');
-        $BNI_Dr = DB::table('antigens')
+        $BNI_Dr = DB::table('antigens')->whereDay('created_at', now()->day)
                     ->where('user_id', $id)
                     ->sum('BNI-Dr');
-        $Mandiri_Pt = DB::table('antigens')
+        $Mandiri_Pt = DB::table('antigens')->whereDay('created_at', now()->day)
                     ->where('user_id', $id)
                     ->sum('MANDIRI-Pt');
-        $BNI_Pt = DB::table('antigens')
+        $BNI_Pt = DB::table('antigens')->whereDay('created_at', now()->day)
                     ->where('user_id', $id)
                     ->sum('BNI-Pt');
-        $BCA_Pt = DB::table('antigens')
+        $BCA_Pt = DB::table('antigens')->whereDay('created_at', now()->day)
                     ->where('user_id', $id)
                     ->sum('BCA-Pt');
-        $BJB_Pt = DB::table('antigens')
+        $BJB_Pt = DB::table('antigens')->whereDay('created_at', now()->day)
                     ->where('user_id', $id)
                     ->sum('BJB-Pt');
-        $Piutang = DB::table('antigens')
+        $Piutang = DB::table('antigens')->whereDay('created_at', now()->day)
                     ->where('user_id', $id)
                     ->sum('PIUTANG');
         $total=$cash+$BCA_Dr+$BRI_Dr+$BNI_Dr+$Mandiri_Pt+$BNI_Pt+$Piutang+$BJB_Pt+$BCA_Pt;
-        
-        return view('antigens.report',compact('Antigen','totalSwabHarian','Positif','Negatif','tesAntigen','tesRapidantibodi','tesPCR','id','BCA_Dr','cash','BRI_Dr','BNI_Dr','Mandiri_Pt','BNI_Pt','total','Piutang','BJB_Pt','BCA_Pt','BNI_Pt'));
+        $user_id = Auth()->user()->name;
+        $nowTimeDate = Carbon::now()->translatedFormat('d F Y');
+        return view('antigens.report',compact('user_id','nowTimeDate','H1','Sameday','Antigen','totalSwabHarian','Positif','Negatif','tesAntigen','tesRapidantibodi','tesPCR','id','BCA_Dr','cash','BRI_Dr','BNI_Dr','Mandiri_Pt','BNI_Pt','total','Piutang','BJB_Pt','BCA_Pt','BNI_Pt'));
 
     }
 }

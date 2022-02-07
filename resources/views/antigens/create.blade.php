@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-<title>Tambah Produk</title>
+<title>Tambah Data</title>
 @endsection
 
 @section('content')
@@ -176,14 +176,35 @@
                                 <div class="row">
                                     <div class=" col-6">
                                         <div class="form-group">
-                                            <label for="status">Jenis Layanan</label>
+                                            <label for="status">Pilih Lokasi </label>
                                             <select name="lokasi" class="form-control" required>
                                                 <option value="" >Pilih Lokasi 
                                                 </option>
-                                                <option value="Klinik Utama Panggil Dokter" >Klinik Utama 305
+                                                <option value="Klinik Utama Panggil Dokter" >Klinik Utama Panggil Dokter
                                                 </option>
-                                                <option value="Drive THRU" >Drive THRU
+                                                <option value="The Suits Metro" >The Suits Metro
                                                 </option>
+                                                <option value="The Suits Metro" >The Suits Metro
+                                                </option>
+                                                <option value="The Suits Metro" >Pulman Metro Apartment
+                                                </option>
+                                                <option value="The Suits Metro" >Bandung Indah Plaza
+                                                </option>
+                                                <option value="The Suits Metro" >Paris Van Java
+                                                </option>
+                                                <option value="The Suits Metro" >Klinik Alivia
+                                                </option>
+                                                <option value="The Suits Metro" >Klinik Amanah Suci
+                                                </option>
+                                                <option value="The Suits Metro" >Klinik Utama Mata Soediro
+                                                </option>
+                                                <option value="The Suits Metro" >Hotel 88 Bandung Kopo
+                                                </option>
+                                                <option value="The Suits Metro" >Kiara Artha Park
+                                                </option>
+                                                <option value="The Suits Metro" >Istana Plaza
+                                                </option>
+                                               
                                                
         
                                             </select>
@@ -266,6 +287,21 @@
                                             <input class="form-check-input" type="radio" id="inline-radio2"
                                                 value="Negatif" name="hasil" required>
                                             <label class="form-check-label" for="inline-radio2">Negatif</label>
+                                        </div>
+                                        <div class="form-check form-check-inline mr-1">
+                                            <input class="form-check-input" type="radio" id="inline-radio2"
+                                                value="Sameday" name="hasil" required>
+                                            <label class="form-check-label" for="inline-radio2">Sameday</label>
+                                        </div>
+                                        {{-- <div class="form-check form-check-inline mr-1">
+                                            <input class="form-check-input" type="radio" id="inline-radio2"
+                                                value="CITO" name="hasil" required>
+                                            <label class="form-check-label" for="inline-radio2">CITO</label>
+                                        </div> --}}
+                                        <div class="form-check form-check-inline mr-1">
+                                            <input class="form-check-input" type="radio" id="inline-radio2"
+                                                value="H(+1)" name="hasil" required>
+                                            <label class="form-check-label" for="inline-radio2">H+1</label>
                                         </div>
 
                                     </div>
@@ -434,7 +470,7 @@
                                 <div class="form-group">
                                     <label for="status" >BCA PT</label>
                                     <select name="BCA_PT" class="form-control" >
-                                        <option value="-" >Hasil IgM
+                                        <option value="-" >BCA PT
                                         </option>
                                         <option value="0" >0</option>
                                         <option value="99000" >99,000</option>
@@ -468,7 +504,7 @@
                                     <div class="form-group">
                                         <label for="status" >Piutang</label>
                                         <select name="PIUTANG" class="form-control" >
-                                            <option value="_" >Piutang
+                                            <option value="-" >MANDIRI PT
                                             </option>
                                             <option value="0" >0</option>
                                             <option value="99000" >99,000</option>
@@ -476,7 +512,6 @@
                                             <option value="275000" >275,000</option>
                                             <option value="325000" >325,000</option>
                                             <option value="425000" >425,000</option>
-    
                                         </select>
                                         <p class="text-danger">{{ $errors->first('PIUTANG') }}</p>
                                     </div>
