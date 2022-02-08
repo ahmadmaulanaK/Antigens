@@ -45,6 +45,7 @@ Route::resource('customers', \App\Http\Controllers\CustomerController::class)
     Route::get('/antigens/customers', [AntigenController::class, 'all'])->middleware('auth');
     Route::get('/antigens/daily', [AntigenController::class, 'daily'])->middleware('auth');
     Route::get('/antigens/global', [AntigenController::class, 'global'])->middleware('auth');
+    Route::get('/antigens/kwitansi/{id}', [AntigenController::class, 'kwitansi']);
     
 
     

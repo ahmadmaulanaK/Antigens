@@ -26,14 +26,25 @@ class AntigenController extends Controller
         $id = Auth::user()->id;       
         // $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->orWhere('user_id', 6)->get();
         $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->get();
-         
+        // $Antigen = Antigen::where('lokasi', 'The Suits Metro')->get();
+        
         return view('antigens.index',compact('Antigen'));
     }
 
 
+    public function kwitansi($id){
+
+        $getId=Crypt::decrypt($id);
+
+        $antigen=Antigen::with(['customer'])->where('id', $getId)->first();
+        return view('antigens.kwitansi',compact('antigen'));
+        
+    }
+
     public function all(){
       
         $Antigen = Antigen::simplePaginate(5);
+       
         // $Antigen= DB::table('Antigens')->simplePaginate(15);
         return view('antigens.all',compact('Antigen'));
     }
