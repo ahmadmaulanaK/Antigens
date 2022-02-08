@@ -242,7 +242,7 @@
                     <p class="font-size:10px"> Note:
                     *Data Pasien terlampir merupakan data asli yang terdaftar di website http://antigenbandung.com/
                     <br>
-                    *Apabila data tidak muncul ada kemungkinan surat PCR yang diterbitkan merupakan surat palsu
+                    *Apabila data tidak muncul ada kemungkinan document yang diterbitkan merupakan surat palsu
                 </p>
                         
                    </div>    
