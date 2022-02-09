@@ -187,7 +187,7 @@
             <tr>
              <td valign="top" class="textt" style="width:30%">Uang Sebesar</td>
              <td valign="top">:</td>
-             <td style="background-color:#ffc973;" class="" ><strong> {{ number_format($antigen->cash) }}</strong></td>
+             <td style="background-color:#ffc973;" class="" ><strong> {{ $antigen->cash }}</strong></td>
 
          </tr>
             <tr>
@@ -217,7 +217,7 @@
                <div class="col-4" style="background-color:#ffc973;
                border-bottom:double;
                border-top:double;
-               "> <strong>Jumlah : {{ number_format($antigen->cash) }}</strong></div>
+               "> <strong>Jumlah : {{ $antigen->cash }}</strong></div>
                <div class="col-3"></div>
                
                <div class="col-5"><p style="font-size:10px"> Bandung : {{ $antigen->created_at->format('d F, Y | H:i ') }}WIB </p>
