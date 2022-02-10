@@ -23,7 +23,6 @@
         text-justify: inter-word;
         background-color: #FAFAFA;
         font-family: 'Poppins', sans-serif;
-        color: #2b3277;
        
     }
 
@@ -34,14 +33,14 @@
 
     .page {
         width: 21cm;
-        min-height: 13cm;
+        min-height: 15.7cm;
 
         margin: 1cm auto;
         border: 1px #D3D3D3 solid;
         border-radius: 5px;
         background: white;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        background-image: url('{{ asset('assets/img/elementBody.png')}}');
+        background-image: url('{{ asset('assets/img/watermack.png')}}');
         background-position: auto;
         background-size: cover;
         background-repeat: no-repeat;
@@ -160,17 +159,31 @@
 
         <div class="page">
             <div class="row ">
-                
-                <div class="col p-4">
-                    <img src="{{ asset('assets/img/elementAtas.png') }}" width="100%" height="100%">
-
+                <div class="col-4">
+                    
+                    <img src="{{ asset('assets/img/header.png') }}" width="350px" height="100%">
+                    <!--<img src="{{ asset('assets/img/ttd2.png') }}" width="100%" height="155px">-->
                 </div>
-
-              
+                <div class="col-4">
+                    
+                   
+                    <!--<img src="{{ asset('assets/img/ttd2.png') }}" width="100%" height="155px">-->
+                </div>
+                <div class="col-4">
+                    
+                    <!-- <img src="logo panggil dokter.png" width="250px" height="100%"> -->
+                    <!--<img src="{{ asset('assets/img/ttd2.png') }}" width="100%" height="155px">-->
+                </div>
             </div>
-           
-<div class="content mt">
-   
+            <div class="row ">
+               
+                <div class="col"> <img src="{{ asset('assets/img/line.png') }}" width="100%" height=""></div>
+            </div>
+<div class="content mt-3">
+    <div style="">
+        
+        </h5>
+     </div>
            <div class="row">
                <div class="col-4"></div>
                <div class="col-4"><h5 class="text-center" style="color:#252a64;"><strong><u> KWITANSI </u></strong><P  style="font-size:8px">No.{{$antigen->noreg}}</P></div>
@@ -179,15 +192,15 @@
           
            <table style="width:100%" class="mt-1" >
             <tr>
-             <td valign="top" class="textt " style="width:30%; ">Telah Diterima Dari</td>
+             <td valign="top" class="textt " style="width:30%">Telah Diterima Dari</td>
              <td valign="top">:</td>
-             <td style="border-bottom: double;"><strong> {{ $antigen->customer->name }}</strong></td>
+             <td >{{ $antigen->customer->name }}</td>
 
          </tr>
             <tr>
              <td valign="top" class="textt" style="width:30%">Uang Sebesar</td>
              <td valign="top">:</td>
-             <td style="background-color:#ffc973;" class="" ><strong> {{ $antigen->cash }}</strong></td>
+             <td style="border-style: inset;background-color: #ecd719;" >Rp. {{ $antigen->cash }}</td>
 
          </tr>
             <tr>
@@ -199,7 +212,7 @@
             <tr>
              <td valign="top" class="textt" style="width:30%">Lainnya</td>
              <td valign="top">:</td>
-             <td style="border-bottom: double;">{{ $antigen->category->name }}</td>
+             <td>{{ $antigen->category->name }}</td>
 
          </tr>
         
@@ -213,12 +226,8 @@
 
   
            <div class="row mt-4">
-               
-               <div class="col-4" style="background-color:#ffc973;
-               border-bottom:double;
-               border-top:double;
-               "> <strong>Jumlah : {{ $antigen->cash }}</strong></div>
-               <div class="col-3"></div>
+               <div class="col-4" style="border-style: inset;background-color: #ecd719;">Jumlah : Rp.{{ $antigen->cash }}</div>
+               <div class="col-3" ></div>
                
                <div class="col-5"><p style="font-size:10px"> Bandung : {{ $antigen->created_at->format('d F, Y | H:i ') }}WIB </p>
                </div>
@@ -242,7 +251,7 @@
                     <p class="font-size:10px"> Note:
                     *Data Pasien terlampir merupakan data asli yang terdaftar di website http://antigenbandung.com/
                     <br>
-                    *Apabila data tidak muncul ada kemungkinan document yang diterbitkan merupakan surat palsu
+                    *Apabila data tidak muncul ada kemungkinan surat PCR yang diterbitkan merupakan surat palsu
                 </p>
                         
                    </div>    
@@ -252,18 +261,18 @@
                 
                 <!--Kantor Cabang -->
      
-                
+                <a href="mailto:{{$antigen->customer->email}}?subject=Surat%20Keterangan%20Hasil&body=Yth%20{{ $antigen->customer->name }}%20%2C%0AHasil%20{{ $antigen->category->name }}%20Anda%20telah%20selesai%2C%20Anda%20dapat%20melihat%20dan%20mengunduh%20melalui%20link%20di%20bawah%20ini%3A%20%0A%0A{{URL::current()}}%0A%0AAnda%20juga%20bisa%20menentukan%20sendiri%20lokasi%20dan%20waktu%20sesuai%20keinginan%20dengan%20layanan%20Home%20%26%20Corporate%20Service.%20Jika%20tertarik%2C%20silahkan%20cek%20link%20dibawah%20ini%20%3A%0A%0Ahttps://bio.link/panggild%0ATerima%20kasih%20telah%20mempercayakan%20%20Anda%20pada%20Antigen%20Bandung%2C%20semoga%20sehat%20selalu.%0A%0ASalam%20hangat%2C%0AAntigen%20Bandung%20%0ACall%20center%20%3A%20081112130811%0ALive%20Chat%20%3A%20081120210811" target="_blank" class="btn btn-secondary btn-sm mt-5" ><i>Share To Email</i></a>
+       <a href="https://wa.me/{{$antigen->customer->phone_number}}?text=Yth%20{{ $antigen->customer->name }}%20%2C%0AKwitansi%20pembayaran%20Anda%20telah%20selesai%2C%20Anda%20dapat%20melihat%20dan%20mengunduh%20melalui%20link%20di%20bawah%20ini%3A%20%0A%0A{{URL::current()}}%0A%0A%0A%0ASalam%20hangat%2C%0AAntigen%20Bandung%20%0ACall%20center%20%3A%20081112130811%0ALive%20Chat%20%3A%20081120210811%0A%0Ainfo%20%3A%20Harap%20simpan%20kontak%20telphone%20pengirim%20hasil%20terlebih%20dahulu%20agar%20link%20hasil%20pemeriksaan%20dapat%20diakses." target="_blank" class="btn btn-success btn-sm yellow mt-5 "><i class="nav-icon icon-printer" > Share Whatsapp</i> </a>
            
                 <!-- end content -->
          
             </div>
             <!-- end content -->
-            <div class="row mt-3 ">
+                        <div class="row mt-3 ">
                
-                <div class="col"> <img src="{{ asset('assets/img/elementBawah.png') }}" width="100%" height=""></div>
-            </div>
-            <a href="mailto:{{$antigen->customer->email}}?subject=Surat%20Keterangan%20Hasil&body=Yth%20{{ $antigen->customer->name }}%20%2C%0AHasil%20{{ $antigen->category->name }}%20Anda%20telah%20selesai%2C%20Anda%20dapat%20melihat%20dan%20mengunduh%20melalui%20link%20di%20bawah%20ini%3A%20%0A%0A{{URL::current()}}%0A%0AAnda%20juga%20bisa%20menentukan%20sendiri%20lokasi%20dan%20waktu%20sesuai%20keinginan%20dengan%20layanan%20Home%20%26%20Corporate%20Service.%20Jika%20tertarik%2C%20silahkan%20cek%20link%20dibawah%20ini%20%3A%0A%0Ahttps://bio.link/panggild%0ATerima%20kasih%20telah%20mempercayakan%20%20Anda%20pada%20Antigen%20Bandung%2C%20semoga%20sehat%20selalu.%0A%0ASalam%20hangat%2C%0AAntigen%20Bandung%20%0ACall%20center%20%3A%20081112130811%0ALive%20Chat%20%3A%20081120210811" target="_blank" class="btn btn-secondary btn-sm mt-5" ><i>Share To Email</i></a>
-            <a href="https://wa.me/{{$antigen->customer->phone_number}}?text=Yth%20{{ $antigen->customer->name }}%20%2C%0AKwitansi%20pembayaran%20Anda%20telah%20selesai%2C%20Anda%20dapat%20melihat%20dan%20mengunduh%20melalui%20link%20di%20bawah%20ini%3A%20%0A%0A{{URL::current()}}%0A%0A%0A%0ASalam%20hangat%2C%0AAntigen%20Bandung%20%0ACall%20center%20%3A%20081112130811%0ALive%20Chat%20%3A%20081120210811%0A%0Ainfo%20%3A%20Harap%20simpan%20kontak%20telphone%20pengirim%20hasil%20terlebih%20dahulu%20agar%20link%20hasil%20pemeriksaan%20dapat%20diakses." target="_blank" class="btn btn-success btn-sm yellow mt-5 "><i class="nav-icon icon-printer" > Share Whatsapp</i> </a>
+
+        </div>
+           
             
            
 
