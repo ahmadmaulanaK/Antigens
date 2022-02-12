@@ -8,7 +8,17 @@
         <li class="nav-title">----------------------------------- </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('antigens.index') }}">
-                <i class="nav-icon icon-cursor"></i> Swab Antigen
+                <i class="nav-icon icon-cursor"></i> Antigen Bandung
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('jabodetabek.index') }}">
+                <i class="nav-icon icon-cursor"></i>JABODETABEK
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('branch.index') }}">
+                <i class="nav-icon icon-cursor"></i> JASWITA
             </a>
         </li>
         <li class="nav-item nav-dropdown">
@@ -21,16 +31,7 @@
                         <i class="nav-icon icon-puzzle"></i> Data Pasien
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/antigens/daily">
-                        <i class="nav-icon icon-puzzle"></i> Daily 
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="nav-icon icon-puzzle"></i> Global 
-                    </a>
-                </li>
+               
                
              
             </ul>
@@ -51,11 +52,7 @@
                 <i class="nav-icon icon-eyeglass"></i> Swabber
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="nav-icon icon-cloud-upload"></i> Pasien
-            </a>
-        </li>
+      
         <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">
                 <i class="nav-icon icon-settings"></i> Pengaturan
@@ -64,6 +61,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('contact.index') }}">
                         <i class="nav-icon icon-puzzle"></i> Profile Perusahaan 
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('setting.index') }}">
+                        <i class="nav-icon icon-puzzle"></i> Setting 
                     </a>
                 </li>
                 <li class="nav-item">

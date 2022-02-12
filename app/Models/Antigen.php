@@ -34,4 +34,24 @@ class Antigen extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    public function cabang()
+    {
+        return $this->belongsTo(cabang::class);
+    }
+    public function Location()
+    {
+        return $this->belongsTo(Location::class);
+    }
+    public function Payment()
+    {
+        return $this->belongsTo(Payment::class);
+    }
+    public function Price()
+    {
+        return $this->belongsTo(Price::class);
+    }
+    public function Titik()
+    {
+        return $this->belongsTo(Titik::class);
+    }
 }

@@ -63,13 +63,14 @@
 
     #customers td,
     #customers th {
-        border: 1.5px solid black;
-        padding: 8px;
+        border: 1.5px solid rgb(218, 41, 41);
+        padding: 10px;
 
     }
 
     #customers td {
         height: 50px;
+        
         text-align: center;
     }
 
@@ -187,10 +188,10 @@
            <div class="row">
                <div class="col-4"></div>
                <div class="col-4"><h5 class="text-center" style="color:#252a64;"><strong><u> KWITANSI </u></strong><P  style="font-size:8px">No.{{$antigen->noreg}}</P></div>
-               <div class="col-4"><br><p style="font-size:10px"><abbr title="attribute">Lokasi : {{$antigen->lokasi}}</abbr></p></div>
+               <div class="col-4"><br><p style="font-size:10px"><abbr title="attribute">Lokasi : {{$antigen->titik->name}} </abbr></p></div>
            </div>
           
-           <table style="width:100%" class="mt-1" >
+           <table style="width:100%; " class="mt-1 " >
             <tr>
              <td valign="top" class="textt " style="width:30%">Telah Diterima Dari</td>
              <td valign="top">:</td>
@@ -200,7 +201,7 @@
             <tr>
              <td valign="top" class="textt" style="width:30%">Uang Sebesar</td>
              <td valign="top">:</td>
-             <td style="border-style: inset;background-color: #ecd719;" >Rp. {{ $antigen->cash }}</td>
+             <td class="bg-warning">Rp. {{ number_format($antigen->price->harga) }}</td>
 
          </tr>
             <tr>
@@ -226,7 +227,7 @@
 
   
            <div class="row mt-4">
-               <div class="col-4" style="border-style: inset;background-color: #ecd719;">Jumlah : Rp.{{ $antigen->cash }}</div>
+               <div class="col-4 bg-warning" >Jumlah : Rp.{{ number_format($antigen->price->harga) }}</div>
                <div class="col-3" ></div>
                
                <div class="col-5"><p style="font-size:10px"> Bandung : {{ $antigen->created_at->format('d F, Y | H:i ') }}WIB </p>

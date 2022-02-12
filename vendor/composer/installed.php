@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => '6262983bf4c815a041ca568d5adefbf3944def75',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -41,6 +41,18 @@
             'dev_requirement' => true,
             'replaced' => array(
                 0 => '*',
+            ),
+        ),
+        'coreui/coreui' => array(
+            'pretty_version' => 'v4.1.0',
+            'version' => '4.1.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../coreui/coreui',
+            'aliases' => array(),
+            'reference' => '3a72bac0cc5bbe3dc66509a1d02af5d8b9a1ac64',
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => 'v4.1.0',
             ),
         ),
         'davedevelopment/hamcrest-php' => array(
@@ -413,12 +425,12 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => '6262983bf4c815a041ca568d5adefbf3944def75',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(

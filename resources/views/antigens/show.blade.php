@@ -235,6 +235,14 @@
                     <td></td>
                 </tr>
                 <tr>
+                    <td class="textt">Lokasi</td>
+                    <td>:</td>
+                    <td>{{$antigen->titik->name}}</td>
+                  
+
+                    <td></td>
+                </tr>
+                <tr>
                     <td class="textt">Layanan</td>
                     <td>:</td>
                     <td>{{ $antigen->pelayanan }}</td>

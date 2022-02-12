@@ -130,39 +130,7 @@
 
 
                                 <br>
-                                <!--<div class="row">-->
-
-
-                                <!--    <div class="col-md-4 form-group p_star">-->
-                                <!--        <label for="">Propinsi</label>-->
-                                <!--        <select class="form-control" name="province_id" id="province_id" required>-->
-                                <!--            <option value="">Pilih Propinsi</option>-->
-                                <!--            @foreach ($provinces as $row)-->
-                                <!--            <option value="{{ $row->id }}">{{ $row->name }}</option>-->
-                                <!--            @endforeach-->
-                                <!--        </select>-->
-                                <!--        <p class="text-danger">{{ $errors->first('province_id') }}</p>-->
-                                <!--        </select>-->
-                                <!--        <p class="text-danger">{{ $errors->first('province_id') }}</p>-->
-                                <!--    </div>-->
-
-
-                                <!--    <div class="col-md-4 form-group p_star">-->
-                                <!--        <label for="">Kabupaten / Kota</label>-->
-                                <!--        <select class="form-control" name="city_id" id="city_id" required>-->
-                                <!--            <option value="">Pilih Kabupaten/Kota</option>-->
-                                <!--        </select>-->
-                                <!--        <p class="text-danger">{{ $errors->first('city_id') }}</p>-->
-                                <!--    </div>-->
-                                <!--    <div class="col-md-4 form-group p_star">-->
-                                <!--        <label for="">Kecamatan</label>-->
-                                <!--        <select class="form-control" name="district_id" id="district_id" required>-->
-                                <!--            <option value="">Pilih Kecamatan</option>-->
-                                <!--        </select>-->
-                                <!--        <p class="text-danger">{{ $errors->first('district_id') }}</p>-->
-                                <!--    </div>-->
-
-                                <!--</div>-->
+                     
 
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -177,36 +145,14 @@
                                     <div class=" col-6">
                                         <div class="form-group">
                                             <label for="status">Pilih Lokasi </label>
-                                            <select name="lokasi" class="form-control" required>
-                                                <option value="" >Pilih Lokasi 
+                                            <select name="titik_id" class="form-control" required>
+                                                <option value="" >pilih
                                                 </option>
-                                                <option value="Klinik Utama Panggil Dokter" >Klinik Utama Panggil Dokter
+                                                @foreach ($titik as $row)
+                                                <option value="{{ $row->id }}"
+                                                    {{ old('titik_id') == $row->id ? 'selected':'' }}>{{ $row->name }}
                                                 </option>
-                                                <option value="The Suits Metro" >The Suits Metro
-                                                </option>
-                                                <option value="The Suits Metro" >The Suits Metro
-                                                </option>
-                                                <option value="The Suits Metro" >Pulman Metro Apartment
-                                                </option>
-                                                <option value="The Suits Metro" >Bandung Indah Plaza
-                                                </option>
-                                                <option value="The Suits Metro" >Paris Van Java
-                                                </option>
-                                                <option value="The Suits Metro" >Klinik Alivia
-                                                </option>
-                                                <option value="The Suits Metro" >Klinik Amanah Suci
-                                                </option>
-                                                <option value="The Suits Metro" >Klinik Utama Mata Soediro
-                                                </option>
-                                                <option value="The Suits Metro" >Hotel 88 Bandung Kopo
-                                                </option>
-                                                <option value="The Suits Metro" >Kiara Artha Park
-                                                </option>
-                                                <option value="The Suits Metro" >Istana Plaza
-                                                </option>
-                                               
-                                               
-        
+                                                @endforeach
                                             </select>
                                             <p class="text-danger">{{ $errors->first('category') }}</p>
                                         </div>
@@ -359,7 +305,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Pembayaran</h4><p><i class="fa fa-info"></i>&nbsp;Tambah Jika ada perubahan harga konfirmasi ke cs : 0896-3954-8898 (ahmad)</p>
+                                <h4 class="card-title">Pembayaran</h4>
                             </div>
                             <div class="card-body">
 
@@ -368,159 +314,38 @@
                            
                                <div class="col-3">
                                 <div class="form-group">
-                                    <label for="status" >Cash</label>
-                                    <select name="cash" class="form-control" >
-                                        <option value="-" >Cash
+                                    <label for="status" >Metode Pembayaran</label>
+                                    <select name="payment_id" class="form-control" >
+                                        <option value="">Pilih</option>
+                                        @foreach ($Metode as $row)
+                                        <option value="{{ $row->id }}"
+                                            {{ old('payment_id') == $row->id ? 'selected':'' }}>{{ $row->metode_payment }}
                                         </option>
-                                        <option value="0" >0</option>
-                                        <option value="99000" >99,000</option>
-                                        <option value="149000" >149,000</option>
-                                        <option value="275000" >275,000</option>
-                                        <option value="325000" >325,000</option>
-                                        <option value="425000" >425,000</option>
+                                        @endforeach
                                     </select>
                                     <p class="text-danger">{{ $errors->first('cash') }}</p>
                                 </div>
                                </div>
                                <div class="col-3">
                                 <div class="form-group">
-                                    <label for="status" >BCA Dr.Evi</label>
-                                    <select name="BCA_Dr" class="form-control" >
-                                        <option value="-" >BCA Dr.Evi
+                                    <label for="status" >Nominal</label>
+                                    <select name="price_id" class="form-control" required>
+                                        <option value="" >pilih
                                         </option>
-                                        <option value="0" >0</option>
-                                        <option value="99000" >99,000</option>
-                                        <option value="149000" >149,000</option>
-                                        <option value="275000" >275,000</option>
-                                        <option value="325000" >325,000</option>
-                                        <option value="425000" >425,000</option>
+                                        @foreach ($price as $row)
+                                        <option value="{{ $row->id }}"
+                                            {{ old('price_id') == $row->id ? 'selected':'' }}>{{ number_format($row->harga) }}
+                                        </option>
+                                        @endforeach
                                     </select>
-                                    <p class="text-danger">{{ $errors->first('BCA-Dr') }}</p>
+                                    <p class="text-danger">{{ $errors->first('cash') }}</p>
                                 </div>
                                </div>
-                               <div class="col-3">
-                                <div class="form-group">
-                                    <label for="status" >BRI Dr.Evi</label>
-                                    <select name="BRI_Dr" class="form-control" >
-                                        <option value="-" >BRI Dr.Evi
-                                        </option>
-                                        <option value="0" >0</option>
-                                        <option value="99000" >99,000</option>
-                                        <option value="149000" >149,000</option>
-                                        <option value="275000" >275,000</option>
-                                        <option value="325000" >325,000</option>
-                                        <option value="425000" >425,000</option>
-                                    </select>
-                                    <p class="text-danger">{{ $errors->first('BRI-Dr') }}</p>
-                                </div>
-                               </div>
-                               <div class="col-3">
-                                <div class="form-group">
-                                    <label for="status" >BNI Dr.Evi</label>
-                                    <select name="BNI_Dr" class="form-control" >
-                                        <option value="-" >BNI Dr.Evi
-                                        </option>
-                                        <option value="0" >0</option>
-                                        <option value="99000" >99,000</option>
-                                        <option value="149000" >149,000</option>
-                                        <option value="275000" >275,000</option>
-                                        <option value="325000" >325,000</option>
-                                        <option value="425000" >425,000</option>
-                                    </select>
-                                    <p class="text-danger">{{ $errors->first('BNI-Dr') }}</p>
-                                </div>
-                               </div>
-                            </div>
-                           <div class="row">
                                
-                           
-                               <div class="col-3">
-                                <div class="form-group">
-                                    <label for="status" >BNI PT</label>
-                                    <select name="BNI_PT" class="form-control" >
-                                        <option value="-" >BNI PT
-                                        </option>
-                                        <option value="0" >0</option>
-                                        <option value="99000" >99,000</option>
-                                        <option value="149000" >149,000</option>
-                                        <option value="275000" >275,000</option>
-                                        <option value="325000" >325,000</option>
-                                        <option value="425000" >425,000</option>
-                                    </select>
-                                    <p class="text-danger">{{ $errors->first('BNI-PT') }}</p>
-                                </div>
-                               </div>
-                               <div class="col-3">
-                                <div class="form-group">
-                                    <label for="status" >BJB PT</label>
-                                    <select name="BJB_PT" class="form-control" >
-                                        <option value="-" >BJB PT
-                                        </option>
-                                        <option value="0" >0</option>
-                                        <option value="99000" >99,000</option>
-                                        <option value="149000" >149,000</option>
-                                        <option value="275000" >275,000</option>
-                                        <option value="325000" >325,000</option>
-                                        <option value="425000" >425,000</option>
-                                    </select>
-                                    <p class="text-danger">{{ $errors->first('BJB-PT') }}</p>
-                                </div>
-                               </div>
-                               <div class="col-3">
-                                <div class="form-group">
-                                    <label for="status" >BCA PT</label>
-                                    <select name="BCA_PT" class="form-control" >
-                                        <option value="-" >BCA PT
-                                        </option>
-                                        <option value="0" >0</option>
-                                        <option value="99000" >99,000</option>
-                                        <option value="149000" >149,000</option>
-                                        <option value="275000" >275,000</option>
-                                        <option value="325000" >325,000</option>
-                                        <option value="425000" >425,000</option>
-                                    </select>
-                                    <p class="text-danger">{{ $errors->first('BCA-PT') }}</p>
-                                </div>
-                               </div>
-                               <div class="col-3">
-                                <div class="form-group">
-                                    <label for="status" >MANDIRI PT</label>
-                                    <select name="MANDIRI_PT" class="form-control" >
-                                        <option value="-" >MANDIRI PT
-                                        </option>
-                                        <option value="0" >0</option>
-                                        <option value="99000" >99,000</option>
-                                        <option value="149000" >149,000</option>
-                                        <option value="275000" >275,000</option>
-                                        <option value="325000" >325,000</option>
-                                        <option value="425000" >425,000</option>
-                                    </select>
-                                    <p class="text-danger">{{ $errors->first('MANDIRI-PT') }}</p>
-                                </div>
-                               </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-3">
-                                    <div class="form-group">
-                                        <label for="status" >Piutang</label>
-                                        <select name="PIUTANG" class="form-control" >
-                                            <option value="-" >MANDIRI PT
-                                            </option>
-                                            <option value="0" >0</option>
-                                            <option value="99000" >99,000</option>
-                                            <option value="149000" >149,000</option>
-                                            <option value="275000" >275,000</option>
-                                            <option value="325000" >325,000</option>
-                                            <option value="425000" >425,000</option>
-                                        </select>
-                                        <p class="text-danger">{{ $errors->first('PIUTANG') }}</p>
-                                    </div>
-                                   </div>
-                            </div>
-
+                               <button class="btn btn-primary ">Tambah</button>
                             <div class="form-group">
 
-                                <button class="btn btn-primary btn-sm">Tambah</button>
+                                
                             </div>
                              
 
