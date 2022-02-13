@@ -59,7 +59,7 @@
                                 <div class="row">
 
                                     <div class=" col-6">
-                                        <label for="NIK">NIK</label>
+                                        <label for="NIK">Nomor Identitas</label>
                                         <input type="text" name="NIK" class="form-control"
                                             value="{{ old('phone_number') }}" 
                                             placeholder="ketik '0' Jika tidak ada NIK">
