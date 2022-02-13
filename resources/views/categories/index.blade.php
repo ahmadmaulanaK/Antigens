@@ -23,7 +23,8 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="name">Kategori</label>
-                                    <input type="text" name="name" class="form-control" required>
+                                    <input type="text" name="name" class="form-control" required value="tes">
+                                    
                                     <p class="text-danger">{{ $errors->first('name') }}</p>
                                 </div>
                          

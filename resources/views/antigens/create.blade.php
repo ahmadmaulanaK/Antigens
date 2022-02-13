@@ -8,7 +8,7 @@
 <main class="main">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">Home</li>
-        <li class="breadcrumb-item active">Product</li>
+        <li class="breadcrumb-item active">Antigen Bandung</li>
     </ol>
     <div class="container-fluid">
         <div class="animated fadeIn">
@@ -24,33 +24,37 @@
                                 <div class="row">
                                     <div class="col">
 
-                                       
-                                            <div class="card" style="width: 18rem;">
-                                                <div class="card-header">
-                                                    <i class="fa fa-info"></i>Info&nbsp;
-                                                </div>
-                                                <ul class="list-group list-group-flush">
-                                                  <li class="list-group-item">Jika data tidak ada isi form/kolom dengan huruf "0"</li>
-                                                  <li class="list-group-item">Harap Isi kolom sesuai format contoh yang telah ditampilkan </li>
-                                                
-                                                </ul>
-                                              </div>
-                                           
-                                        
-                                    
-                                    </div>
-                                    <div class="col">
-                                       
+
                                         <div class="card" style="width: 18rem;">
                                             <div class="card-header">
                                                 <i class="fa fa-info"></i>Info&nbsp;
                                             </div>
                                             <ul class="list-group list-group-flush">
-                                              <li class="list-group-item">Untuk nomor HP, angka 0 didepan ganti dengan +62</li>
-                                              <li class="list-group-item">Jika kolom no.Telphone/email kosong maka tidak bisa dishare langsung </li>
-                                              
+                                                <li class="list-group-item">Jika data tidak ada isi form/kolom dengan
+                                                    huruf "0"</li>
+                                                <li class="list-group-item">Harap Isi kolom sesuai format contoh yang
+                                                    telah ditampilkan </li>
+
                                             </ul>
-                                          </div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <div class="col">
+
+                                        <div class="card" style="width: 18rem;">
+                                            <div class="card-header">
+                                                <i class="fa fa-info"></i>Info&nbsp;
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">Untuk nomor HP, angka 0 didepan ganti dengan
+                                                    +62</li>
+                                                <li class="list-group-item">Jika kolom no.Telphone/email kosong maka
+                                                    tidak bisa dishare langsung </li>
+
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +65,7 @@
                                     <div class=" col-6">
                                         <label for="NIK">NIK</label>
                                         <input type="text" name="NIK" class="form-control"
-                                            value="{{ old('phone_number') }}" required
+                                            value="{{ old('phone_number') }}"
                                             placeholder="ketik '0' Jika tidak ada NIK">
 
                                         <p class="text-danger">{{ $errors->first('NIK') }}</p>
@@ -70,17 +74,16 @@
                                     <div class=" col-6">
                                         <label for="telphone">No Telphone </label>
                                         <input type="text" name="phone_number" class="form-control"
-                                            value="{{ old('phone_number') }}"  placeholder="+6281120210811" required>
-                                             
+                                            value="+62{{ old('phone_number') }}" placeholder="+6281120210811">
+
                                         <p class="text-danger">{{ $errors->first('phone_number') }}</p>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class=" col-6">
                                         <label for="name">Nama Lengkap </label>
-                                        <input type="text" name="name" class="form-control"   value="{{ old('name') }}" 
-                                            required>
-                                             
+                                        <input type="text" name="name" class="form-control" value="{{ old('name') }}">
+
                                         <p class="text-danger">{{ $errors->first('name') }}</p>
                                     </div>
 
@@ -88,65 +91,59 @@
 
                                         <label for="email">Email </label>
                                         <input type="text" email="email" name="email" class="form-control"
-                                            value="{{ old('email') }}" placeholder="" required>
-                                           
+                                            value="{{ old('email') }}" placeholder="">
+
                                         <p class="text-danger">{{ $errors->first('email') }}</p>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-6">
-                                        <label for="basic-url">Tanggal Lahir</label>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"
-                                                    id="basic-addon3">Bulan/Tanggal/Tahun</span>
-                                            </div>
-                                            <input type="text" class="form-control" id="basic-url" name="TTL"
-                                                placeholder="12/08/2008" aria-describedby="basic-addon3"
-                                                value="{{ old('TTL') }}">
-                                        </div>
+
+                                        <label for="start">Tanggal Lahir</label><br>
+
+                                        <input style="" type="date" id="start" name="TTL" value="{{ old('TTL') }}"
+                                            min="1950-01-01">
+
+                                            <p class="text-danger">{{ $errors->first('TTL') }}</p>
+
                                     </div>
                                     <div class="col-6">
                                         <label for="email">Jenis Kelamin </label>
+                                        <select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
+                                            <option value="">Pilih....</option>
+                                            <option value="Perempuan"
+                                                {{ old('jenis_kelamin') == 'Perempuan' ? 'selected':'' }}>Perempuan
+                                            </option>
+                                            <option value="Laki-laki"
+                                                {{ old('jenis_kelamin') == 'Laki-laki' ? 'selected':'' }}>Laki-laki
+                                            </option>
+                                        </select>
 
-
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="jenis_kelamin"
-                                                id="peremuan" value="Perempuan" required>
-                                            <label class="form-check-label" for="peremuan">
-                                                Perempuan
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="jenis_kelamin"
-                                                id="laki-laki" value="Laki-laki" >
-                                            <label class="form-check-label" for="laki-laki" required>
-                                                Laki-laki
-                                            </label>
-                                        </div>
+                                        <p class="text-danger">{{ $errors->first('jenis_kelamin') }}</p>
                                     </div>
                                 </div>
 
 
                                 <br>
-                     
+
 
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Alamat</span>
                                     </div>
                                     <textarea class="form-control" name="address" aria-label="With textarea"
-                                        value="{{ old('address') }}" required></textarea>
+                                        value="{{ old('address') }}">{{ old('address') }}</textarea>
+                                    <p class="text-danger">{{ $errors->first('address') }}</p>
                                 </div>
-                              
+
                                 <br>
                                 <div class="row">
                                     <div class=" col-6">
                                         <div class="form-group">
                                             <label for="status">Pilih Lokasi </label>
-                                            <select name="titik_id" class="form-control" required>
-                                                <option value="" >pilih
+                                            <select name="titik_id" class="form-control">
+                                                <option value="">pilih Lokasi....
                                                 </option>
                                                 @foreach ($titik as $row)
                                                 <option value="{{ $row->id }}"
@@ -154,31 +151,31 @@
                                                 </option>
                                                 @endforeach
                                             </select>
-                                            <p class="text-danger">{{ $errors->first('category') }}</p>
+                                            <p class="text-danger">{{ $errors->first('titik_id') }}</p>
                                         </div>
                                     </div>
 
                                     <div class=" col-6">
 
-                                        
-                                            <label for="swabber_id">Petugas Swabber</label>
-        
-                                            <select name="swabber_id" class="form-control" required>
-                                                <option value="" >Pilih Swabber
-                                                </option>
-                                                @foreach ($swabber as $row)
-                                                <option value="{{ $row->id }}"
-                                                    {{ old('swabber_id') == $row->id ? 'selected':'' }}>{{ $row->name }}
-                                                </option>
-                                                @endforeach
-                                            </select>
-                                            <p class="text-danger">{{ $errors->first('swabber_id') }}</p>
-                                    
+
+                                        <label for="swabber_id">Petugas Swabber</label>
+
+                                        <select name="swabber_id" class="form-control">
+                                            <option value="">Pilih ....
+                                            </option>
+                                            @foreach ($swabber as $row)
+                                            <option value="{{ $row->id }}"
+                                                {{ old('swabber_id') == $row->id ? 'selected':'' }}>{{ $row->name }}
+                                            </option>
+                                            @endforeach
+                                        </select>
+                                        <p class="text-danger">{{ $errors->first('swabber_id') }}</p>
+
                                     </div>
                                 </div>
-                               
+
                             </div>
-                         
+
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -192,25 +189,27 @@
 
                                 <div class="form-group">
                                     <label for="status">Jenis Layanan</label>
-                                    <select name="pelayanan" class="form-control" required>
-                                        <option value="" >Pilih Layanan
+                                    <select name="pelayanan" class="form-control">
+                                        <option value="">Pilih ....
                                         </option>
-                                        <option value="Home Visit" >Home Visit
+                                        <option value="Home Visit "
+                                            {{ old('pelayanan') == 'Home Visit' ? 'selected':'' }}>Home Visit
                                         </option>
-                                        <option value="Drive THRU" >Drive THRU
+                                        <option value="Drive THRU"
+                                            {{ old('pelayanan') == 'Drive THRU' ? 'selected':'' }}>Drive THRU
                                         </option>
-                                        <option value="Onsite" >Onsite
+                                        <option value="Onsite" {{ old('pelayanan') == 'Onsite' ? 'selected':'' }}>Onsite
                                         </option>
 
                                     </select>
-                                    <p class="text-danger">{{ $errors->first('category') }}</p>
+                                    <p class="text-danger">{{ $errors->first('pelayanan') }}</p>
                                 </div>
-                               
+
                                 <div class="form-group">
                                     <label for="swabber_id">Jenis Tes</label>
 
-                                    <select name="category_id" class="form-control" required>
-                                        <option value="" >Jenis tes
+                                    <select name="category_id" class="form-control">
+                                        <option value="">Pilih ....
                                         </option>
                                         @foreach ($category as $row)
                                         <option value="{{ $row->id }}"
@@ -226,76 +225,93 @@
                                     <div class="col-md-9 col-form-label">
                                         <div class="form-check form-check-inline mr-1">
                                             <input class="form-check-input" type="radio" id="inline-radio1"
-                                                value="Positif" name="hasil" required>
+                                                value="Positif"
+                                                {{ old('hasil')=="Positif" ? 'checked='.'"checked"' : '' }}
+                                                name="hasil">
                                             <label class="form-check-label" for="inline-radio1">Positif</label>
                                         </div>
                                         <div class="form-check form-check-inline mr-1">
                                             <input class="form-check-input" type="radio" id="inline-radio2"
-                                                value="Negatif" name="hasil" required>
+                                                value="Negatif"
+                                                {{ old('hasil')=="Negatif" ? 'checked='.'"checked"' : '' }}
+                                                name="hasil">
                                             <label class="form-check-label" for="inline-radio2">Negatif</label>
                                         </div>
                                         <div class="form-check form-check-inline mr-1">
                                             <input class="form-check-input" type="radio" id="inline-radio2"
-                                                value="Sameday" name="hasil" required>
+                                                value="Sameday"
+                                                {{ old('hasil')=="Sameday" ? 'checked='.'"checked"' : '' }}
+                                                name="hasil">
                                             <label class="form-check-label" for="inline-radio2">Sameday</label>
                                         </div>
                                         {{-- <div class="form-check form-check-inline mr-1">
                                             <input class="form-check-input" type="radio" id="inline-radio2"
-                                                value="CITO" name="hasil" required>
+                                                value="CITO" name="hasil" >
                                             <label class="form-check-label" for="inline-radio2">CITO</label>
                                         </div> --}}
                                         <div class="form-check form-check-inline mr-1">
                                             <input class="form-check-input" type="radio" id="inline-radio2"
-                                                value="H(+1)" name="hasil" required>
+                                                value="H(+1)" name="hasil"
+                                                {{ old('hasil')=="H(+1)" ? 'checked='.'"checked"' : '' }}>
                                             <label class="form-check-label" for="inline-radio2">H+1</label>
                                         </div>
+                                        <p class="text-danger">{{ $errors->first('hasil') }}</p>
 
                                     </div>
                                 </div>
-                                
-                             
+
+
 
                                 <div class="form-group row">
                                     <label class="col-md-3 col-form-label" for="multiple-select">Spesimen</label>
                                     <div class="col-md-9">
-                                    <select id="multiple-select" name="spesimen" class="form-control" size="5" multiple="" required>
-                                    <option value="Nasal">Nasal</option>
-                                    <option value="Darah">Darah</option>
-                                    <option value="Swab Nasofaring">Swab Nasofaring</option>
-                                    <option value="Swab Orofaring">Swab Orofaring</option>
-                                    <option value="Swab Orofaring&Nasofaring">Swab Orofaring&Nasofaring</option>
-    
-                                    </select>
-                                    </div>
-                                    </div>
+                                        <select id="multiple-select" name="spesimen" class="form-control" size="5"
+                                            multiple="">
+                                            <option value="Nasal" {{ old('spesimen') == 'Nasal' ? 'selected':'' }}>Nasal
+                                            </option>
+                                            <option value="Darah" {{ old('spesimen') == 'Darah' ? 'selected':'' }}>Darah
+                                            </option>
+                                            <option value="Swab Nasofaring"
+                                                {{ old('spesimen') == 'Swab Nasofaring' ? 'selected':'' }}>Swab
+                                                Nasofaring</option>
+                                            <option value="Swab Orofaring"
+                                                {{ old('spesimen') == 'Swab Orofaring' ? 'selected':'' }}>Swab Orofaring
+                                            </option>
+                                            <option value="Swab Orofaring&Nasofaring"
+                                                {{ old('spesimen') == 'Swab Orofaring&Nasofaring' ? 'selected':'' }}>
+                                                Swab Orofaring&Nasofaring</option>
 
+                                        </select>
+                                    </div>
+                                </div>
+                                <p class="text-danger">{{ $errors->first('spesimen') }}</p>
                                 <div class="form-group">
                                     <label for="status">Hasil IgG</label>
-                                    <select name="hasil_IgG" class="form-control" required>
-                                        <option value="-" >Hasil IgG
+                                    <select name="hasil_IgG" class="form-control">
+                                        <option value="-">Hasil IgG
                                         </option>
-                                        <option value="Reaktif" >Reaktip</option>
-                                        <option value="Non-reaktip" >Non-reaktip
+                                        <option value="Reaktif">Reaktip</option>
+                                        <option value="Non-reaktip">Non-reaktip
                                         </option>
 
                                     </select>
                                     <p class="text-danger">{{ $errors->first('hasil_IgG') }}</p>
                                 </div>
                                 <div class="form-group">
-                                    <label for="status" >Hasil IgM</label>
-                                    <select name="hasil_IgM" class="form-control" required>
-                                        <option value="-" >Hasil IgM
+                                    <label for="status">Hasil IgM</label>
+                                    <select name="hasil_IgM" class="form-control">
+                                        <option value="-">Hasil IgM
                                         </option>
-                                        <option value="Reaktip" >Reaktip</option>
-                                        <option value="Non-reaktip" >Non-reaktip
+                                        <option value="Reaktip">Reaktip</option>
+                                        <option value="Non-reaktip">Non-reaktip
                                         </option>
 
                                     </select>
                                     <p class="text-danger">{{ $errors->first('hasil_IgM') }}</p>
                                 </div>
-                           
 
-                               
+
+
                             </div>
                         </div>
                     </div>
@@ -309,59 +325,59 @@
                             </div>
                             <div class="card-body">
 
-                           <div class="row">
-                               
-                           
-                               <div class="col-3">
-                                <div class="form-group">
-                                    <label for="status" >Metode Pembayaran</label>
-                                    <select name="payment_id" class="form-control" >
-                                        <option value="">Pilih</option>
-                                        @foreach ($Metode as $row)
-                                        <option value="{{ $row->id }}"
-                                            {{ old('payment_id') == $row->id ? 'selected':'' }}>{{ $row->metode_payment }}
-                                        </option>
-                                        @endforeach
-                                    </select>
-                                    <p class="text-danger">{{ $errors->first('cash') }}</p>
-                                </div>
-                               </div>
-                               <div class="col-3">
-                                <div class="form-group">
-                                    <label for="status" >Nominal</label>
-                                    <select name="price_id" class="form-control" required>
-                                        <option value="" >pilih
-                                        </option>
-                                        @foreach ($price as $row)
-                                        <option value="{{ $row->id }}"
-                                            {{ old('price_id') == $row->id ? 'selected':'' }}>{{ number_format($row->harga) }}
-                                        </option>
-                                        @endforeach
-                                    </select>
-                                    <p class="text-danger">{{ $errors->first('cash') }}</p>
-                                </div>
-                               </div>
-                               
-                               <button class="btn btn-primary ">Tambah</button>
-                            <div class="form-group">
+                                <div class="row">
 
-                                
-                            </div>
-                             
 
-                             
-                              
-                                
-                               
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label for="status">Metode Pembayaran</label>
+                                            <select name="payment_id" class="form-control">
+                                                <option value="">Pilih</option>
+                                                @foreach ($Metode as $row)
+                                                <option value="{{ $row->id }}"
+                                                    {{ old('payment_id') == $row->id ? 'selected':'' }}>
+                                                    {{ $row->metode_payment }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                            <p class="text-danger">{{ $errors->first('payment_id') }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label for="status">Nominal</label>
+                                            <select name="price_id" class="form-control">
+                                                <option value="">pilih
+                                                </option>
+                                                @foreach ($price as $row)
+                                                <option value="{{ $row->id }}"
+                                                    {{ old('price_id') == $row->id ? 'selected':'' }}>
+                                                    {{ number_format($row->harga) }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                            <p class="text-danger">{{ $errors->first('price_id') }}</p>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-primary ">Tambah</button>
+                                    <div class="form-group">
+
+
+                                    </div>
+
+
+
+
+
+
+                                </div>
+
                             </div>
-                         
                         </div>
                     </div>
-                </div>
             </form>
         </div>
     </div>
 </main>
 @endsection
-
-

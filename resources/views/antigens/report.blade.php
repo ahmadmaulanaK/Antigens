@@ -310,7 +310,7 @@
                   @empty
                   <li ng-repeat="row in gender" class="ng-scope">
                     <i ng-class="row.icon" class="icon-user"></i>
-                    <span class="title ng-binding">{{ $val->jenis_kelamin }}</span>
+                    <span class="title ng-binding"></span>
                     <span class="value ng-binding">Tidak ada data</span>
                     <div class="bars">
                       <div class="progress progress-xs">
@@ -456,10 +456,10 @@
     <i ng-class="row.icon" class="icon-globe"></i>
     <div class="float-right">
                        
-        <span class="value ng-binding">{{$tl->jml_titik}}</span>
+        <span class="value ng-binding"></span>
         <small class="text-muted ng-binding">Person </small>
       </div>
-    <span class="title ng-binding">{{$tl->name}}</span>
+    <span class="title ng-binding"></span>
     <span class="value ng-binding">Tidak Ada Data
     
     </span>

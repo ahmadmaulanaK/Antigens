@@ -58,7 +58,7 @@ class JabodetabekController extends Controller
     $price = Price::orderBy('harga', 'ASC')->get();
     $category = Category::orderBy('name', 'DESC')->get();
     $provinces = Province::orderBy('created_at', 'DESC')->get();
-    $Branch = cabang::orderBy('created_at', 'DESC')->paginate(10);
+    $Branch = cabang::orderBy('created_at', 'DESC')->get();
 
 
 
@@ -76,7 +76,25 @@ class JabodetabekController extends Controller
         {
     
            
-           
+            $validateData= $request->validate([
+                'name' => 'required|string|max:100',
+                'NIK' => 'required|string|max:100',
+                'phone_number' => 'required',
+                'email' => 'required',
+                'TTL' =>'required',
+                'jenis_kelamin' => 'required',
+                'address' => 'required',
+                'titik_id' => 'required',
+                'swabber_id' => 'required',
+                'pelayanan' => 'required',
+                'category_id' => 'required',
+                'hasil' => 'required',
+                'spesimen' => 'required',
+                'price_id' => 'required',
+                'payment_id' => 'required',
+                'cabang_id' => 'required',
+               
+            ]);
             
         
             DB::beginTransaction();
@@ -161,9 +179,15 @@ class JabodetabekController extends Controller
      */
     public function edit($id)
     {
-        //
+        $titik = Titik::orderBy('name', 'ASC')->get();
+        $Metode = Payment::orderBy('metode_payment', 'ASC')->get();
+        $price = Price::orderBy('harga', 'ASC')->get();
+        $swabber = Swabber::all();
+        $category = Category::orderBy('name', 'DESC')->get();
+        $antigen = Antigen::findOrFail($id);
+        $Branch = cabang::orderBy('created_at', 'DESC')->get();
+        return view('jabodetabek.edit', compact('Branch','price','Metode','titik','antigen','swabber','category'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -173,7 +197,88 @@ class JabodetabekController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $validateData= $request->validate([
+            'name' => 'required|string|max:100',
+            'NIK' => 'required|string|max:100',
+            'phone_number' => 'required',
+            'email' => 'required',
+            'TTL' =>'required',
+            'jenis_kelamin' => 'required',
+            'address' => 'required',
+            'titik_id' => 'required',
+            'swabber_id' => 'required',
+            'pelayanan' => 'required',
+            'category_id' => 'required',
+            'hasil' => 'required',
+            'spesimen' => 'required',
+            'price_id' => 'required',
+            'payment_id' => 'required',
+            'cabang_id' => 'required',
+           
+        ]);
+      
+
+        $customer = Customer::updateOrCreate([
+            
+            'name' => $request->name,
+            'NIK' => $request->NIK,
+            'email' => $request->email,
+            'phone_number' => $request->phone_number,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'TTL' => $request->TTL,
+            'address' => $request->address,
+            'district_id' => 1,
+            
+        ]);
+    
+        $user_id = Auth()->user()->id;
+        $antigen = Antigen::findOrFail($id);
+        $antigen->update([
+            'noreg' => time(),
+            'hasil' => $request->hasil,
+            'spesimen' => $request->spesimen,
+            
+            'rujukan' => 'Negatif',
+            'hasil_IgM' => $request->hasil_IgM,
+            'hasil_IgG' => $request->hasil_IgG,
+            'rujukan_IgG' => 'Non-Reaktif',
+            'rujukan_IgM' => 'Non-Reaktif',
+            'pelayanan' => $request->pelayanan,
+            // 'district_id' => $request->district_id,
+            'user_id' => $user_id,
+            'swabber_id' => $request->swabber_id,
+            'category_id' => $request->category_id,
+            'customer_id' => $customer->id,
+            'district_id' => 1,
+            'titik_id' => $request->titik_id,
+            'payment_id' => $request->payment_id,
+            'price_id' => $request->price_id,
+            'cabang_id' => $request->cabang_id,
+        ]);
+        $customer->update([
+            
+            'name' => $request->name,
+            'NIK' => $request->NIK,
+            'email' => $request->email,
+            'phone_number' => $request->phone_number,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'TTL' => $request->TTL,
+            'address' => $request->address,
+            'district_id' => 1,
+            
+        ]);
+      
+    
+            
+    
+       
+    
+       
+    
+            return redirect(route('jabodetabek.index'))->with(['success' => 'Data Telah Dirubah!']);
+
+       
     }
 
     /**

@@ -129,17 +129,24 @@ class AntigenController extends Controller
 public function store(Request $request)
 {
     
-    // $validateData= $request->validate([
-    //     'name' => 'required|string|max:100',
-    //     'NIK' => 'required|string|max:100',
-    //     'phone_number' => 'required',
-    //     'email' => 'required',
-    //     'address' => 'required|string',
-    //     'jenis_kelamin ' => 'required',
-    //      'province_id' => 'required|exists:provinces,id',
-    //     'city_id' => 'required|exists:cities,id',
-    //     'district_id' => 'required|exists:districts,id'
-    // ]);
+    $validateData= $request->validate([
+        'name' => 'required|string|max:100',
+        'NIK' => 'required|string|max:100',
+        'phone_number' => 'required',
+        'email' => 'required',
+        'TTL' =>'required',
+        'jenis_kelamin' => 'required',
+        'address' => 'required',
+        'titik_id' => 'required',
+        'swabber_id' => 'required',
+        'pelayanan' => 'required',
+        'category_id' => 'required',
+        'hasil' => 'required',
+        'spesimen' => 'required',
+        'price_id' => 'required',
+        'payment_id' => 'required',
+       
+    ]);
    
     
 
@@ -155,7 +162,6 @@ public function store(Request $request)
         'TTL' => $request->TTL,
         'address' => $request->address,
         'district_id' => 1,
-        
     ]);
 
     $user_id = Auth()->user()->id;
@@ -350,6 +356,24 @@ public function destroy($id)
     public function update(Request $request, $id)
     {
 
+        $validateData= $request->validate([
+            'name' => 'required|string|max:100',
+            'NIK' => 'required|string|max:100',
+            'phone_number' => 'required',
+            'email' => 'required',
+            'TTL' =>'required',
+            'jenis_kelamin' => 'required',
+            'address' => 'required',
+            'titik_id' => 'required',
+            'swabber_id' => 'required',
+            'pelayanan' => 'required',
+            'category_id' => 'required',
+            'hasil' => 'required',
+            'spesimen' => 'required',
+            'price_id' => 'required',
+            'payment_id' => 'required',
+           
+        ]);
       
 
         $customer = Customer::updateOrCreate([

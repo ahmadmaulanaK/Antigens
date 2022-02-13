@@ -8,13 +8,13 @@
 <main class="main">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">Home</li>
-        <li class="breadcrumb-item active">Antigen Bandung</li>
+        <li class="breadcrumb-item active">Antigen JABODETABEK</li>
     </ol>
     <div class="container-fluid">
         <div class="animated fadeIn">
 
 
-            <form action="{{ route('antigens.update', $antigen->id) }}" method="post" >
+            <form action="{{ route('jabodetabek.update', $antigen->id) }}" method="post" >
 
                 
                 @csrf
@@ -340,7 +340,7 @@
                              <div class="form-group">
                                  <label for="status" >Nominal</label>
                                  <select name="price_id" class="form-control" >
-                                     <option value="" >Rp
+                                     <option value="-" >Rp
                                      </option>
                                      @foreach ($price as $row)
                                      <option value="{{ $row->id }}"
@@ -351,7 +351,21 @@
                                  <p class="text-danger">{{ $errors->first('cash') }}</p>
                              </div>
                             </div>
-                            
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="status" >Branch</label>
+                                    <select name="cabang_id" class="form-control" >
+                                        <option value="" >Pilih....
+                                        </option>
+                                        @foreach ($Branch as $row)
+                                        <option value="{{ $row->id }}"
+                                            {{ $antigen->cabang_id == $row->id ? 'selected':'' }}>{{ $row->name }}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                    <p class="text-danger">{{ $errors->first('cabang_id') }}</p>
+                                </div>
+                               </div>
                             <button class="btn btn-primary ">Edit</button>
                          <div class="form-group">
 

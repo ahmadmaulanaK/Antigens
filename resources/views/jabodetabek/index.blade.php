@@ -94,8 +94,8 @@
                                             <td>{{ $row->customer->name }} </td>
                                             <td>{{ $row->customer->jenis_kelamin }} </td>
                                             <td>{{ $row->category->name }} </td>
-                                            <td>{{ $row->hasil }} </td>
                                             <td>{{ $row->cabang->name }} </td>
+                                            <td>{{ $row->hasil }} </td>
                                             <td>{{ $row->created_at->format('d F, Y H:i') }} </td>
                                             <td >{{ $row->user->name }}</td> 
                                            
@@ -106,11 +106,11 @@
                                             
                                             <!-- KARENA BERISI HTML MAKA KITA GUNAKAN { !! UNTUK MENCETAK DATA -->
                       
-                                           <td> <a href="{{ route('antigens.edit', $row->id) }}" class="btn btn-sm btn-dark shadow "><i class="nav-icon icon-note"></i> Edit</a></td>
+                                           <td> <a href="{{ route('jabodetabek.edit', $row->id) }}" class="btn btn-sm btn-dark shadow "><i class="nav-icon icon-note"></i> Edit</a></td>
                                             <td >
                                                 
                                                
-                                                 <form action="{{ route('antigens.destroy', $row->id) }}" method="post">
+                                                 <form action="{{ route('jabodetabek.destroy', $row->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                             
@@ -140,8 +140,8 @@
                                            <td>{{ $row->customer->name }} </td>
                                            <td>{{ $row->customer->jenis_kelamin }} </td>
                                            <td>{{ $row->category->name }} </td>
-                                           <td>{{ $row->cabang->name }} </td>
                                            <td>{{ $row->hasil }} </td>
+                                           <td>{{ $row->cabang->name }} </td>
                                            <td>{{ $row->created_at->format('d F, Y H:i') }} </td>
                                            <td >{{ $row->user->name }}</td> 
                                           
@@ -172,7 +172,7 @@
                                            </form>
                                           
                                        </td>
-                                       <td> <a href="{{ route('antigens.edit', $row->id) }}" class="btn btn-sm btn-info shadow "><i class="nav-icon icon-note"></i> Edit</a></td>
+                                       <td> <a href="{{ route('jabodetabek.edit', $row->id) }}" class="btn btn-sm btn-info shadow "><i class="nav-icon icon-note"></i> Edit</a></td>
                                        </tr>
                                         @endif
                                        
