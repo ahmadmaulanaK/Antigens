@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="callout callout-success">
-                                        <small class="text-muted">Total Produk</small>
+                                        <small class="text-muted">Total Transaksi</small>
                                         <br>
                                         <strong class="h4">0</strong>
                                     </div>
@@ -83,7 +83,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="callout callout-success">
-                                        <small class="text-muted">Total Produk</small>
+                                        <small class="text-muted">Total Transaksi</small>
                                         <br>
                                         <strong class="h4">0</strong>
                                     </div>
