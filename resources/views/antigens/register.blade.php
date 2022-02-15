@@ -26,19 +26,7 @@
               <input type="text" class="form-control" placeholder="Email">
             </div>
 
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="icon-lock"></i></span>
-              </div>
-              <input type="password" class="form-control" placeholder="Password">
-            </div>
-
-            <div class="input-group mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="icon-lock"></i></span>
-              </div>
-              <input type="password" class="form-control" placeholder="Repeat password">
-            </div>
+            
 
             <button type="button" class="btn btn-block btn-success">Register</button>
           </div>
