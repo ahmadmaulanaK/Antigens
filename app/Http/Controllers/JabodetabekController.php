@@ -219,7 +219,7 @@ class JabodetabekController extends Controller
         ]);
       
 
-        $customer = Customer::updateOrCreate([
+        $customer = Customer::upsert([
             
             'name' => $request->name,
             'NIK' => $request->NIK,
@@ -256,18 +256,7 @@ class JabodetabekController extends Controller
             'price_id' => $request->price_id,
             'cabang_id' => $request->cabang_id,
         ]);
-        $customer->update([
-            
-            'name' => $request->name,
-            'NIK' => $request->NIK,
-            'email' => $request->email,
-            'phone_number' => $request->phone_number,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'TTL' => $request->TTL,
-            'address' => $request->address,
-            'district_id' => 1,
-            
-        ]);
+       
       
     
             

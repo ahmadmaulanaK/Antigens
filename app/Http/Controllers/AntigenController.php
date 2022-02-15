@@ -387,6 +387,19 @@ public function destroy($id)
       
        
         
+        $customer = Customer::upsert([
+            
+            'name' => $request->name,
+            'NIK' => $request->NIK,
+            'email' => $request->email,
+            'phone_number' => $request->phone_number,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'TTL' => $request->TTL,
+            'address' => $request->address,
+            'district_id' => 1,
+            
+        ]);
+        
         $user_id = Auth()->user()->id;
         $antigen = Antigen::findOrFail($id);
         $antigen->update([
@@ -404,26 +417,12 @@ public function destroy($id)
             'user_id' => $user_id,
             'swabber_id' => $request->swabber_id,
             'category_id' => $request->category_id,
-            // 'customer_id' => $customer->id,
+            'customer_id' => $customer->id,
             'district_id' => 1,
             'titik_id' => $request->titik_id,
             'payment_id' => $request->payment_id,
             'price_id' => $request->price_id,
-        ]);
-     
-        
-        $customer = Customer::findOrFail($id);
-        $customer->update([
-            
-            'name' => $request->name,
-            'NIK' => $request->NIK,
-            'email' => $request->email,
-            'phone_number' => $request->phone_number,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'TTL' => $request->TTL,
-            'address' => $request->address,
-            'district_id' => 1,
-            
+            'cabang_id' => $request->cabang_id,
         ]);
     
        
