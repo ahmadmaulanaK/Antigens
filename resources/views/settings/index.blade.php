@@ -54,13 +54,13 @@
                                             <td>
                                               
                                                 <!-- FORM ACTION UNTUK METHOD DELETE -->
-                                                <form action="{{ route('price.destroy', $val->id) }}" method="post">
+                                                {{-- <form action="{{ route('price.destroy', $val->id) }}" method="post">
                                                     <!-- KONVERSI DARI @ CSRF & @ METHOD AKAN DIJELASKAN DIBAWAH -->
                                                     @csrf
                                                     @method('DELETE')
                                                    
                                                     <button class="btn btn-danger btn-sm ">Hapus</button>
-                                                </form>
+                                                </form> --}}
                                             </td>
                                         </tr>
                                         @empty
@@ -114,13 +114,13 @@
                                             <td>
                                               
                                                 <!-- FORM ACTION UNTUK METHOD DELETE -->
-                                                <form action="{{ route('titik.destroy', $val->id) }}" method="post">
+                                                {{-- <form action="{{ route('titik.destroy', $val->id) }}" method="post">
                                                     <!-- KONVERSI DARI @ CSRF & @ METHOD AKAN DIJELASKAN DIBAWAH -->
                                                     @csrf
                                                     @method('DELETE')
                                                    
                                                     <button class="btn btn-danger btn-sm ">Hapus</button>
-                                                </form>
+                                                </form> --}}
                                             </td>
                                         </tr>
                                         @empty
@@ -171,13 +171,13 @@
                                             <td>
                                               
                                                 <!-- FORM ACTION UNTUK METHOD DELETE -->
-                                                <form action="{{ route('payment.destroy', $val->id) }}" method="post">
+                                                {{-- <form action="{{ route('payment.destroy', $val->id) }}" method="post">
                                                     <!-- KONVERSI DARI @ CSRF & @ METHOD AKAN DIJELASKAN DIBAWAH -->
                                                     @csrf
                                                     @method('DELETE')
                                                    
                                                     <button class="btn btn-danger btn-sm ">Hapus</button>
-                                                </form>
+                                                </form> --}}
                                             </td>
                                         </tr>
                                         @empty
@@ -197,7 +197,7 @@
                         <div class="card-header">
                             <h4 class="card-title">Branch
 
-                                {{-- <a href="{{route('branch.create')}}" class="btn btn-primary btn-sm float-right"><i class="fa fa-magic"></i>&nbsp;Tambah</a>   --}}
+                                <a href="{{route('branch.create')}}" class="btn btn-primary btn-sm float-right"><i class="fa fa-magic"></i>&nbsp;Tambah</a>  
                             </h4>
                         </div>
                         <div class="card-body">

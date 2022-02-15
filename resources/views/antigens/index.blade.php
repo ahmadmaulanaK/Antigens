@@ -74,7 +74,7 @@
                                         <!-- ADAPUN PENJELASAN ADA PADA ARTIKEL SEBELUMNYA -->
                                            
                                         @forelse ($Antigen as $key => $row)
-                                        @if ($row->user_id == 6)
+                                        @if ($row->user_id == 1)
                                         <tr class="bg-danger">
                                              <td>{{$key+1}}</td>
                                             <td>

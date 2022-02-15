@@ -57,6 +57,7 @@ class BranchController extends Controller
      */
     public function create()
     {
+        
         return view('branchs.create');
     }
 
@@ -68,7 +69,15 @@ class BranchController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData= $request->validate([
+            'name' => 'required|string|max:100',
+            'cap' => 'required|string|max:100',
+            
+           
+        ]);
+        cabang::create($request->except('_token'));
+        // return view('setting.index');
+        return redirect(route('setting.index'))->with(['success' => 'Data Baru Ditambahkan!']);
     }
 
     /**

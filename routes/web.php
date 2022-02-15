@@ -44,8 +44,11 @@ Route::resource('customers', \App\Http\Controllers\CustomerController::class)
     ->middleware('auth');
     Route::resource('price', \App\Http\Controllers\PriceController::class)
     ->middleware('auth');
+    Route::resource('Pendaftaran', \App\Http\Controllers\PendaftaranController::class)
+    ->middleware('auth');
    
-    Route::get('/antigens/register', [AntigenController::class, 'DaftarMandiri']);
+    // Route::get('/antigens/register', [AntigenController::class, 'DaftarMandiri']);
+    // Route::post('/antigens/add', [AntigenController::class, 'register']);
     Route::get('/antigens/show/{id}', [AntigenController::class, 'show']);
     Route::get('/branch/show/{id}', [BranchController::class, 'show']);
 

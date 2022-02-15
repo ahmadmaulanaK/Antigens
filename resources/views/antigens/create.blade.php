@@ -65,7 +65,7 @@
                                     <div class=" col-6">
                                         <label for="NIK">NIK</label>
                                         <input type="text" name="NIK" class="form-control"
-                                            value="{{ old('phone_number') }}"
+                                            value="{{ old('NIK') }}"
                                             placeholder="ketik '0' Jika tidak ada NIK">
 
                                         <p class="text-danger">{{ $errors->first('NIK') }}</p>
