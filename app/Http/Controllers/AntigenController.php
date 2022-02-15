@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Antigen;
 use Illuminate\Http\Request;
+use App\Models\cabang;
 use App\Models\Province;
 use App\Models\Category;
 use App\Models\City;
@@ -113,7 +114,7 @@ class AntigenController extends Controller
     public function create()
 {
 
-
+    $Branch = cabang::orderBy('created_at', 'DESC')->get();
     $titik = Titik::orderBy('name', 'ASC')->get();
     $Metode = Payment::orderBy('metode_payment', 'ASC')->get();
     $swabber = Swabber::orderBy('name', 'ASC')->get();
@@ -123,7 +124,7 @@ class AntigenController extends Controller
     
 
 
-    return view('antigens.create',compact('provinces','category','swabber','price','titik','Metode'));
+    return view('antigens.create',compact('Branch','provinces','category','swabber','price','titik','Metode'));
 }
 
 public function store(Request $request)
@@ -145,6 +146,7 @@ public function store(Request $request)
         'spesimen' => 'required',
         'price_id' => 'required',
         'payment_id' => 'required',
+        'cabang_id' => 'required',
        
     ]);
    
@@ -183,7 +185,7 @@ public function store(Request $request)
         'category_id' => $request->category_id,
         'customer_id' => $customer->id,
         'district_id' => 1,
-        'cabang_id' => 1,
+        'cabang_id' => $request->cabang_id,
         'titik_id' => $request->titik_id,
         'payment_id' => $request->payment_id,
         'price_id' => $request->price_id,
@@ -320,6 +322,13 @@ public function destroy($id)
             ->whereDay('antigens.created_at', now()->day)
             ->groupBy('customers.jenis_kelamin')
             ->get();
+            $cabangs = DB::table('antigens')
+            ->select('cabangs.name', DB::raw('count(antigens.cabang_id) as jumlah'))
+            ->join('cabangs', 'antigens.cabang_id', '=', 'cabangs.id')
+            ->where('user_id', $id)
+            ->whereDay('antigens.created_at', now()->day)
+            ->groupBy('cabangs.name')
+            ->get();
 
             
 
@@ -331,7 +340,7 @@ public function destroy($id)
         
          
        
-        return view('antigens.report',compact('jenkel','category_qtt','titik_loc','swabber_qtt','jml_harga_all','payment','p','t','user_id','nowTimeDate','totalSwabHarian','id','Antigen'));
+        return view('antigens.report',compact('cabangs','jenkel','category_qtt','titik_loc','swabber_qtt','jml_harga_all','payment','p','t','user_id','nowTimeDate','totalSwabHarian','id','Antigen'));
 
     }
 
@@ -343,7 +352,8 @@ public function destroy($id)
         $swabber = Swabber::all();
         $category = Category::orderBy('name', 'DESC')->get();
         $antigen = Antigen::findOrFail($id);
-        return view('antigens.edit', compact('price','Metode','titik','antigen','swabber','category'));
+        $Branch = cabang::orderBy('created_at', 'DESC')->get();
+        return view('antigens.edit', compact('Branch','price','Metode','titik','antigen','swabber','category'));
     }
 
     /**
@@ -376,19 +386,7 @@ public function destroy($id)
         ]);
       
 
-        $customer = Customer::updateOrCreate([
-            
-            'name' => $request->name,
-            'NIK' => $request->NIK,
-            'email' => $request->email,
-            'phone_number' => $request->phone_number,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'TTL' => $request->TTL,
-            'address' => $request->address,
-            'district_id' => 1,
-            
-        ]);
-    
+        $customer = Customer::findOrFail($id);
         $user_id = Auth()->user()->id;
         $antigen = Antigen::findOrFail($id);
         $antigen->update([
@@ -412,6 +410,9 @@ public function destroy($id)
             'payment_id' => $request->payment_id,
             'price_id' => $request->price_id,
         ]);
+     
+        
+       
         $customer->update([
             
             'name' => $request->name,
@@ -424,7 +425,6 @@ public function destroy($id)
             'district_id' => 1,
             
         ]);
-      
     
             
     
@@ -443,4 +443,9 @@ public function destroy($id)
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     public function DaftarMandiri(){
+        return view('antigens.register');
+     }
 }
+

@@ -359,7 +359,21 @@
                                             <p class="text-danger">{{ $errors->first('price_id') }}</p>
                                         </div>
                                     </div>
-
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label for="status" >Branch</label>
+                                            <select name="cabang_id" class="form-control" >
+                                                <option value="" >Pilih....
+                                                </option>
+                                                @foreach ($Branch as $row)
+                                                <option value="{{ $row->id }}"
+                                                    {{ old('cabang_id') == $row->id ? 'selected':'' }}>{{ $row->name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                            <p class="text-danger">{{ $errors->first('cabang_id') }}</p>
+                                        </div>
+                                       </div>
                                     <button class="btn btn-primary ">Tambah</button>
                                     <div class="form-group">
 

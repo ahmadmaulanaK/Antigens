@@ -8,17 +8,17 @@
         <li class="nav-title">----------------------------------- </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('antigens.index') }}">
-                <i class="nav-icon icon-cursor"></i> Antigen Bandung
+                <i class="nav-icon icon-cursor"></i> Hasil Antigen
             </a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link" href="{{ route('jabodetabek.index') }}">
                 <i class="nav-icon icon-cursor"></i>JABODETABEK
             </a>
-        </li>
+        </li> --}}
         <li class="nav-item">
             <a class="nav-link" href="{{ route('branch.index') }}">
-                <i class="nav-icon icon-cursor"></i> JASWITA
+                <i class="nav-icon icon-cursor"></i>Antigen Cooperation
             </a>
         </li>
         <li class="nav-item nav-dropdown">

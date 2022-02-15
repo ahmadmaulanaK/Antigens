@@ -45,6 +45,7 @@ Route::resource('customers', \App\Http\Controllers\CustomerController::class)
     Route::resource('price', \App\Http\Controllers\PriceController::class)
     ->middleware('auth');
    
+    Route::get('/antigens/register', [AntigenController::class, 'DaftarMandiri']);
     Route::get('/antigens/show/{id}', [AntigenController::class, 'show']);
     Route::get('/branch/show/{id}', [BranchController::class, 'show']);
 
