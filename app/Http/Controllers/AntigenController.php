@@ -385,8 +385,8 @@ public function destroy($id)
            
         ]); 
       
-
-        $customer = Customer::findOrFail($id);
+       
+        
         $user_id = Auth()->user()->id;
         $antigen = Antigen::findOrFail($id);
         $antigen->update([
@@ -404,7 +404,7 @@ public function destroy($id)
             'user_id' => $user_id,
             'swabber_id' => $request->swabber_id,
             'category_id' => $request->category_id,
-            'customer_id' => $customer->id,
+            // 'customer_id' => $customer->id,
             'district_id' => 1,
             'titik_id' => $request->titik_id,
             'payment_id' => $request->payment_id,
@@ -412,7 +412,7 @@ public function destroy($id)
         ]);
      
         
-       
+        $customer = Customer::findOrFail($id);
         $customer->update([
             
             'name' => $request->name,
@@ -426,7 +426,7 @@ public function destroy($id)
             
         ]);
     
-        dd($antigen,$customer);
+       
     
             return redirect(route('antigens.index'))->with(['success' => 'Data Telah Dirubah!']);
 

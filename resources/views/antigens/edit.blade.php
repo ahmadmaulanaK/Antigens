@@ -14,7 +14,7 @@
         <div class="animated fadeIn">
 
 
-            <form action="{{ route('antigens.update', $antigen->id) }}" method="post" >
+            <form action="{{ route('antigens.update', $antigen->id) }}"  method="POST" >
 
                 
                 @csrf
