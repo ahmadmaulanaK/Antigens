@@ -383,7 +383,7 @@ public function destroy($id)
             'price_id' => 'required',
             'payment_id' => 'required',
            
-        ]);
+        ]); 
       
 
         $customer = Customer::findOrFail($id);
@@ -426,11 +426,7 @@ public function destroy($id)
             
         ]);
     
-            
-    
-       
-    
-       
+        dd($antigen,$customer);
     
             return redirect(route('antigens.index'))->with(['success' => 'Data Telah Dirubah!']);
 

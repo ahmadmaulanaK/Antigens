@@ -69,7 +69,7 @@
                                     <div class=" col-6">
                                         <label for="NIK">NIK</label>
                                         <input type="text" name="NIK" class="form-control"
-                                            value="{{ old('NIK', $antigen->customer->NIK) }}" required
+                                            value="{{ old('NIK', $antigen->customer->NIK) }}" 
                                             placeholder="ketik '0' Jika tidak ada NIK">
 
                                         <p class="text-danger">{{ $errors->first('NIK') }}</p>
@@ -79,7 +79,7 @@
                                         <label for="telphone">No Telphone </label>
                                         <input type="text" name="phone_number" class="form-control"
                                             value="{{ old('phone_number', $antigen->customer->phone_number) }}"
-                                            placeholder="+6281120210811" required>
+                                            placeholder="+6281120210811" >
 
                                         <p class="text-danger">{{ $errors->first('phone_number') }}</p>
                                     </div>
@@ -88,7 +88,7 @@
                                     <div class=" col-6">
                                         <label for="name">Nama Lengkap </label>
                                         <input type="text" name="name" class="form-control"
-                                            value="{{ old('name', $antigen->customer->name) }}" required>
+                                            value="{{ old('name', $antigen->customer->name) }}" >
 
                                         <p class="text-danger">{{ $errors->first('name') }}</p>
                                     </div>
@@ -98,7 +98,7 @@
                                         <label for="email">Email </label>
                                         <input type="text" email="email" name="email" class="form-control"
                                             value="{{ old('email', $antigen->customer->email) }}" placeholder=""
-                                            required>
+                                            >
 
                                         <p class="text-danger">{{ $errors->first('email') }}</p>
                                     </div>
@@ -119,7 +119,7 @@
                                     </div>
                                     <div class="col-6">
                                         <label for="email">Jenis Kelamin </label>
-                                        <select name="jenis_kelamin" id="jenis_kelamin" class="form-control" required>
+                                        <select name="jenis_kelamin" id="jenis_kelamin" class="form-control" >
                                             <option value="">Choose....</option>
                                             <option value="Perempuan"
                                                 {{ $antigen->customer->jenis_kelamin == 'Perempuan' ? 'selected' : ''}}>
@@ -142,7 +142,7 @@
                                     <span class="input-group-text">Alamat</span>
                                 </div>
                                 <textarea class="form-control" name="address" aria-label="With textarea" value=""
-                                    required>{{ old('address', $antigen->customer->address) }}</textarea>
+                                    >{{ old('address', $antigen->customer->address) }}</textarea>
                             </div>
 
                             <br>
@@ -150,7 +150,7 @@
                                 <div class=" col-6">
                                     <div class="form-group">
                                         <label for="status">Pilih Lokasi </label>
-                                        <select name="titik_id" class="form-control" required>
+                                        <select name="titik_id" class="form-control" >
                                             <option value="" >Jenis tes
                                             </option>
                                             @foreach ($titik as $row)
@@ -168,7 +168,7 @@
 
                                     <label for="swabber_id">Petugas Swabber</label>
 
-                                    <select name="swabber_id" class="form-control" required>
+                                    <select name="swabber_id" class="form-control" >
                                         <option value="">Pilih Swabber
                                         </option>
                                         @foreach ($swabber as $row)
@@ -197,7 +197,7 @@
 
                             <div class="form-group">
                                 <label for="status">Jenis Layanan</label>
-                                <select name="pelayanan" class="form-control" required>
+                                <select name="pelayanan" class="form-control" >
                                     <option value="">Pilih Layanan
                                     </option>
                                     <option value="Home Visit" {{($antigen->pelayanan === 'Home Visit') ? 'Selected' : ''}} >Home Visit
@@ -214,7 +214,7 @@
                             <div class="form-group">
                                 <label for="swabber_id">Jenis Tes</label>
 
-                                <select name="category_id" class="form-control" required>
+                                <select name="category_id" class="form-control" >
                                     <option value="">Jenis tes
                                     </option>
 
@@ -235,7 +235,7 @@
                                 <label class="col-md-4 col-form-label" for="multiple-select">Jenis Tes</label>
                                 <div class="col-md-8">
                                     <select id="multiple-select" name="category_id" class="form-control" size="5"
-                                        multiple="" required>
+                                        multiple="" >
                                   
                                         @foreach ($category as $row)
                                     <option value="{{ $row->id }}"
@@ -251,7 +251,7 @@
                                 <label class="col-md-4 col-form-label" for="multiple-select">Hasil</label>
                                 <div class="col-md-8">
                                     <select id="multiple-select" name="hasil" class="form-control" size="5"
-                                        multiple="" required>
+                                        multiple="" >
                                         <option value="Positif" {{($antigen->hasil === 'Positif') ? 'Selected' : ''}} >Positif</option>
                                         <option value="Negatif" {{($antigen->hasil === 'Negatif') ? 'Selected' : ''}}>Negatif</option>
                                         <option value="Sameday" {{($antigen->hasil === 'Sameday') ? 'Selected' : ''}}>Sameday</option>
@@ -266,7 +266,7 @@
                                 <label class="col-md-4 col-form-label" for="multiple-select">Spesimen</label>
                                 <div class="col-md-8">
                                     <select id="multiple-select" name="spesimen" class="form-control" size="5"
-                                        multiple="" required>
+                                        multiple="" >
                                         <option value="Nasal" {{($antigen->spesimen === 'Nasal') ? 'Selected' : ''}} >Nasal</option>
                                         <option value="Darah" {{($antigen->spesimen === 'Darah') ? 'Selected' : ''}}>Darah</option>
                                         <option value="Swab Nasofaring" {{($antigen->spesimen === 'Swab Nasofaring') ? 'Selected' : ''}}>Swab Nasofaring</option>
@@ -279,7 +279,7 @@
 
                             <div class="form-group">
                                 <label for="status">Hasil IgG</label>
-                                <select name="hasil_IgG" class="form-control" required>
+                                <select name="hasil_IgG" class="form-control" >
                                     <option value="-">Hasil IgG
                                     </option>
                                     <option value="Reaktif" {{($antigen->hasil_IgG === 'Reaktif') ? 'Selected' : ''}}>Reaktip</option>
@@ -291,7 +291,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="status">Hasil IgM</label>
-                                <select name="hasil_IgM" class="form-control" required>
+                                <select name="hasil_IgM" class="form-control" >
                                     <option value="-">Hasil IgM
                                     </option>
                                     <option value="Reaktip" {{($antigen->hasil_IgM === 'Reaktip') ? 'Selected' : ''}}>Reaktip</option>
