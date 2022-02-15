@@ -219,7 +219,7 @@ class JabodetabekController extends Controller
         ]);
       
 
-        $customer = Customer::upsert([
+        $customer = Customer::updateOrCreate([
             
             'name' => $request->name,
             'NIK' => $request->NIK,
@@ -231,7 +231,7 @@ class JabodetabekController extends Controller
             'district_id' => 1,
             
         ]);
-        
+    
         $user_id = Auth()->user()->id;
         $antigen = Antigen::findOrFail($id);
         $antigen->update([

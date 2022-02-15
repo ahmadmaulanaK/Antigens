@@ -387,7 +387,8 @@ public function destroy($id)
       
        
         
-        $customer = Customer::upsert([
+        
+        $customer = Customer::updateOrCreate([
             
             'name' => $request->name,
             'NIK' => $request->NIK,
@@ -399,7 +400,7 @@ public function destroy($id)
             'district_id' => 1,
             
         ]);
-        
+    
         $user_id = Auth()->user()->id;
         $antigen = Antigen::findOrFail($id);
         $antigen->update([
