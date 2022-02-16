@@ -20,7 +20,7 @@
 
                           <div class="form-group">
                               <label for="exampleInputName">Nama cabang</label>
-                              <input type="text" class="form-control @error('name') is-invalid @enderror" id="exampleInputName" placeholder="" name="metode_payment" value="{{old('metode_payment')}}">
+                              <input type="text" class="form-control @error('name') is-invalid @enderror" id="exampleInputName" placeholder="" name="name" value="{{old('name')}}">
                               @error('name') <span class="text-danger">{{$message}}</span> @enderror
                           </div>
                           <div class="form-group">
