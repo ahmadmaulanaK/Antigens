@@ -11,7 +11,7 @@
             <div class="card mx-4">
                 <div class="card-body p-4">
                     <h1>Pendaftaran</h1>
-                    <form action="{{ route('Pendaftaran.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('pendaftaran.store') }}" method="post" enctype="multipart/form-data">
                       @csrf
                     <p class="text-muted">Pemeriksaan Antigen Bandung</p>
 

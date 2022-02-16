@@ -225,7 +225,7 @@
                                         <tr>
                                             <td>{{$key+1}}</td>
                                             <td><strong>{{ $val->name }}</strong></td>
-                                            <td>  <img src="{{ asset('assets/img/ttd' . $val->cap) }}" width="250px" height="100px"></td>
+                                            <td>  <img src="{{ asset('assets/img/ttd/' . $val->cap) }}" width="250px" height="100px"></td>
                                            
                                           	<!-- MENGGUNAKAN TERNARY OPERATOR, UNTUK MENGECEK, JIKA $val->parent ADA MAKA TAMPILKAN NAMA PARENTNYA, SELAIN ITU MAKA TANMPILKAN STRING - -->
                                            

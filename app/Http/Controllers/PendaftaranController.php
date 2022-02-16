@@ -105,7 +105,7 @@ class PendaftaranController extends Controller
            
             DB::rollback();
 
-    return redirect(route('Pendaftaran.index'))->with(['success' => 'Data berhasil di tambahkan!']);
+    return redirect(route('pendaftaran.index'))->with(['success' => 'Data berhasil di tambahkan!']);
 
     }
 
