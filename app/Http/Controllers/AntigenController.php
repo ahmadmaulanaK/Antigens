@@ -205,7 +205,7 @@ public function destroy($id)
     {
 
         $id = Auth::user()->id;       
-        // $totalSwab = DB::table('antigens')->get();
+     
         $totalSwabHarian = DB::table('antigens')->where('user_id', $id)->where('created_at', '>=', date('Y-m-d').' 00:00:00')->get();
         $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->get();
        

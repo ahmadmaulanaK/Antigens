@@ -27,14 +27,14 @@
                             <span class="input-group-text"><i class="icon-credit-card"></i></span>
                         </div>
                         <input type="text" class="form-control" placeholder="Nomor Identitas/NIK" name="NIK" value="{{ old('NIK') }}">
-                        <p class="text-danger">{{ $errors->first('NIK') }}</p>
+                       <br> <p class="text-danger">{{ $errors->first('NIK') }}</p>
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="icon-user"></i></span>
                         </div>
                         <input type="text" class="form-control" placeholder="Nama lengkap" name="name" value="{{ old('Name') }}">
-                        <p class="text-danger">{{ $errors->first('name') }}</p>
+                       <br> <p class="text-danger">{{ $errors->first('name') }}</p>
                     </div>
 
 
@@ -43,14 +43,14 @@
                             <span class="input-group-text">@</span>
                         </div>
                         <input type="text" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}">
-                        <p class="text-danger">{{ $errors->first('email') }}</p>
+                       <br> <p class="text-danger">{{ $errors->first('email') }}</p>
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="icon-phone"></i></span>
                         </div>
                         <input type="tell" class="form-control" placeholder="No telphone/Whatsapp" value="+62" name="phone_number" value="{{old('phone_number')}}">
-                        <p class="text-danger">{{ $errors->first('email') }}</p>
+                        <br><p class="text-danger">{{ $errors->first('email') }}</p>
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
