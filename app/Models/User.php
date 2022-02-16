@@ -46,4 +46,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Antigen::class);
     }
+    public function pengeluaran()
+    {
+        return $this->hasMany(Pengeluaran::class);
+    }
 }

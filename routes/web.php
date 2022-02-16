@@ -38,6 +38,8 @@ Route::resource('customers', \App\Http\Controllers\CustomerController::class)
     ->middleware('auth');
     Route::resource('antigens', \App\Http\Controllers\AntigenController::class)
     ->middleware('auth')->except('show');
+    Route::resource('pengeluaran', \App\Http\Controllers\PengeluaranController::class)
+    ->middleware('auth')->except('show');
     Route::resource('report', \App\Http\Controllers\ReportController::class)
     ->middleware('auth');
     Route::resource('payment', \App\Http\Controllers\PaymentController::class)

@@ -264,13 +264,13 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                
+
                                 <!--/.col-->
                                 <div class="col-sm-3 col-lg-4">
                                     <div class="row">
 
 
-                                        
+
                                         <div class="col-sm-6">
                                             <div class="callout callout-info">
                                                 <small class="text-muted">Pasien Baru</small>
@@ -301,7 +301,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                              
+
 
 
 
@@ -322,21 +322,21 @@
 
 
                                         <li ng-repeat="row in gender" class="ng-scope">
-                                          <i ng-class="row.icon" class="icon-user"></i>
-                                          <div class="float-right">
-                                              <span class="value ng-binding">{{ $val->jml_jenkel }}</span>
-                                              <small class="text-muted ng-binding">Person </small>
-                                          </div>
-                                          <span class="title ng-binding">{{ $val->jenis_kelamin }}</span>
+                                            <i ng-class="row.icon" class="icon-user"></i>
+                                            <div class="float-right">
+                                                <span class="value ng-binding">{{ $val->jml_jenkel }}</span>
+                                                <small class="text-muted ng-binding">Person </small>
+                                            </div>
+                                            <span class="title ng-binding">{{ $val->jenis_kelamin }}</span>
 
-                                          <div class="bars">
-                                              <div class="progress progress-xs">
-                                                  <div class="progress-bar bg-primary" role="progressbar"
-                                                      style="width: 43%" aria-valuenow="43" aria-valuemin="0"
-                                                      aria-valuemax="100"></div>
-                                              </div>
-                                          </div>
-                                      </li>
+                                            <div class="bars">
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar bg-primary" role="progressbar"
+                                                        style="width: 43%" aria-valuenow="43" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </li>
                                         @endforeach
                                     </ul>
                                 </div>
@@ -586,7 +586,7 @@
                                     <div class="row">
 
 
-                                       
+
                                         <div class="col-sm-6">
                                             <div class="callout callout-danger">
                                                 <small class="text-muted">Cabang</small>
@@ -617,7 +617,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                       
+
                                         <!--/.col-->
 
                                         <!--/.col-->
@@ -684,6 +684,8 @@
                             </div>
                             <!--/.row-->
                             <br>
+
+
                             <table class="table table-hover table-outline mb-0 hidden-sm-down">
                                 <thead class="thead-light">
                                     <tr>
@@ -765,7 +767,7 @@
                                         <td>
                                             <div class="clearfix">
                                                 <div class="float-left">
-                                                    <strong class="ng-binding">50%</strong>
+                                                    <strong class="ng-binding">Tidak ada data</strong>
                                                 </div>
                                                 <div class="float-right">
                                                     <small class="text-muted ng-binding"></small>
@@ -814,6 +816,7 @@
                                                 <div class="float-left">
                                                     <strong class="ng-binding">Rp.
                                                         {{number_format($item->jml_harga_1)}}</strong>
+
                                                 </div>
                                                 <div class="float-right">
                                                     <small class="text-muted ng-binding">{{$nowTimeDate,true}}</small>
@@ -880,6 +883,163 @@
                                         </td>
                                     </tr>
                                     @endforelse
+                                    <!-- end ngRepeat: user in users -->
+                                    <!-- end ngRepeat: user in users -->
+                                </tbody>
+                            </table>
+                            <table class="table table-hover table-outline mb-0 hidden-sm-down mt-3">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th class="text-center">No</th>
+                                        <th class="text-center"><i class="icon-people"></i> Rincian Pengeluaran</th>
+                                        <th class="text-center"></th>
+                                        <th>Pengeluaran</th>
+                                        <th class="text-center"></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody ng-controller="usersTableCtrl" class="ng-scope">
+                                    <!-- ngRepeat: user in users -->
+
+                                    @forelse ($pengeluaran as $key => $item)
+                                    <tr ng-repeat="user in users" class="ng-scope">
+                                        <td class="text-center">
+                                            <div class="avatar">
+                                                {{$key+1}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="ng-binding">{{$item->name}}</div>
+                                            <div class="small text-muted ng-binding">
+                                                <!-- ngIf: user.new == true --><span ng-if="user.new == true"
+                                                    class="ng-scope">---------------------------</span>
+                                                <!-- end ngIf: user.new == true -->
+                                                <!-- ngIf: user.new == false -->
+                                                -------------- </div>
+                                        <td class="text-center">
+                                            <i class="h4 mb-0 flag-icon flag-icon-us" title="us" id="us"></i>
+                                        </td>
+                                        
+                                        <td>
+                                            <div class="clearfix">
+                                                <div class="float-left">
+                                                    <strong class="ng-binding">Rp.
+                                                        {{number_format($item->jumlah)}}</strong>
+                                                </div>
+                                                <div class="float-right">
+                                                    <small class="text-muted ng-binding">{{$nowTimeDate,true}}</small>
+                                                </div>
+                                            </div>
+                                            <div class="progress progress-xs">
+                                                <div class="progress-bar bg-warning" ng-class="{ 'bg-info'    : user.usage <= 25,
+          'bg-success' : user.usage > 25 &amp;&amp; user.usage <= 50,
+          'bg-warning' : user.usage > 50 &amp;&amp; user.usage <= 75,
+          'bg-danger'  : user.usage > 75 &amp;&amp; user.usage <= 100 }" value="50" role="progressbar"
+                                                    style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                    </tr><!-- end ngRepeat: user in users -->
+                                    @empty
+                                    <tr ng-repeat="user in users" class="ng-scope">
+                                        <td class="text-center">
+                                            <div class="avatar">
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="ng-binding">Tidak Ada Data</div>
+                                            <div class="small text-muted ng-binding">
+                                                <!-- ngIf: user.new == true --><span ng-if="user.new == true"
+                                                    class="ng-scope">Termasuk Pembayaran</span>
+                                                <!-- end ngIf: user.new == true -->
+                                                <!-- ngIf: user.new == false -->
+                                                | Debit/Transfer/QRIS</div>
+                                        </td>
+                                        <td class="text-center">
+                                            <i class="h4 mb-0 flag-icon flag-icon-us" title="us" id="us"></i>
+                                        </td>
+                                        <td>
+                                            <div class="clearfix">
+                                                <div class="float-left">
+                                                    <strong class="ng-binding">Tidak ada data</strong>
+                                                </div>
+                                                <div class="float-right">
+                                                    <small class="text-muted ng-binding"></small>
+                                                </div>
+                                            </div>
+                                            <div class="progress progress-xs">
+                                                <div class="progress-bar bg-warning" ng-class="{ 'bg-info'    : user.usage <= 25,
+          'bg-success' : user.usage > 25 &amp;&amp; user.usage <= 50,
+          'bg-warning' : user.usage > 50 &amp;&amp; user.usage <= 75,
+          'bg-danger'  : user.usage > 75 &amp;&amp; user.usage <= 100 }" value="50" role="progressbar"
+                                                    style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                    </tr><!-- end ngRepeat: user in users -->
+                                    @endforelse
+
+
+                                    
+
+                                    <tr ng-repeat="user in users" class="ng-scope">
+                                        <td class="text-center">
+                                            <div class="avatar">
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="ng-binding">Jumlah Pengeluaran</div>
+                                            <div class="small text-muted ng-binding">
+                                                <!-- ngIf: user.new == true --><span ng-if="user.new == true"
+                                                    class="ng-scope">New</span><!-- end ngIf: user.new == true -->
+                                                <!-- ngIf: user.new == false -->
+                                                | {{$nowTimeDate,true}}</div>
+                                        </td>
+                                        <td class="text-center">
+                                            <i class="h4 mb-0 flag-icon flag-icon-us" title="us" id="us"></i>
+                                        </td>
+                                        <td>
+                                            <div class="clearfix">
+                                                <div class="float-left">
+                                                    <strong class="ng-binding">Rp.
+                                                        {{number_format($jml_pengeluaran)}}</strong>
+
+                                                </div>
+                                                <div class="float-right">
+                                                    <small class="text-muted ng-binding">{{$nowTimeDate,true}}</small>
+                                                </div>
+                                            </div>
+                                            <div class="progress progress-xs">
+                                                <div class="progress-bar bg-warning" ng-class="{ 'bg-info'    : user.usage <= 25,
+                      'bg-success' : user.usage > 25 &amp;&amp; user.usage <= 50,
+                      'bg-warning' : user.usage > 50 &amp;&amp; user.usage <= 75,
+                      'bg-danger'  : user.usage > 75 &amp;&amp; user.usage <= 100 }" value="50" role="progressbar"
+                                                    style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+                                 
                                     <!-- end ngRepeat: user in users -->
                                     <!-- end ngRepeat: user in users -->
                                 </tbody>

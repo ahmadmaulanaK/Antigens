@@ -27,8 +27,8 @@
             </a>
             <ul class="nav-dropdown-items">
                 <li class="nav-item">
-                    <a class="nav-link" href="/antigens/customers">
-                        <i class="nav-icon icon-puzzle"></i> Data Pasien
+                    <a class="nav-link" href="{{route('pengeluaran.index')}}">
+                        <i class="nav-icon icon-puzzle"></i> Pengeluaran
                     </a>
                 </li>
                

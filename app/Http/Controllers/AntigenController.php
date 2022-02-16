@@ -14,6 +14,7 @@ use App\Models\Location;
 use App\Models\Payment;
 use App\Models\Swabber;
 use App\Models\Price;
+use App\Models\Pengeluaran;
 use App\Models\Titik;
 use App\Models\User;
 use Barryvdh\DomPDF\PDF;
@@ -205,7 +206,7 @@ public function destroy($id)
     {
 
         $id = Auth::user()->id;       
-     
+        
         $totalSwabHarian = DB::table('antigens')->where('user_id', $id)->where('created_at', '>=', date('Y-m-d').' 00:00:00')->get();
         $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->get();
        
@@ -213,7 +214,11 @@ public function destroy($id)
         $user_id = Auth()->user()->name;
         $nowTimeDate = Carbon::now()->translatedFormat('d F Y');
           
+      
+
+
          
+       
             $t = DB::table('antigens')
             ->select('hasil', DB::raw('count(*) as total'))
             ->where('user_id', $id)
@@ -278,7 +283,13 @@ public function destroy($id)
             ->groupBy('cabangs.name')
             ->get();
 
-            
+            $pengeluaran = Pengeluaran::where('user_id', $id)->whereDay('created_at', now()->day)->orderBy('created_at', 'ASC')->simplePaginate(10);
+            $jml_pengeluaran = DB::table('pengeluarans')
+            ->select('jumlah')
+            ->where('user_id', $id)
+            ->whereDay('created_at', now()->day)
+            ->sum('jumlah');
+
 
             
 
@@ -288,7 +299,7 @@ public function destroy($id)
         
          
        
-        return view('antigens.report',compact('cabangs','jenkel','category_qtt','titik_loc','swabber_qtt','jml_harga_all','payment','p','t','user_id','nowTimeDate','totalSwabHarian','id','Antigen'));
+        return view('antigens.report',compact('jml_pengeluaran','pengeluaran','cabangs','jenkel','category_qtt','titik_loc','swabber_qtt','jml_harga_all','payment','p','t','user_id','nowTimeDate','totalSwabHarian','id','Antigen'));
 
     }
 
