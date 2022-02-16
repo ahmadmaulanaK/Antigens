@@ -325,7 +325,7 @@
                              <div class="form-group">
                                  <label for="status" >Metode Pembayaran</label>
                                  <select name="payment_id" class="form-control" >
-                                     <option value="-" >Cash
+                                     <option value="" >pilih....
                                      </option>
                                      @foreach ($Metode as $row)
                                      <option value="{{ $row->id }}"
@@ -333,7 +333,7 @@
                                      </option>
                                      @endforeach
                                  </select>
-                                 <p class="text-danger">{{ $errors->first('cash') }}</p>
+                                 <p class="text-danger">{{ $errors->first('payment_id') }}</p>
                              </div>
                             </div>
                             <div class="col-3">
