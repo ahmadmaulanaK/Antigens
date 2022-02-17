@@ -7,13 +7,13 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div class="card mx-4">
                 <div class="card-body p-4">
                     <h1>Pendaftaran</h1>
                     <form action="#" method="post" enctype="multipart/form-data">
                         @csrf
-                        <p class="text-muted">Pemeriksaan PCR Bandung</p>
+                        <p class="text-muted">Pemeriksaan </p>
 
                         @if (session('success'))
                         <div class="alert alert-success">{{ session('success') }}</div>
@@ -108,56 +108,99 @@
                             </select>
                             <p class="text-danger">{{ $errors->first('category_id') }}</p>
                         </div>
-                        <div class="input-group mb-3">
-                            <label for="">Screaning : </label>
-                            <div class="card">
-                                
-                                <div class="card-body">
-                                    <label for="">Demam : </label>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                        <label class="form-check-label" for="inlineRadio1">Ya</label>
-                                      </div>
-                                      <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                        <label class="form-check-label" for="inlineRadio2">tidak</label>
-                                      </div>
-                                    <label for="">Nyeri Otot :  </label>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                        <label class="form-check-label" for="inlineRadio1">Ya</label>
-                                      </div>
-                                      <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                        <label class="form-check-label" for="inlineRadio2">tidak</label>
-                                      </div>
-                                    <label for="">Sesak  : </label>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                        <label class="form-check-label" for="inlineRadio1">Ya</label>
-                                      </div>
-                                      <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                        <label class="form-check-label" for="inlineRadio2">tidak</label>
-                                      </div>
-                                    <label for="">Batuk : </label>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                        <label class="form-check-label" for="inlineRadio1">Ya</label>
-                                      </div>
-                                      <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                        <label class="form-check-label" for="inlineRadio2">tidak</label>
-                                      </div>
+
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <div class="row ">
+                                    <div class="col-lg-2 col-sm-4">
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label" for="inlineRadio1">Demam :</label>
+                                          </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                            <label class="form-check-label" for="inlineRadio1">Ya</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                            <label class="form-check-label" for="inlineRadio2">tidak</label>
+                                          </div>
+                                    </div>
+                                    <div class="col-lg-2 col-sm-4">
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label" for="inlineRadio1">Demam :</label>
+                                          </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                            <label class="form-check-label" for="inlineRadio1">Ya</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                            <label class="form-check-label" for="inlineRadio2">tidak</label>
+                                          </div>
+                                    </div>
+                                    <div class="col-lg-2 col-sm-4">
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label" for="inlineRadio1">Demam :</label>
+                                          </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                            <label class="form-check-label" for="inlineRadio1">Ya</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                            <label class="form-check-label" for="inlineRadio2">tidak</label>
+                                          </div>
+                                    </div>
+                                    <div class="col-lg-2 col-sm-4">
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label" for="inlineRadio1">Demam :</label>
+                                          </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                            <label class="form-check-label" for="inlineRadio1">Ya</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                            <label class="form-check-label" for="inlineRadio2">tidak</label>
+                                          </div>
+                                    </div>
+                                    <div class="col-lg-2 col-sm-4">
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label" for="inlineRadio1">Demam :</label>
+                                          </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                            <label class="form-check-label" for="inlineRadio1">Ya</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                            <label class="form-check-label" for="inlineRadio2">tidak</label>
+                                          </div>
+                                    </div>
+                                    <div class="col-lg-2 col-sm-4">
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label" for="inlineRadio1">Demam :</label>
+                                          </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                            <label class="form-check-label" for="inlineRadio1">Ya</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                            <label class="form-check-label" for="inlineRadio2">tidak</label>
+                                          </div>
+                                    </div>
                                 </div>
-                              </div>
+                            </div>
                         </div>
+                       
+                       
                    
                     
                         <div class="input-group mb-3">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault" >
                                     Dengan ini menyatakan data yang saya isi adalah sebenar-benarnya, dan saya bersedia
                                     untuk diambil spesimen untuk pemeriksaan Covid-19.
                                 </label>
@@ -171,7 +214,7 @@
                             </div>
 
                             <div class="card mt-3">
-                                <div class="card-body" style='text-align:justify;'>
+                                <div class="card-body" style='text-align:justify;font-size:10px;'>
                                     Untuk hasil tes PCR & Tes Antigen Home Service akan dikirimkan melalui Whatsapp atau
                                     email yang tertera didalam informed consent ini, Hasil pemeriksaan hanya berlaku
                                     pada saat pemeriksaan dilakukan

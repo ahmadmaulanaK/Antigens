@@ -312,7 +312,7 @@
                 </table>
     
                 <div class="row">
-                    <div class="col " style="font-size:10px" ><br>
+                    <div class="col " style="font-size:10px;" ><br>
                     
                     <p class="font-size:10px"> Note:
                     *Data Pasien terlampir merupakan data asli yang terdaftar di website http://antigenbandung.com/
