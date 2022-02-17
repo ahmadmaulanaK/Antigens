@@ -269,6 +269,8 @@
                                             multiple="">
                                             <option value="Nasal" {{ old('spesimen') == 'Nasal' ? 'selected':'' }}>Nasal
                                             </option>
+                                            <option value="Saliva" {{ old('spesimen') == 'Saliva' ? 'selected':'' }}>Saliva
+                                            </option>
                                             <option value="Darah" {{ old('spesimen') == 'Darah' ? 'selected':'' }}>Darah
                                             </option>
                                             <option value="Swab Nasofaring"

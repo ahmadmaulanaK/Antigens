@@ -268,6 +268,7 @@
                                     <select id="multiple-select" name="spesimen" class="form-control" size="5"
                                         multiple="" >
                                         <option value="Nasal" {{($antigen->spesimen === 'Nasal') ? 'Selected' : ''}} >Nasal</option>
+                                        <option value="Saliva" {{($antigen->spesimen === 'Saliva') ? 'Selected' : ''}} >Saliva</option>
                                         <option value="Darah" {{($antigen->spesimen === 'Darah') ? 'Selected' : ''}}>Darah</option>
                                         <option value="Swab Nasofaring" {{($antigen->spesimen === 'Swab Nasofaring') ? 'Selected' : ''}}>Swab Nasofaring</option>
                                         <option value="Swab Orofaring" {{($antigen->spesimen === 'Swab Orofaring') ? 'Selected' : ''}}>Swab Orofaring</option>
