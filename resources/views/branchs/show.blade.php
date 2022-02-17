@@ -303,7 +303,7 @@
                            
                             <td style="width:40%"><p>Bandung, {{ $antigen->created_at->format('d F, Y') }}
                                 <br>Penanggung Jawab <br>
-                                <img src="{{ asset('assets/img/Ttddrevi2.png') }}" alt="" width="140" height="90">
+                                <img src="{{ asset('assets/img/ttd/'. $antigen->cabang->cap) }}" alt="" width="150" height="90">
                                 <br>
                                 <span class="font-weight-bold">Dr. Evi Novitasari, M.M<br>3121100217124463
                                 </p></td>
