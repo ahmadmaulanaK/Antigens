@@ -169,15 +169,15 @@
         opacity: 0,2;
         background-repeat: no-repeat;">
             <div class="row ">
-                <div class="col-4">
+                <div class="col-3 ">
 
-                    <img src="{{ asset('assets/img/header.png') }}" width="350px" height="100%">
-                    <!--<img src="{{ asset('assets/img/ttd2.png') }}" width="100%" height="155px">-->
+                    <img src="{{ asset('assets/img/headerpg.png') }}" width="220px" height="103px">
+                   
                 </div>
-                <div class="col-4">
+                <div class="col-4  ">
+                    <img src="{{ asset('assets/img/branch/'. $antigen->cabang->cap) }}" alt=""  style="margin-left: 35px ; margin-top:15px;" width="155px" height="85px">
 
-
-                    <!--<img src="{{ asset('assets/img/ttd2.png') }}" width="100%" height="155px">-->
+                    
                 </div>
                 <div class="col-4">
 
@@ -185,7 +185,7 @@
                     <!--<img src="{{ asset('assets/img/ttd2.png') }}" width="100%" height="155px">-->
                 </div>
             </div>
-            <div class="row ">
+            <div class="row mt-4">
 
                 <div class="col"> <img src="{{ asset('assets/img/line.png') }}" width="100%" height=""></div>
             </div>
@@ -320,7 +320,8 @@
                             <td style="width:40%">
                                 <p>Bandung, {{ $antigen->created_at->format('d F, Y') }}
                                     <br>Penanggung Jawab <br>
-                                    <img src="{{ asset('assets/img/ttd/'. $antigen->cabang->cap) }}" alt="" width="150" height="90">
+                                    {{-- <img src="{{ asset('assets/img/ttd/'. $antigen->cabang->cap) }}" alt="" width="150" height="90"> --}}
+                                    <img src="{{ asset('assets/img/pangdok.png') }}" alt=""   width="155px" height="85px">
                                     <br>
                                     <span class="font-weight-bold">Dr. Evi Novitasari, M.M<br>3121100217124463
                                 </p>
@@ -329,7 +330,7 @@
                     </tbody>
                 </table>
 
-                <div class="row mt-5">
+                <div class="row mt-4">
                     <div class="col " style="font-size:10px"><br>
 
                         <p class="font-size:10px"> Note:

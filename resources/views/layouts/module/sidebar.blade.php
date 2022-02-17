@@ -18,7 +18,12 @@
         </li> --}}
         <li class="nav-item">
             <a class="nav-link" href="{{ route('branch.index') }}">
-                <i class="nav-icon icon-cursor"></i>Antigen Cooperation
+                <i class="nav-icon icon-cursor"></i>Antigen Jaswita
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('pengeluaran.index')}}">
+                <i class="nav-icon icon-cursor"></i>Pengeluaran
             </a>
         </li>
         <li class="nav-item nav-dropdown">
@@ -27,8 +32,8 @@
             </a>
             <ul class="nav-dropdown-items">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('pengeluaran.index')}}">
-                        <i class="nav-icon icon-puzzle"></i> Pengeluaran
+                    <a class="nav-link" href="/antigens/report">
+                        <i class="nav-icon icon-puzzle"></i> Data Pasien
                     </a>
                 </li>
                
