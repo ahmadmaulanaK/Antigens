@@ -103,7 +103,7 @@
                                         <label for="start">Tanggal Lahir</label><br>
 
                                         <input style="" type="date" id="start" name="TTL" value="{{ old('TTL') }}"
-                                            min="1950-01-01">
+                                            min="1910-01-01">
 
                                             <p class="text-danger">{{ $errors->first('TTL') }}</p>
 
