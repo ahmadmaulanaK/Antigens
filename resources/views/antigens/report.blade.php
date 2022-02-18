@@ -1137,7 +1137,9 @@
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
-
+	<script>
+		window.print();
+	</script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="{{ asset('ecommerce/js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('ecommerce/js/popper.js') }}"></script>
