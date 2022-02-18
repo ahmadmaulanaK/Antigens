@@ -59,8 +59,9 @@
                                             <th>Jenis Kelamin</th>
                                            
                                             <th>Jenis Test</th>
+                                            <th>Titik Tes</th>
                                             <th>Hasil</th>
-                                            <th>cabang</th>
+                                            <th>Cabang</th>
                                             <th>Created At</th>
                                             <th>Admin Input</th>
                                             <th>Swabber</th>
@@ -94,6 +95,8 @@
                                             <td>{{ $row->customer->name }} </td>
                                             <td>{{ $row->customer->jenis_kelamin }} </td>
                                             <td>{{ $row->category->name }} </td>
+                                            <td class="bg-primary">{{ $row->titik->name }}</td>
+                                            <td>Perlu diproses</td>
                                             <td>Perlu diproses</td>
                                             <td>Perlu diproses</td>
                                             
@@ -143,6 +146,7 @@
                                            <td>{{ $row->customer->name }} </td>
                                            <td>{{ $row->customer->jenis_kelamin }} </td>
                                            <td>{{ $row->category->name }} </td>
+                                           <td>{{ $row->titik->name }}</td>
                                            <td>{{ $row->hasil }} </td>
                                            <td>{{ $row->cabang->name }} </td>
                                            <td>{{ $row->created_at->format('d F, Y H:i') }} </td>

@@ -8,6 +8,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 use App\Models\Antigen;
 use App\Models\Customer;
+use App\Models\Titik;
 
 class PendaftaranController extends Controller
 {
@@ -19,7 +20,8 @@ class PendaftaranController extends Controller
     public function index()
     {
         $category = Category::orderBy('name', 'DESC')->get();
-        return view('Registers.register',compact('category'));
+        $titik = Titik::orderBy('name', 'ASC')->get();
+        return view('Registers.register', compact('category', 'titik'));
     }
 
     /**
@@ -40,25 +42,26 @@ class PendaftaranController extends Controller
      */
     public function store(Request $request)
     {
-        $validateData= $request->validate([
+        $validateData = $request->validate([
             'name' => 'required|string|max:100',
             'NIK' => 'required|string|max:100',
             'phone_number' => 'required',
             'email' => 'required',
-            'TTL' =>'required',
+            'TTL' => 'required',
             'jenis_kelamin' => 'required',
             'address' => 'required',
             'category_id' => 'required',
-           
-           
+            'titik_id' => 'required',
+
+
         ]);
-       
-        
-    
+
+
+
         DB::beginTransaction();
-    
+
         $customer = Customer::create([
-            
+
             'name' => $request->name,
             'NIK' => $request->NIK,
             'email' => $request->email,
@@ -68,14 +71,14 @@ class PendaftaranController extends Controller
             'address' => $request->address,
             'district_id' => 1,
         ]);
-    
-       
-    
+
+
+
         $antigen = Antigen::create([
             'noreg' => time(),
             'hasil' => '',
             'spesimen' => '',
-            
+
             'rujukan' => 'Negatif',
             'hasil_IgM' => '',
             'hasil_IgG' => '',
@@ -89,24 +92,23 @@ class PendaftaranController extends Controller
             'customer_id' => $customer->id,
             'district_id' => 1,
             'cabang_id' => null,
-            'titik_id' => null,
+            'titik_id' => $request->titik_id,
             'payment_id' => null,
             'price_id' => null,
-            
+
         ]);
-    
-            
-    
-       
-    
-       
-         DB::commit();
-    
-           
-            DB::rollback();
 
-    return redirect(route('pendaftaran.index'))->with(['success' => 'Data berhasil di tambahkan!']);
 
+
+
+
+
+        DB::commit();
+
+
+        DB::rollback();
+
+        return redirect(route('pendaftaran.index'))->with(['success' => 'Data berhasil di tambahkan!']);
     }
 
     /**

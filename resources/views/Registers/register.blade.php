@@ -100,23 +100,66 @@
                       </select>
                       <p class="text-danger">{{ $errors->first('category_id') }}</p>
                     </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Pilih Lokasi</span>
+                        </div>
+                       
+                        <select name="titik_id" class="form-control">
+                            <option value="">pilih Lokasi....
+                            </option>
+                            @foreach ($titik as $row)
+                            <option value="{{ $row->id }}"
+                                {{ old('titik_id') == $row->id ? 'selected':'' }}>{{ $row->name }}
+                            </option>
+                            @endforeach
+                        </select>
+                        <p class="text-danger">{{ $errors->first('titik_id') }}</p>
+                    </div>
+
+                    
+                    <div class="input-group mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                            <label class="form-check-label" for="flexCheckDefault" >
+                                Dengan ini menyatakan data yang saya isi adalah sebenar-benarnya, dan saya bersedia
+                                untuk diambil spesimen untuk pemeriksaan Covid-19.
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" required>
+                            <label class="form-check-label " for="flexCheckChecked">
+                                Apabila hasil akan dimasukan ke dalam database pemerintah lewat program all record
+                                kementrian kesehatan
+                            </label>
+                        </div>
+
+                        <div class="card mt-3">
+                            <div class="card-body" style='text-align:justify;font-size:10px;'>
+                                Untuk hasil tes PCR & Tes Antigen Home Service akan dikirimkan melalui Whatsapp atau
+                                email yang tertera didalam informed consent ini, Hasil pemeriksaan hanya berlaku
+                                pada saat pemeriksaan dilakukan
+                            </div>
+                        </div>
+                        <button class="btn btn-block btn-success">Register</button>
+                    </div>
                 </div>
 
                 {{-- <button class="btn btn-primary ">Tambah</button> --}}
-                <button class="btn btn-block btn-success">Register</button>
+            
             </div>
 
           </form>
-            <div class="card-footer p-4">
+            <div class="card-footer p-3">
 
                 <div class="row">
 
                     <div class="col-6">
-                        <img src="{{ asset('assets/img/logo antigen.png') }}" width="100%" height="">
+                        <img src="{{ asset('assets/img/branch/bandung.png') }}" width="180" height="">
 
                     </div>
                     <div class="col-6">
-                        <img src="{{ asset('assets/img/logofix.png') }}" width="100%" height="">
+                        <img src="{{ asset('assets/img/logofix.png') }}" width="180" height="">
                     </div>
                 </div>
             </div>
