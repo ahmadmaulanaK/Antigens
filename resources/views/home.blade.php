@@ -305,7 +305,7 @@
                             <div class="row mt-5 p-3">
                            
                                 @forelse ($user as $tl)
-                                <div class="col-3">
+                                <div class="col-4 col-sm-6 col-lg-4">
                                     <button type="button" class="btn btn-sm btn-link text-muted"
                                     data-toggle="tooltip" data-placement="top" title=""
                                     data-original-title="show more"><i class="icon-options"></i></button>
