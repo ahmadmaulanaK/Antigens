@@ -37,7 +37,7 @@ class PriceController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'harga' => 'required|numeric|max:50'
+            'harga' => 'integer'
         ]);
 
 
