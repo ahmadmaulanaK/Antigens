@@ -35,7 +35,7 @@ class BranchController extends Controller
     {
         $id = Auth::user()->id;
         // $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->orWhere('cabang_id', 1)->orWhere('user_id', 6)->orderBy('created_at', 'ASC')->simplePaginate(10);
-        $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->orWhere('user_id', 6)->orderBy('created_at', 'ASC')->simplePaginate(10);
+        $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->orderBy('created_at', 'ASC')->simplePaginate(10);
 
 
         //    $Antigen = Antigen::where('user_id', $id)
