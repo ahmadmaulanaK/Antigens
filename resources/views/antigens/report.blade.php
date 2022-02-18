@@ -266,87 +266,14 @@
                             <div class="row">
 
                                 <!--/.col-->
-                                <div class="col-sm-3 col-lg-4">
+                                <div class="col-sm-4 col-lg-4">
                                     <div class="row">
 
-
-
-                                        <div class="col-sm-6">
-                                            <div class="callout callout-info">
-                                                <small class="text-muted">Pasien Baru</small>
-                                                <br>
-                                                <strong class="h4">{{ $totalSwabHarian->count() }}</strong>
-                                                <div class="chart-wrapper ng-scope" ng-controller="sparklineChartCtrl">
-                                                    <div class="chartjs-size-monitor"
-                                                        style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
-                                                        <div class="chartjs-size-monitor-expand"
-                                                            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                                                            <div
-                                                                style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
-                                                            </div>
-                                                        </div>
-                                                        <div class="chartjs-size-monitor-shrink"
-                                                            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                                                            <div
-                                                                style="position:absolute;width:200%;height:200%;left:0; top:0">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <canvas
-                                                        class="chart chart-line ng-isolate-scope chartjs-render-monitor"
-                                                        chart-data="data4" chart-labels="labels" chart-legend="false"
-                                                        chart-series="series" chart-options="options"
-                                                        chart-colors="warning" width="118" height="34"
-                                                        style="display: block; width: 59px; height: 17px;"></canvas>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-
-
-                                        <!--/.col-->
-                                    </div>
-                                    <!--/.row-->
-                                    <hr class="mt-0">
-
-                                    <ul class="horizontal-bars ng-scope" ng-controller="horizontalBarsCtrl">
-                                        <button type="button" class="btn btn-sm btn-link text-muted"
-                                            data-toggle="tooltip" data-placement="top" title=""
-                                            data-original-title="show more"><i class="icon-options"></i></button>
-                                        <span class="badge badge-pill badge-warning">Jenis Kelamin</span>
-
-                                        <!-- ngRepeat: row in data -->
-                                        @foreach ($jenkel as $val)
-
-
-                                        <li ng-repeat="row in gender" class="ng-scope">
-                                            <i ng-class="row.icon" class="icon-user"></i>
-                                            <div class="float-right">
-                                                <span class="value ng-binding">{{ $val->jml_jenkel }}</span>
-                                                <small class="text-muted ng-binding">Person </small>
-                                            </div>
-                                            <span class="title ng-binding">{{ $val->jenis_kelamin }}</span>
-
-                                            <div class="bars">
-                                                <div class="progress progress-xs">
-                                                    <div class="progress-bar bg-primary" role="progressbar"
-                                                        style="width: 43%" aria-valuenow="43" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                <div class="col-sm-3 col-lg-4">
-                                    <div class="row">
 
 
                                         @forelse ($category_qtt as $val)
                                         <div class="col-sm-6">
-                                            <div class="callout callout-warning">
+                                            <div class="callout callout-primary">
                                                 <small class="text-muted">{{ $val->name }}</small>
                                                 <br>
                                                 <strong class="h4">{{ $val->jml_category }}</strong>
@@ -377,7 +304,7 @@
                                         </div>
                                         @empty
                                         <div class="col-sm-6">
-                                            <div class="callout callout-warning">
+                                            <div class="callout callout-primary">
                                                 <small class="text-muted"></small>
                                                 <br>
                                                 <strong class="h4">Tidak ada data</strong>
@@ -412,53 +339,22 @@
 
 
 
+
                                         <!--/.col-->
                                     </div>
                                     <!--/.row-->
                                     <hr class="mt-0">
 
-                                    <ul class="horizontal-bars ng-scope" ng-controller="horizontalBarsCtrl">
-                                        <button type="button" class="btn btn-sm btn-link text-muted"
-                                            data-toggle="tooltip" data-placement="top" title=""
-                                            data-original-title="show more"><i class="icon-options"></i></button>
-                                        <span class="badge badge-pill badge-warning">Swabber</span>
 
-                                        <!-- ngRepeat: row in data -->
-                                        @foreach ($swabber_qtt as $sw)
-
-
-                                        <li ng-repeat="row in data" class="ng-scope">
-                                            <div class="float-right">
-
-                                                <span class="value ng-binding">{{$sw->jml_swabber}}</span>
-                                                <small class="text-muted ng-binding">Person </small>
-                                            </div>
-                                            <div class="title ng-binding">
-                                                {{$sw->name}}
-                                            </div>
-
-                                            <div class="bars">
-
-                                                <div class="progress progress-xs">
-                                                    <div class="progress-bar bg-primary" role="progressbar"
-                                                        style="width: 78%" aria-valuenow="78" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-
-                                            </div>
-                                        </li><!-- end ngRepeat: row in data -->
-                                        <!-- end ngRepeat: row in data -->
-                                        @endforeach
-                                    </ul>
                                 </div>
-                                <!--/.col-->
-                                <div class="col-sm-3 col-lg-4">
+
+                                <div class="col-sm-4 col-lg-4">
                                     <div class="row">
 
 
                                         @forelse ($t as $val)
                                         <div class="col-sm-6">
-                                            <div class="callout callout-danger">
+                                            <div class="callout callout-info">
                                                 <small class="text-muted">{{ $val->hasil }}</small>
                                                 <br>
                                                 <strong class="h4">{{ $val->total }}</strong>
@@ -520,12 +416,257 @@
                                         </div>
 
                                         @endforelse
+
+
+
+
+                                        <!--/.col-->
+                                    </div>
+                                    <!--/.row-->
+                                    <hr class="mt-0">
+
+                                    </ul>
+                                </div>
+                                <!--/.col-->
+                                <div class="col-sm-3 col-lg-4">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="callout callout-info">
+                                                <small class="text-muted">Pasien Baru</small>
+                                                <br>
+                                                <strong class="h4">{{ $totalSwabHarian->count() }}</strong>
+                                                <div class="chart-wrapper ng-scope" ng-controller="sparklineChartCtrl">
+                                                    <div class="chartjs-size-monitor"
+                                                        style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                                                        <div class="chartjs-size-monitor-expand"
+                                                            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                                            <div
+                                                                style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
+                                                            </div>
+                                                        </div>
+                                                        <div class="chartjs-size-monitor-shrink"
+                                                            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                                            <div
+                                                                style="position:absolute;width:200%;height:200%;left:0; top:0">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <canvas
+                                                        class="chart chart-line ng-isolate-scope chartjs-render-monitor"
+                                                        chart-data="data4" chart-labels="labels" chart-legend="false"
+                                                        chart-series="series" chart-options="options"
+                                                        chart-colors="warning" width="118" height="34"
+                                                        style="display: block; width: 59px; height: 17px;"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        @forelse ($HomeVisit as $val)
+                                        <div class="col-sm-6">
+                                            <div class="callout callout-primary">
+                                                <small class="text-muted">{{ $val->pelayanan }}</small>
+                                                <br>
+                                                <strong class="h4">{{ $val->TotalHomeVisit }}</strong>
+                                                <div class="chart-wrapper ng-scope" ng-controller="sparklineChartCtrl">
+                                                    <div class="chartjs-size-monitor"
+                                                        style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                                                        <div class="chartjs-size-monitor-expand"
+                                                            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                                            <div
+                                                                style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
+                                                            </div>
+                                                        </div>
+                                                        <div class="chartjs-size-monitor-shrink"
+                                                            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                                            <div
+                                                                style="position:absolute;width:200%;height:200%;left:0; top:0">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <canvas
+                                                        class="chart chart-line ng-isolate-scope chartjs-render-monitor"
+                                                        chart-data="data4" chart-labels="labels" chart-legend="false"
+                                                        chart-series="series" chart-options="options"
+                                                        chart-colors="warning" width="118" height="34"
+                                                        style="display: block; width: 59px; height: 17px;"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @empty
+                                        <div class="col-sm-6">
+                                            <div class="callout callout-warning">
+                                                <small class="text-muted"></small>
+                                                <br>
+                                                <strong class="h4">Tidak ada data</strong>
+                                                <div class="chart-wrapper ng-scope" ng-controller="sparklineChartCtrl">
+                                                    <div class="chartjs-size-monitor"
+                                                        style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                                                        <div class="chartjs-size-monitor-expand"
+                                                            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                                            <div
+                                                                style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
+                                                            </div>
+                                                        </div>
+                                                        <div class="chartjs-size-monitor-shrink"
+                                                            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                                            <div
+                                                                style="position:absolute;width:200%;height:200%;left:0; top:0">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <canvas
+                                                        class="chart chart-line ng-isolate-scope chartjs-render-monitor"
+                                                        chart-data="data4" chart-labels="labels" chart-legend="false"
+                                                        chart-series="series" chart-options="options"
+                                                        chart-colors="warning" width="118" height="34"
+                                                        style="display: block; width: 59px; height: 17px;"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        @endforelse
                                         <!--/.col-->
 
                                         <!--/.col-->
                                     </div>
                                     <!--/.row-->
                                     <hr class="mt-0">
+
+
+                                    <!-- ngRepeat: row in source -->
+
+                                    </ul>
+                                </div>
+
+                                <!--/.col-->
+                            </div>
+                            <!--/.row-->
+
+                            <div class="row mt-3">
+                                <div class="col-sm-6 col-lg-6">
+                                    <ul class="horizontal-bars ng-scope" ng-controller="horizontalBarsCtrl">
+                                        <button type="button" class="btn btn-sm btn-link text-muted"
+                                            data-toggle="tooltip" data-placement="top" title=""
+                                            data-original-title="show more"><i class="icon-options"></i></button>
+                                        <span class="badge badge-pill badge-warning">Jenis Kelamin</span>
+
+                                        <!-- ngRepeat: row in data -->
+                                        @foreach ($jenkel as $val)
+
+
+                                        <li ng-repeat="row in gender" class="ng-scope">
+                                            <i ng-class="row.icon" class="icon-user"></i>
+                                            <div class="float-right">
+                                                <span class="value ng-binding">{{ $val->jml_jenkel }}</span>
+                                                <small class="text-muted ng-binding">Person </small>
+                                            </div>
+                                            <span class="title ng-binding">{{ $val->jenis_kelamin }}</span>
+
+                                            <div class="bars">
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar bg-primary" role="progressbar"
+                                                        style="width: 43%" aria-valuenow="43" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6 col-lg-6">
+
+
+                                    <ul class="horizontal-bars ng-scope" ng-controller="horizontalBarsCtrl">
+                                        <button type="button" class="btn btn-sm btn-link text-muted"
+                                            data-toggle="tooltip" data-placement="top" title=""
+                                            data-original-title="show more"><i class="icon-options"></i></button>
+                                        <span class="badge badge-pill badge-warning">Swabber</span>
+
+                                        <!-- ngRepeat: row in data -->
+                                        @foreach ($swabber_qtt as $sw)
+
+
+                                        <li ng-repeat="row in data" class="ng-scope">
+                                            <div class="float-right">
+
+                                                <span class="value ng-binding">{{$sw->jml_swabber}}</span>
+                                                <small class="text-muted ng-binding">Person </small>
+                                            </div>
+                                            <div class="title ng-binding">
+                                                {{$sw->name}}
+                                            </div>
+
+                                            <div class="bars">
+
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar bg-primary" role="progressbar"
+                                                        style="width: 78%" aria-valuenow="78" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+
+                                            </div>
+                                        </li><!-- end ngRepeat: row in data -->
+                                        <!-- end ngRepeat: row in data -->
+                                        @endforeach
+                                </div>
+                              
+                            </div>
+                            <div class="row mt-3">
+                            
+                                <div class="col-sm-6 col-lg-6">
+
+                                    <ul class="horizontal-bars type-2 ng-scope" ng-controller="horizontalBarsType2Ctrl">
+                                        <!-- ngRepeat: row in gender -->
+                                        <button type="button" class="btn btn-sm btn-link text-muted"
+                                            data-toggle="tooltip" data-placement="top" title=""
+                                            data-original-title="show more"><i class="icon-options"></i></button>
+                                        <span class="badge badge-pill badge-warning">Cabang</span>
+
+                                        <!-- end ngRepeat: row in gender -->
+
+
+                                        @forelse ($cabangs as $tl)
+                                        <li ng-repeat="row in source" class="ng-scope">
+                                            <i ng-class="row.icon" class="icon-globe"></i>
+                                            <div class="float-right">
+
+                                                <span class="value ng-binding">{{$tl->jumlah}}</span>
+                                                <small class="text-muted ng-binding">Person </small>
+                                            </div>
+                                            <span class="title ng-binding">{{$tl->name}}</span>
+
+                                            <div class="bars">
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar bg-primary" role="progressbar"
+                                                        style="width: 56%" aria-valuenow="56" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        @empty
+                                        <li ng-repeat="row in source" class="ng-scope">
+                                            <i ng-class="row.icon" class="icon-globe"></i>
+                                            <div class="float-right">
+
+                                                <span class="value ng-binding"></span>
+                                                <small class="text-muted ng-binding">Person </small>
+                                            </div>
+                                            <span class="title ng-binding"></span>
+                                            <span class="value ng-binding">Tidak Ada Data
+
+                                            </span>
+                                            <div class="bars">
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar bg-success" role="progressbar"
+                                                        style="width: 56%" aria-valuenow="56" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        @endforelse
+                                </div>
+                                <div class="col-sm-6 col-lg-6">
                                     <ul class="horizontal-bars type-2 ng-scope" ng-controller="horizontalBarsType2Ctrl">
                                         <!-- ngRepeat: row in gender -->
                                         <button type="button" class="btn btn-sm btn-link text-muted"
@@ -577,113 +718,12 @@
 
                                         @endforelse
                                         <!-- end ngRepeat: row in gender -->
-
-                                        <!-- ngRepeat: row in source -->
-
-                                    </ul>
                                 </div>
-                                <div class="col-sm-3 col-lg-4">
-                                    <div class="row">
-
-
-
-                                        <div class="col-sm-6">
-                                            <div class="callout callout-danger">
-                                                <small class="text-muted">Cabang</small>
-                                                <br>
-                                                <strong class="h4">-</strong>
-                                                <div class="chart-wrapper ng-scope" ng-controller="sparklineChartCtrl">
-                                                    <div class="chartjs-size-monitor"
-                                                        style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
-                                                        <div class="chartjs-size-monitor-expand"
-                                                            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                                                            <div
-                                                                style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
-                                                            </div>
-                                                        </div>
-                                                        <div class="chartjs-size-monitor-shrink"
-                                                            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                                                            <div
-                                                                style="position:absolute;width:200%;height:200%;left:0; top:0">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <canvas
-                                                        class="chart chart-line ng-isolate-scope chartjs-render-monitor"
-                                                        chart-data="data4" chart-labels="labels" chart-legend="false"
-                                                        chart-series="series" chart-options="options"
-                                                        chart-colors="warning" width="118" height="34"
-                                                        style="display: block; width: 59px; height: 17px;"></canvas>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!--/.col-->
-
-                                        <!--/.col-->
-                                    </div>
-                                    <!--/.row-->
-                                    <hr class="mt-0">
-                                    <ul class="horizontal-bars type-2 ng-scope" ng-controller="horizontalBarsType2Ctrl">
-                                        <!-- ngRepeat: row in gender -->
-                                        <button type="button" class="btn btn-sm btn-link text-muted"
-                                            data-toggle="tooltip" data-placement="top" title=""
-                                            data-original-title="show more"><i class="icon-options"></i></button>
-                                        <span class="badge badge-pill badge-warning">Cabang</span>
-
-                                        <!-- end ngRepeat: row in gender -->
-
-
-                                        @forelse ($cabangs as $tl)
-                                        <li ng-repeat="row in source" class="ng-scope">
-                                            <i ng-class="row.icon" class="icon-globe"></i>
-                                            <div class="float-right">
-
-                                                <span class="value ng-binding">{{$tl->jumlah}}</span>
-                                                <small class="text-muted ng-binding">Person </small>
-                                            </div>
-                                            <span class="title ng-binding">{{$tl->name}}</span>
-
-                                            <div class="bars">
-                                                <div class="progress progress-xs">
-                                                    <div class="progress-bar bg-primary" role="progressbar"
-                                                        style="width: 56%" aria-valuenow="56" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        @empty
-                                        <li ng-repeat="row in source" class="ng-scope">
-                                            <i ng-class="row.icon" class="icon-globe"></i>
-                                            <div class="float-right">
-
-                                                <span class="value ng-binding"></span>
-                                                <small class="text-muted ng-binding">Person </small>
-                                            </div>
-                                            <span class="title ng-binding"></span>
-                                            <span class="value ng-binding">Tidak Ada Data
-
-                                            </span>
-                                            <div class="bars">
-                                                <div class="progress progress-xs">
-                                                    <div class="progress-bar bg-success" role="progressbar"
-                                                        style="width: 56%" aria-valuenow="56" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        @endforelse
-                                        <!-- end ngRepeat: row in gender -->
-
-                                        <!-- ngRepeat: row in source -->
-
-                                    </ul>
-                                </div>
-                                <!--/.col-->
                             </div>
-                            <!--/.row-->
+
                             <br>
+
+
 
 
                             <table class="table table-hover table-outline mb-0 hidden-sm-down">
@@ -919,7 +959,7 @@
                                         <td class="text-center">
                                             <i class="h4 mb-0 flag-icon flag-icon-us" title="us" id="us"></i>
                                         </td>
-                                        
+
                                         <td>
                                             <div class="clearfix">
                                                 <div class="float-left">
@@ -993,7 +1033,7 @@
                                     @endforelse
 
 
-                                    
+
 
                                     <tr ng-repeat="user in users" class="ng-scope">
                                         <td class="text-center">
@@ -1039,7 +1079,7 @@
 
                                         </td>
                                     </tr>
-                                 
+
                                     <!-- end ngRepeat: user in users -->
                                     <!-- end ngRepeat: user in users -->
                                 </tbody>
@@ -1137,9 +1177,10 @@
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
-	<script>
-		window.print();
-	</script>
+    <script>
+        window.print();
+
+    </script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="{{ asset('ecommerce/js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('ecommerce/js/popper.js') }}"></script>

@@ -234,6 +234,13 @@ class AntigenController extends Controller
             ->whereDay('created_at', now()->day)
             ->groupBy('hasil')
             ->get();
+        $HomeVisit = DB::table('antigens')
+            ->select('pelayanan', DB::raw('count(*) as TotalHomeVisit'))
+            ->where('user_id', $id)
+            ->whereDay('created_at', now()->day)
+            ->groupBy('pelayanan')
+            ->get();
+
         $p = DB::table('antigens')
             ->select('pelayanan', DB::raw('count(*) as total'))
             ->where('user_id', $id)
@@ -308,7 +315,7 @@ class AntigenController extends Controller
 
 
 
-        return view('antigens.report', compact('jml_pengeluaran', 'pengeluaran', 'cabangs', 'jenkel', 'category_qtt', 'titik_loc', 'swabber_qtt', 'jml_harga_all', 'payment', 'p', 't', 'user_id', 'nowTimeDate', 'totalSwabHarian', 'id', 'Antigen'));
+        return view('antigens.report', compact('HomeVisit', 'jml_pengeluaran', 'pengeluaran', 'cabangs', 'jenkel', 'category_qtt', 'titik_loc', 'swabber_qtt', 'jml_harga_all', 'payment', 'p', 't', 'user_id', 'nowTimeDate', 'totalSwabHarian', 'id', 'Antigen'));
     }
 
     public function edit($id)
