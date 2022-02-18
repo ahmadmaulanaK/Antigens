@@ -20,7 +20,7 @@
 
                           <div class="form-group">
                               <label for="exampleInputName">Keterangan Harga</label>
-                              <input type="text" class="form-control @error('harga') is-invalid @enderror" id="exampleInputName" placeholder="Keterangan Harga" name="harga" value="{{old('harga')}}">
+                              <input type="text" class="form-control @error('harga') is-invalid @enderror" id="exampleInputName" placeholder="masukan angka tidak dengan koma/titik" name="harga" value="{{old('harga')}}">
                               @error('harga') <span class="text-danger">{{$message}}</span> @enderror
                           </div>
 

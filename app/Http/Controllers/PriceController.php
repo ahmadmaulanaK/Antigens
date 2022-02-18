@@ -37,8 +37,10 @@ class PriceController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'harga' => 'required|string|max:50'
+            'harga' => 'required|numeric|max:50'
         ]);
+
+
         Price::create($request->except('_token'));
         // return view('setting.index');
         return redirect(route('setting.index'))->with(['success' => 'Data Baru Ditambahkan!']);
