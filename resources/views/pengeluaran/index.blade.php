@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="jumlah">Jumlah </label>
-                                    <input type="text" name="jumlah" class="form-control"  value="{{old('jumlah')}}">
+                                    <input type="text" name="jumlah" class="form-control"  value="{{old('jumlah')}}" placeholder="masukan type angka saja tidak pakai titik atau koma ">
                                     
                                     <p class="text-danger">{{ $errors->first('jumlah') }}</p>
                                 </div>

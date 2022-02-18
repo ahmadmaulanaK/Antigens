@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Pengeluaran;
 use Illuminate\Support\Facades\Auth;
+
 class PengeluaranController extends Controller
 {
     /**
@@ -15,9 +16,9 @@ class PengeluaranController extends Controller
      */
     public function index()
     {
-        $id = Auth::user()->id; 
+        $id = Auth::user()->id;
         $pengeluaran = Pengeluaran::where('user_id', $id)->whereDay('created_at', now()->day)->orderBy('created_at', 'ASC')->simplePaginate(10);
-       
+
         return view('pengeluaran.index', compact('pengeluaran'));
     }
 
@@ -39,23 +40,22 @@ class PengeluaranController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $this->validate($request, [
             'name' => 'required|string',
-            'jumlah' => 'required|string',
+            'jumlah' => 'integer',
         ]);
         $user_id = Auth()->user()->id;
-      
+
         $pengeluaran = Pengeluaran::create([
-            
+
             'name' => $request->name,
             'jumlah' => $request->jumlah,
             'user_id' => $user_id,
-      
-            
+
+
         ]);
         return redirect(route('pengeluaran.index'))->with(['success' => 'Data Baru Ditambahkan!']);
-
     }
 
     /**
