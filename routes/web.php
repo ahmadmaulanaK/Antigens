@@ -70,4 +70,4 @@ Route::resource('titik', \App\Http\Controllers\TitikController::class)->middlewa
 
 // Route::resource('jabodetabek', \App\Http\Controllers\JabodetabekController::class)->middleware('auth')->except('show');
 // Route::get('/jabodetabek/export', [JabodetabekController::class, 'reportPDF'])->middleware('auth');
-Route::resource('register', \App\Http\Controllers\PCRController::class);
+Route::resource('pcr', \App\Http\Controllers\PCRController::class)->middleware('auth');

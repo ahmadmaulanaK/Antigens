@@ -18,9 +18,14 @@
                         <div class="card-header">
                             <h4 class="card-title">
                                 Antigen Bandung
-                                <a href="{{ route('antigens.create') }}" class="btn btn-primary btn-sm float-right"><i class="fa fa-magic"></i>&nbsp;Tambah</a>|
+                                <a href="{{ route('antigens.create') }}" class="btn btn-primary  float-right"><i class="fa fa-magic"></i>&nbsp;Tambah</a>|
                          
-                               
+                                {{-- <div class="input-group mb-3 col-md-3 float-right">
+                                    <div class="input-group-append">
+                                    <input type="text" name="search" class="form-control" placeholder="Cari..." value="{{ request('search')}}">
+                                    <button class="btn btn-secondary" type="submit">Cari</button>
+                                </div>
+                                </div> --}}
                             </h4>
                         </div>
                         <div class="card-body">
@@ -36,7 +41,7 @@
 
                             <!-- BUAT FORM UNTUK PENCARIAN, METHODNYA ADALAH GET -->
                            
-                            <!--<form action="{{ route('antigens.index') }}" method="get">-->
+                            {{-- <form action="{{ route('antigens.index') }}" method="get"> --}}
                             <!--    <div class="input-group mb-3 col-md-3 float-right">-->
                             <!--        <input type="text" name="q" class="form-control" placeholder="Cari..." value="{{ request()->q }}">-->
                             <!--        <div class="input-group-append">-->
@@ -44,7 +49,20 @@
                             <!--        </div>-->
                             <!--    </div>-->
                             <!--</form>-->
+                            
+                            {{-- <div class="row justify-content-center ">
+                                <div class="col-md-4">
+                                    <form action="/antigens/report">
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="search" class="form-control" placeholder="Cari..." value="{{ request('search')}}">
+                                        <button class="btn btn-success" type="submit">Cari</button>
+                                    </div>
+                                </form>
+                                </div>
+                            </div> --}}
                           
+                                <div class="input-group-append">
+                                  
                             <!-- TABLE UNTUK MENAMPILKAN DATA PRODUK -->
                             <div class="table-responsive">
                                

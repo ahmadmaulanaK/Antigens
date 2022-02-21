@@ -141,7 +141,7 @@
                                 pada saat pemeriksaan dilakukan
                             </div>
                         </div>
-                        <button class="btn btn-block btn-success">Register</button>
+                        <button type="submit" class="btn btn-block btn-success">Register</button>
                     </div>
                 </div>
 

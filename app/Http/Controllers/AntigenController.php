@@ -30,8 +30,7 @@ class AntigenController extends Controller
     public function index()
     {
         $id = Auth::user()->id;
-        // $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->orWhere('cabang_id', 1)->orWhere('user_id', 6)->orderBy('created_at', 'ASC')->simplePaginate(10);
-        $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->orWhere('user_id', 1)->orderBy('created_at', 'DESC')->simplePaginate(50);
+        $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->orWhere('user_id', 1)->orderBy('created_at', 'DESC')->simplePaginate(500);
         return view('antigens.index', compact('Antigen'));
     }
 
@@ -40,27 +39,17 @@ class AntigenController extends Controller
     {
 
         $getId = Crypt::decrypt($id);
-
         $antigen = Antigen::with(['customer'])->where('id', $getId)->first();
         return view('antigens.kwitansi', compact('antigen'));
     }
 
     public function all()
     {
-
         $Antigen = Antigen::simplePaginate(5);
-
-        // $Antigen= DB::table('Antigens')->simplePaginate(15);
         return view('antigens.all', compact('Antigen'));
     }
 
-    public function global()
-    {
-
-        $Antigen = Antigen::simplePaginate(5);
-        // $Antigen= DB::table('Antigens')->simplePaginate(15);
-        return view('antigens.global', compact('Antigen'));
-    }
+    
 
     public function create()
     {
@@ -72,9 +61,6 @@ class AntigenController extends Controller
         $price = Price::orderBy('harga', 'ASC')->get();
         $category = Category::orderBy('name', 'DESC')->get();
         $provinces = Province::orderBy('created_at', 'DESC')->get();
-
-
-
         return view('antigens.create', compact('Branch', 'provinces', 'category', 'swabber', 'price', 'titik', 'Metode'));
     }
 
@@ -100,8 +86,6 @@ class AntigenController extends Controller
             'cabang_id' => 'required',
 
         ]);
-
-
 
         DB::beginTransaction();
 
@@ -143,14 +127,7 @@ class AntigenController extends Controller
 
         ]);
 
-
-
-
-
-
         DB::commit();
-
-
         DB::rollback();
 
         return redirect(route('antigens.index'))->with(['success' => 'Data Baru Ditambahkan!']);
@@ -162,11 +139,6 @@ class AntigenController extends Controller
         $getId = Crypt::decrypt($id);
 
         $antigen = Antigen::with(['customer'])->where('id', $getId)->first();
-
-
-        // $swabber = Swabber::all();
-        // $category = Category::orderBy('name', 'DESC')->get();
-        // $provinces = Province::orderBy('created_at', 'DESC')->get();
         return view('antigens.show', compact('antigen'));
     }
 
@@ -175,9 +147,6 @@ class AntigenController extends Controller
         $getId = Crypt::decrypt($id);
 
         $antigen = Antigen::with(['customer'])->where('id', $getId)->first();
-
-
-
         return view('antigens.cetak', compact('antigen'));
     }
     public function getCity()
@@ -206,8 +175,12 @@ class AntigenController extends Controller
     public function  report()
     {
         $id = Auth::user()->id;
+
+        $Antigen = Antigen::where('user_id', $id)->orderBy('created_at', 'DESC')->simplePaginate(500);
+        if(request('search')){
+            $Antigen->where('hasil', 'like', '%' .request('search') . '%');
+        }
         // $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->orWhere('cabang_id', 1)->orWhere('user_id', 6)->orderBy('created_at', 'ASC')->simplePaginate(10);
-        $Antigen = Antigen::where('user_id', $id)->orderBy('created_at', 'DESC')->simplePaginate(10);
         return view('antigens.laporan', compact('Antigen'));
     }
 
@@ -305,14 +278,6 @@ class AntigenController extends Controller
             ->where('user_id', $id)
             ->whereDay('created_at', now()->day)
             ->sum('jumlah');
-
-
-
-
-
-
-
-
 
 
         return view('antigens.report', compact('HomeVisit', 'jml_pengeluaran', 'pengeluaran', 'cabangs', 'jenkel', 'category_qtt', 'titik_loc', 'swabber_qtt', 'jml_harga_all', 'payment', 'p', 't', 'user_id', 'nowTimeDate', 'totalSwabHarian', 'id', 'Antigen'));

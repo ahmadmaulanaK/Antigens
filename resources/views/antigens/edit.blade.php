@@ -151,7 +151,7 @@
                                     <div class="form-group">
                                         <label for="status">Pilih Lokasi </label>
                                         <select name="titik_id" class="form-control" >
-                                            <option value="" >Jenis tes
+                                            <option value="" >Pilih Lokasi
                                             </option>
                                             @foreach ($titik as $row)
                                             <option value="{{ $row->id }}"
@@ -315,7 +315,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Pembayaran</h4>
-                        <p><i class="fa fa-info"></i>&nbsp;</p>
+                      
                     </div>
                     <div class="card-body">
 

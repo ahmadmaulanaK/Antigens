@@ -1,248 +1,201 @@
-@extends('layouts.auth')
+@extends('layouts.admin')
 
 @section('title')
-<title>Pendaftaran </title>
+<title>Antigen</title>
 @endsection
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card mx-4">
-                <div class="card-body p-4">
-                    <h1>Pendaftaran</h1>
-                    <form action="#" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <p class="text-muted">Pemeriksaan </p>
+<main class="main">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">Home</li>
+        <li class="breadcrumb-item active">Data PCR</li>
+    </ol>
+    <div class="container-fluid">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">
+                                Data PCR {{$nowTimeDate,true}}||
+                                <a href="{{ route('antigens.create') }}" class="btn btn-primary  float-right"><i
+                                        class="fa fa-magic"></i>&nbsp;Tambah</a>
 
-                        @if (session('success'))
-                        <div class="alert alert-success">{{ session('success') }}</div>
-                        @endif
-
-                        @if (session('error'))
-                        <div class="alert alert-danger">{{ session('error') }}</div>
-                        @endif
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="icon-credit-card"></i></span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Nomor Identitas/NIK" name="NIK"
-                                value="{{ old('NIK') }}">
-                            <br>
-                            <p class="text-danger">{{ $errors->first('NIK') }}</p>
+                                {{-- <div class="input-group mb-3 col-md-3 float-right">
+                                    <div class="input-group-append">
+                                    <input type="text" name="search" class="form-control" placeholder="Cari..." value="{{ request('search')}}">
+                                <button class="btn btn-secondary" type="submit">Cari</button>
                         </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="icon-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Nama lengkap" name="name"
-                                value="{{ old('Name') }}">
-                            <br>
-                            <p class="text-danger">{{ $errors->first('name') }}</p>
-                        </div>
-
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">@</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Email" name="email"
-                                value="{{ old('email') }}">
-                            <br>
-                            <p class="text-danger">{{ $errors->first('email') }}</p>
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="icon-phone"></i></span>
-                            </div>
-                            <input type="tell" class="form-control" placeholder="No telphone/Whatsapp" value="+62"
-                                name="phone_number" value="{{old('phone_number')}}">
-                            <br>
-                            <p class="text-danger">{{ $errors->first('email') }}</p>
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Tanggal Lahir</span>
-                            </div>
-                            <input style="" type="date" id="start" name="TTL" value="{{ old('TTL') }}" min="1950-01-01">
-                            <p class="text-danger">{{ $errors->first('TTL') }}</p>
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">jenis Kelamin</span>
-                            </div>
-
-                            <select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
-                                <option value="">Pilih....</option>
-                                <option value="Perempuan" {{ old('jenis_kelamin') == 'Perempuan' ? 'selected':'' }}>
-                                    Perempuan
-                                </option>
-                                <option value="Laki-laki" {{ old('jenis_kelamin') == 'Laki-laki' ? 'selected':'' }}>
-                                    Laki-laki
-                                </option>
-                            </select>
-
-                            <p class="text-danger">{{ $errors->first('jenis_kelamin') }}</p>
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Alamat</span>
-                            </div>
-
-                            <textarea class="form-control" name="address" aria-label="With textarea"
-                                value="{{ old('address') }}">{{ old('address') }}</textarea>
-                            <p class="text-danger">{{ $errors->first('address') }}</p>
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Jenis Tes</span>
-                            </div>
-                            <select name="category_id" class="form-control">
-                                <option value="">Pilih ....
-                                </option>
-                                @foreach ($category as $row)
-                                <option value="{{ $row->id }}" {{ old('category_id') == $row->id ? 'selected':'' }}>
-                                    {{ $row->name }}
-                                </option>
-                                @endforeach
-                            </select>
-                            <p class="text-danger">{{ $errors->first('category_id') }}</p>
-                        </div>
-
-                        <div class="card bg-light">
-                            <div class="card-body">
-                                <div class="row ">
-                                    <div class="col-lg-2 col-sm-4">
-                                        <div class="form-check form-check-inline">
-                                            <label class="form-check-label" for="inlineRadio1">Demam :</label>
-                                          </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                                          </div>
-                                          <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                            <label class="form-check-label" for="inlineRadio2">tidak</label>
-                                          </div>
-                                    </div>
-                                    <div class="col-lg-2 col-sm-4">
-                                        <div class="form-check form-check-inline">
-                                            <label class="form-check-label" for="inlineRadio1">Demam :</label>
-                                          </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                                          </div>
-                                          <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                            <label class="form-check-label" for="inlineRadio2">tidak</label>
-                                          </div>
-                                    </div>
-                                    <div class="col-lg-2 col-sm-4">
-                                        <div class="form-check form-check-inline">
-                                            <label class="form-check-label" for="inlineRadio1">Demam :</label>
-                                          </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                                          </div>
-                                          <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                            <label class="form-check-label" for="inlineRadio2">tidak</label>
-                                          </div>
-                                    </div>
-                                    <div class="col-lg-2 col-sm-4">
-                                        <div class="form-check form-check-inline">
-                                            <label class="form-check-label" for="inlineRadio1">Demam :</label>
-                                          </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                                          </div>
-                                          <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                            <label class="form-check-label" for="inlineRadio2">tidak</label>
-                                          </div>
-                                    </div>
-                                    <div class="col-lg-2 col-sm-4">
-                                        <div class="form-check form-check-inline">
-                                            <label class="form-check-label" for="inlineRadio1">Demam :</label>
-                                          </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                                          </div>
-                                          <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                            <label class="form-check-label" for="inlineRadio2">tidak</label>
-                                          </div>
-                                    </div>
-                                    <div class="col-lg-2 col-sm-4">
-                                        <div class="form-check form-check-inline">
-                                            <label class="form-check-label" for="inlineRadio1">Demam :</label>
-                                          </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                                          </div>
-                                          <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                            <label class="form-check-label" for="inlineRadio2">tidak</label>
-                                          </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                       
-                       
-                   
-                    
-                        <div class="input-group mb-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault" >
-                                    Dengan ini menyatakan data yang saya isi adalah sebenar-benarnya, dan saya bersedia
-                                    untuk diambil spesimen untuk pemeriksaan Covid-19.
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                <label class="form-check-label " for="flexCheckChecked">
-                                    Apabila hasil akan dimasukan ke dalam database pemerintah lewat program all record
-                                    kementrian kesehatan
-                                </label>
-                            </div>
-
-                            <div class="card mt-3">
-                                <div class="card-body" style='text-align:justify;font-size:10px;'>
-                                    Untuk hasil tes PCR & Tes Antigen Home Service akan dikirimkan melalui Whatsapp atau
-                                    email yang tertera didalam informed consent ini, Hasil pemeriksaan hanya berlaku
-                                    pada saat pemeriksaan dilakukan
-                                </div>
-                            </div>
-                        </div>
+                    </div> --}}
+                    </h4>
                 </div>
+                <div class="card-body">
+                    <!-- JIKA TERDAPAT FLASH SESSION, MAKA TAMPILAKAN -->
+                    @if (session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                    @endif
 
-                {{-- <button class="btn btn-primary ">Tambah</button> --}}
-                <button class="btn btn-block btn-success">Register</button>
-            </div>
+                    @if (session('error'))
+                    <div class="alert alert-danger">{{ session('error') }}</div>
+                    @endif
+                    <!-- JIKA TERDAPAT FLASH SESSION, MAKA TAMPILAKAN -->
 
-            </form>
-            <div class="card-footer p-4">
+                    <!-- BUAT FORM UNTUK PENCARIAN, METHODNYA ADALAH GET -->
 
-                <div class="row">
+                    {{-- <form action="{{ route('antigens.index') }}" method="get"> --}}
+                    <!--    <div class="input-group mb-3 col-md-3 float-right">-->
+                    <!--        <input type="text" name="q" class="form-control" placeholder="Cari..." value="{{ request()->q }}">-->
+                    <!--        <div class="input-group-append">-->
+                    <!--            <button class="btn btn-secondary" type="button">Cari</button>-->
+                    <!--        </div>-->
+                    <!--    </div>-->
+                    <!--</form>-->
 
-                    <div class="col-6">
-                        <img src="{{ asset('assets/img/branch/bandung.png') }}" width="100%" height="">
+                    {{-- <div class="row justify-content-center ">
+                        <div class="col-md-4">
+                            <form action="/antigens/report">
+                                <div class="input-group mb-3">
+                                    <input type="text" name="search" class="form-control" placeholder="Cari..."
+                                        value="{{ request('search')}}">
+                                    <button class="btn btn-success" type="submit">Cari</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div> --}}
+
+
+                    <div class="row">
+                        @forelse ($Antigen as $key => $row)
+                        <div class="col-sm-6 col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong>{{ $row->customer->name }}</strong>
+
+                                    <span class="badge badge-pill badge-danger float-right">{{$key+1}}</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <table style="width:100%" class="mt-1">
+                                            <tr>
+                                                <td valign="top" class="textt">No Registrasi</td>
+                                                <td valign="top">:</td>
+                                                <td>{{ $row->noreg }}</td>
+                        
+                                            </tr>
+                                          
+                                            <tr>
+                                                <td class="textt">Nomor Identitas/KTP</td>
+                                                <td>:</td>
+                                                <td style="width:50%">{{$row->customer->NIK}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="textt">Tanggal Lahir</td>
+                                                <td>:</td>
+                                                <td>{{$row->customer->TTL}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="textt">Jenis Kelamin</td>
+                                                <td>:</td>
+                                                <td>{{$row->customer->jenis_kelamin}}</td>
+                        
+                        
+                                            </tr>
+                        
+                                            <tr>
+                                                <td class="textt">Alamat</td>
+                                                <td>:</td>
+                                                <td width="25%" valign="top" class="textt">{{$row->customer->address}}</td>
+                                                <td class="kanan">
+                        
+                        
+                        
+                        
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>------------------</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="textt">Pemeriksaan </td>
+                                                <td>:</td>
+                                                <td>{{ $row->created_at->format('d F, Y | H:i ') }}</td> 
+                                                
+                        
+                        
+                                                <td></td>
+                                            </tr>
+                                        
+                        
+                                            <tr>
+                                                <td valign="top" class="textt">Spesimen </td>
+                                                <td valign="top">:</td>
+                                                <td>{{ $row->spesimen }}</td>
+                        
+                                            </tr>
+                                            <tr>
+                                                <td valign="top" class="textt">Jenis Pelayanan </td>
+                                                <td valign="top">:</td>
+                                                <td>{{ $row->hasil }}</td>
+                        
+                                            </tr>
+                                           
+                                            <tr>
+                                                <td class="textt">Lokasi</td>
+                                                <td>:</td>
+                                                <td>{{$row->titik->name}}</td>
+                        
+                        
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="textt">Cabang</td>
+                                                <td>:</td>
+                                                <td>{{$row->cabang->name}}</td>
+                        
+                        
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="textt">Layanan</td>
+                                                <td>:</td>
+                                                <td>{{ $row->pelayanan }}</td>
+                        
+                        
+                                            </tr>
+                                            <tr>
+                                                <td class="textt">Swabber</td>
+                                                <td>:</td>
+                                                <td>{{ $row->swabber->name }}</td>
+                        
+                        
+                                            </tr>
+                        
+                                        </table>
+                                  
+                                      
+
+                                    </div>
+                               
+                                  
+                                </div>
+                            </div>
+                        </div>
+
+                        @empty
+                        <div class="card-body">
+                           Tidak Ada Data
+                        </div>
+                        @endforelse
+
 
                     </div>
-                    <div class="col-6">
-                        <img src="{{ asset('assets/img/logofix.png') }}" width="100%" height="">
-                    </div>
+                 
                 </div>
             </div>
         </div>
     </div>
-</div>
-</div>
+
+    
+    </div>
+</main>
 @endsection
