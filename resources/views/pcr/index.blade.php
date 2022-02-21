@@ -169,6 +169,13 @@
                         
                         
                                             </tr>
+                                            <tr>
+                                                <td class="textt">Admin Input</td>
+                                                <td>:</td>
+                                                <td>{{ $row->user->name }}</td>
+                        
+                        
+                                            </tr>
                         
                                         </table>
                                   
