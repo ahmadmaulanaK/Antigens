@@ -104,7 +104,7 @@ class AntigenController extends Controller
         $user_id = Auth()->user()->id;
 
         $antigen = Antigen::create([
-            'noreg' => time(),
+            'noreg' => Str::random(5),
             'hasil' => $request->hasil,
             'spesimen' => $request->spesimen,
 
@@ -343,7 +343,7 @@ class AntigenController extends Controller
         $user_id = Auth()->user()->id;
         $antigen = Antigen::findOrFail($id);
         $antigen->update([
-            'noreg' => time(),
+            'noreg' => Str::random(5),
             'hasil' => $request->hasil,
             'spesimen' => $request->spesimen,
 
@@ -418,7 +418,7 @@ class AntigenController extends Controller
 
 
         $antigen = Antigen::create([
-            'noreg' => time(),
+            'noreg' => Str::random(5),
             'hasil' => null,
             'spesimen' => null,
 

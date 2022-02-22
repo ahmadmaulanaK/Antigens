@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Antigen;
 use App\Models\Customer;
 use App\Models\Titik;
-
+use Illuminate\Support\Str;
 class PendaftaranController extends Controller
 {
     /**
@@ -75,7 +75,7 @@ class PendaftaranController extends Controller
 
 
         $antigen = Antigen::create([
-            'noreg' => time(),
+            'noreg' => Str::random(5),
             'hasil' => '',
             'spesimen' => '',
 

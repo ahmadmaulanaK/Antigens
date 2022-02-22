@@ -7,6 +7,7 @@ use App\Http\Controllers\BranchController;
 use App\Http\Controllers\JabodetabekController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TesController;
+use App\Http\Controllers\PendaftaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,8 @@ Route::resource('price', \App\Http\Controllers\PriceController::class)
     ->middleware('auth');
 
 Route::resource('pendaftaran', \App\Http\Controllers\PendaftaranController::class);
+// Route::get('/pendaftaran/{noreg}', [PendaftaranController::class,'checkoutFinish'])->name('pendaftaran.finish');
+// Route::get('/checkout/{invoice}', 'Ecommerce\CartController@checkoutFinish')->name('front.finish_checkout');
 
 // Route::get('/antigens/register', [AntigenController::class, 'DaftarMandiri']);
 // Route::post('/antigens/add', [AntigenController::class, 'register']);

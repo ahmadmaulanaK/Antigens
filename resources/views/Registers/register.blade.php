@@ -17,6 +17,8 @@
 
                     @if (session('success'))
                     <div class="alert alert-success">{{ session('success') }}</div>
+                
+
                 @endif
 
                 @if (session('error'))
@@ -142,27 +144,28 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-block btn-success">Register</button>
+                      
                     </div>
-                </div>
+
+                    <div class="row">
+                       
+                        <div class="col ">
+                            <img src="{{ asset('assets/img/branch/bandung.png') }}" width="100" height="">
+                        </div>
+                        <div class="col ">
+                            <img src="{{ asset('assets/img/logofix.png') }}" width="100" height="">
+                        </div>
+                    </div>
+                 
+                    </div>
+           
 
                 {{-- <button class="btn btn-primary ">Tambah</button> --}}
             
             </div>
 
           </form>
-            <div class="card-footer p-3">
-
-                <div class="row">
-
-                    <div class="col-6">
-                        <img src="{{ asset('assets/img/branch/bandung.png') }}" width="180" height="">
-
-                    </div>
-                    <div class="col-6">
-                        <img src="{{ asset('assets/img/logofix.png') }}" width="180" height="">
-                    </div>
-                </div>
-            </div>
+        
         </div>
     </div>
 </div>

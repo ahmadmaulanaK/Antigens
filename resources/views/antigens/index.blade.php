@@ -52,6 +52,8 @@
                                     <thead>
                                         <tr>
                                              <th>No</th>
+                                             <th>*</th>
+                                             <th colspan="2">Aksi</th>
                                             <th>No Registrasi</th>
                                        
                                             <th>NIK</th>
@@ -66,8 +68,7 @@
                                             <th>Admin Input</th>
                                             <th>Swabber</th>
 
-                                            <th>*</th>
-                                            <th colspan="2">Aksi</th>
+                                           
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -78,6 +79,19 @@
                                         @if ($row->user_id == 1)
                                         <tr class="bg-danger">
                                              <td>{{$key+1}}</td>
+
+                                             <td> <a href="{{ route('antigens.edit', $row->id) }}" class="btn btn-sm btn-dark shadow "><i class="nav-icon icon-note"></i> Edit</a></td>
+                                             <td colspan="2">
+                                                 
+                                                
+                                                  <form action="{{ route('antigens.destroy', $row->id) }}" method="post">
+                                                 @csrf
+                                                 @method('DELETE')
+                                             
+                                                  <button class="btn btn-dark  btn-sm shadow"><i class="nav-icon icon-trash"></i> Hapus</button>
+                                                 
+                                             </form>
+                                         </td>
                                             <td>
                                                <strong>{{ $row->noreg }}</strong><br>
                                                                                           </td>
@@ -103,6 +117,7 @@
                                             {{-- <td>{{ $row->cabang->name }} </td> --}}
                                             <td>{{ $row->created_at->format('d F, Y H:i') }} </td>
                                             <td >{{ $row->user->name }}</td> 
+                                            <td >perlu diproses</td> 
                                            
                                             
                                             
@@ -111,24 +126,34 @@
                                             
                                             <!-- KARENA BERISI HTML MAKA KITA GUNAKAN { !! UNTUK MENCETAK DATA -->
                       
-                                           <td> <a href="{{ route('antigens.edit', $row->id) }}" class="btn btn-sm btn-dark shadow "><i class="nav-icon icon-note"></i> Edit</a></td>
-                                            <td colspan="3">
-                                                
-                                               
-                                                 <form action="{{ route('antigens.destroy', $row->id) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                            
-                                                 <button class="btn btn-dark  btn-sm shadow"><i class="nav-icon icon-trash"></i> Hapus</button>
-                                                
-                                            </form>
-                                        </td>
+                                          
                                        
                                         </tr>
                                     
                                         @else
                                         <tr>
                                             <td>{{$key+1}}</td>
+                                            <td>
+                                                <!-- FORM UNTUK MENGHAPUS DATA PRODUK -->
+                                                <a href="/antigens/show/{{Crypt::encrypt($row->id)}}" class="btn btn-success btn-sm shadow "><i class="nav-icon icon-share"> SHARE </i></a>
+                                                <a href="/antigens/cetak/{{Crypt::encrypt($row->id)}}" class="btn btn-warning btn-sm shadow "><i class="nav-icon icon-docs"> CETAK</i> </a>
+                                                <a href="/antigens/kwitansi/{{Crypt::encrypt($row->id)}}" class="btn btn-primary btn-sm shadow "><i class="nav-icon icon-docs"> KWITANSI</i> </a>
+                                               
+                                                
+                                               
+                                            </td>
+                                            <td>
+                                                
+                                                 <form action="{{ route('antigens.destroy', $row->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                            
+                                                 <button class="btn btn-danger  btn-sm shadow"><i class="nav-icon icon-trash"></i> Hapus</button>
+                                                
+                                            </form>
+                                           
+                                        </td>
+                                        <td> <a href="{{ route('antigens.edit', $row->id) }}" class="btn btn-sm btn-info shadow "><i class="nav-icon icon-note"></i> Edit</a></td>
                                            <td>
                                               <strong>{{ $row->noreg }}</strong><br>
                                                                                          </td>
@@ -159,27 +184,7 @@
                                            
                                            <!-- KARENA BERISI HTML MAKA KITA GUNAKAN { !! UNTUK MENCETAK DATA -->
                                        
-                                           <td>
-                                               <!-- FORM UNTUK MENGHAPUS DATA PRODUK -->
-                                               <a href="/antigens/show/{{Crypt::encrypt($row->id)}}" class="btn btn-success btn-sm shadow "><i class="nav-icon icon-share"> SHARE </i></a>
-                                               <a href="/antigens/cetak/{{Crypt::encrypt($row->id)}}" class="btn btn-warning btn-sm shadow "><i class="nav-icon icon-docs"> CETAK</i> </a>
-                                               <a href="/antigens/kwitansi/{{Crypt::encrypt($row->id)}}" class="btn btn-primary btn-sm shadow "><i class="nav-icon icon-docs"> KWITANSI</i> </a>
-                                              
-                                               
-                                              
-                                           </td>
-                                           <td>
-                                               
-                                                <form action="{{ route('antigens.destroy', $row->id) }}" method="post">
-                                               @csrf
-                                               @method('DELETE')
                                            
-                                                <button class="btn btn-danger  btn-sm shadow"><i class="nav-icon icon-trash"></i> Hapus</button>
-                                               
-                                           </form>
-                                          
-                                       </td>
-                                       <td> <a href="{{ route('antigens.edit', $row->id) }}" class="btn btn-sm btn-info shadow "><i class="nav-icon icon-note"></i> Edit</a></td>
                                        </tr>
                                         @endif
                                        
