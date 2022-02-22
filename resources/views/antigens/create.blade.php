@@ -205,60 +205,42 @@
                                     <p class="text-danger">{{ $errors->first('pelayanan') }}</p>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="swabber_id">Jenis Tes</label>
 
-                                    <select name="category_id" class="form-control">
-                                        <option value="">Pilih ....
-                                        </option>
-                                        @foreach ($category as $row)
+                                <div class="form-group row">
+                                    <label class="col-md-4 col-form-label" for="multiple-select">Jenis Tes</label>
+                                    <div class="col-md-8">
+                                        <select id="multiple-select" name="category_id" class="form-control" size="5"
+                                            multiple="" >
+                                      
+                                            @foreach ($category as $row)
                                         <option value="{{ $row->id }}"
                                             {{ old('category_id') == $row->id ? 'selected':'' }}>{{ $row->name }}
                                         </option>
                                         @endforeach
-                                    </select>
-                                    <p class="text-danger">{{ $errors->first('category_id') }}</p>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-md-6 col-form-label font-weight-bold">Hasil</label>
-                                    <div class="col-md-9 col-form-label">
-                                        <div class="form-check form-check-inline mr-1">
-                                            <input class="form-check-input" type="radio" id="inline-radio1"
-                                                value="Positif"
-                                                {{ old('hasil')=="Positif" ? 'checked='.'"checked"' : '' }}
-                                                name="hasil">
-                                            <label class="form-check-label" for="inline-radio1">Positif</label>
-                                        </div>
-                                        <div class="form-check form-check-inline mr-1">
-                                            <input class="form-check-input" type="radio" id="inline-radio2"
-                                                value="Negatif"
-                                                {{ old('hasil')=="Negatif" ? 'checked='.'"checked"' : '' }}
-                                                name="hasil">
-                                            <label class="form-check-label" for="inline-radio2">Negatif</label>
-                                        </div>
-                                        <div class="form-check form-check-inline mr-1">
-                                            <input class="form-check-input" type="radio" id="inline-radio2"
-                                                value="Sameday"
-                                                {{ old('hasil')=="Sameday" ? 'checked='.'"checked"' : '' }}
-                                                name="hasil">
-                                            <label class="form-check-label" for="inline-radio2">Sameday</label>
-                                        </div>
-                                        {{-- <div class="form-check form-check-inline mr-1">
-                                            <input class="form-check-input" type="radio" id="inline-radio2"
-                                                value="CITO" name="hasil" >
-                                            <label class="form-check-label" for="inline-radio2">CITO</label>
-                                        </div> --}}
-                                        <div class="form-check form-check-inline mr-1">
-                                            <input class="form-check-input" type="radio" id="inline-radio2"
-                                                value="H(+1)" name="hasil"
-                                                {{ old('hasil')=="H(+1)" ? 'checked='.'"checked"' : '' }}>
-                                            <label class="form-check-label" for="inline-radio2">H+1</label>
-                                        </div>
-                                        <p class="text-danger">{{ $errors->first('hasil') }}</p>
-
+    
+                                        </select>
+                                        <p class="text-danger">{{ $errors->first('category_id') }}</p>
                                     </div>
                                 </div>
+                             
+                                <div class="form-group row">
+                                    <label class="col-md-4 col-form-label" for="multiple-select">Hasil</label>
+                                    <div class="col-md-8">
+                                        <select id="multiple-select" name="hasil" class="form-control" size="5"
+                                            multiple="" >
+                                          
+                                            <option value="Positif" {{old('hasil') == 'Positif' ? 'selected':'' }} >Positif</option>
+                                            <option value="Negatif" {{old('hasil') == 'Negatif' ? 'selected':'' }}>Negatif</option>
+                                            <option value="Sameday" {{old('hasil') == 'Sameday' ? 'selected':'' }}>Sameday</option>
+                                            <option value="H(+1)" {{old('hasil') == 'H(+1)' ? 'selected':'' }}>H+1</option>
+                                           
+    
+                                        </select>
+                                        <p class="text-danger">{{ $errors->first('hasil') }}</p>
+                                    </div>
+                                </div>
+
+                           
 
 
 
@@ -284,9 +266,10 @@
                                                 Swab Orofaring&Nasofaring</option>
 
                                         </select>
+                                        <p class="text-danger">{{ $errors->first('spesimen') }}</p>
                                     </div>
                                 </div>
-                                <p class="text-danger">{{ $errors->first('spesimen') }}</p>
+                               
                                 <div class="form-group">
                                     <label for="status">Hasil IgG</label>
                                     <select name="hasil_IgG" class="form-control">

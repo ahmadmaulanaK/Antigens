@@ -17,13 +17,16 @@ use App\Models\Price;
 use App\Models\Pengeluaran;
 use App\Models\Titik;
 use App\Models\User;
-use Barryvdh\DomPDF\PDF;
+// use Barryvdh\DomPDF\PDF
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use Carbon\Carbon;
 use IntlChar;
+
+
 
 class AntigenController extends Controller
 {
@@ -148,6 +151,19 @@ class AntigenController extends Controller
 
         $antigen = Antigen::with(['customer'])->where('id', $getId)->first();
         return view('antigens.cetak', compact('antigen'));
+    }
+    public function cetakPDF($id)
+    {
+        $getId = Crypt::decrypt($id);
+
+        $antigen = Antigen::with(['customer'])->where('id', $getId)->first();
+        // $pdf=PDF::loadview('Antigens.hasilpdf',['antigen' =>$antigen])->setPaper('A4','potrait');
+        // return $pdf->stream();
+
+        $pdf = PDF::loadView('Antigens.hasilpdf', compact('antigen'));
+        return $pdf->stream('{{ $antigen->customer->name }}.pdf');
+        // return PDF::loadFile(public_path().'/myfile.html')->save('/path-to/my_stored_file.pdf')->stream('download.pdf');
+       
     }
     public function getCity()
     {

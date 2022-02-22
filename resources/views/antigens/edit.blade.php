@@ -211,21 +211,6 @@
                                 <p class="text-danger">{{ $errors->first('category') }}</p>
                             </div>
 
-                            <div class="form-group">
-                                <label for="swabber_id">Jenis Tes</label>
-
-                                <select name="category_id" class="form-control" >
-                                    <option value="">Jenis tes
-                                    </option>
-
-                                    @foreach ($category as $row)
-                                    <option value="{{ $row->id }}"
-                                        {{ $antigen->category_id == $row->id ? 'selected':'' }}>{{ $row->name }}
-                                    </option>
-                                    @endforeach
-                                </select>
-                                <p class="text-danger">{{ $errors->first('category_id') }}</p>
-                            </div>
 
                            
 
@@ -261,7 +246,7 @@
                                     </select>
                                 </div>
                             </div>
-
+                      
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label" for="multiple-select">Spesimen</label>
                                 <div class="col-md-8">

@@ -55,6 +55,7 @@ Route::resource('pendaftaran', \App\Http\Controllers\PendaftaranController::clas
 // Route::get('/antigens/register', [AntigenController::class, 'DaftarMandiri']);
 // Route::post('/antigens/add', [AntigenController::class, 'register']);
 Route::get('/antigens/show/{id}', [AntigenController::class, 'show']);
+Route::get('/antigens/pdf/{id}', [AntigenController::class, 'cetakPDF'])->middleware('auth');
 Route::get('/branch/show/{id}', [BranchController::class, 'show'])->middleware('auth');
 Route::get('/branch/cetak/{id}', [BranchController::class, 'cetak'])->middleware('auth');
 
