@@ -14,7 +14,7 @@
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('ecommerce/vendors/jquery-ui/jquery-ui.css') }}">
     <link href="{{ asset('assets/vendors/pace-progress/css/pace.min.css') }}" rel="stylesheet">
-    <title>Antigen Bandung</title>
+    <title>REKAP ADMIN {{$user_id}}|{{$nowTimeDate,true}} </title>
 </head>
 
 <style>

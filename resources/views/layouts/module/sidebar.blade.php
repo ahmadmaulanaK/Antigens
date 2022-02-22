@@ -31,11 +31,11 @@
                 <i class="nav-icon icon-puzzle"></i> Data Pasien
             </a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link" href="{{route('pcr.index')}}">
                 <i class="nav-icon icon-puzzle"></i> Data PCR TODAY
             </a>
-        </li>
+        </li> --}}
         {{-- <li class="nav-item">
             <a class="nav-link" href="/antigens/report">
                 <i class="nav-icon icon-puzzle"></i> Data PCR 

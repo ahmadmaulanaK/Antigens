@@ -20,7 +20,8 @@ class PCRController extends Controller
         
 
         $nowTimeDate = Carbon::now()->translatedFormat('d F Y');
-        $Antigen = Antigen::Where('category_id', 3)->whereIn('cabang_id',[3,4,7] )->whereDay('created_at', now()->day)->orderBy('created_at', 'ASC')->simplePaginate(500);
+   
+        $Antigen = Antigen::Where('category_id', 3)->whereDay('created_at', now()->day)->orderBy('created_at', 'ASC')->simplePaginate(500);
         return view('pcr.index', compact('Antigen','nowTimeDate'));
     }
 }
