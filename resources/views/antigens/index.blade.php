@@ -137,7 +137,7 @@
                                                 <!-- FORM UNTUK MENGHAPUS DATA PRODUK -->
                                                 <a href="/antigens/show/{{Crypt::encrypt($row->id)}}" class="btn btn-success btn-sm shadow "><i class="nav-icon icon-share"> SHARE </i></a>
                                                 <a href="/antigens/cetak/{{Crypt::encrypt($row->id)}}" class="btn btn-warning btn-sm shadow "><i class="nav-icon icon-docs"> CETAK</i> </a>
-                                                <a href="/antigens/pdf/{{Crypt::encrypt($row->id)}}" class="btn btn-warning btn-sm shadow "><i class="nav-icon icon-docs"> pdf</i> </a>
+                                                {{-- <a href="/antigens/pdf/{{Crypt::encrypt($row->id)}}" class="btn btn-warning btn-sm shadow "><i class="nav-icon icon-docs"> pdf</i> </a> --}}
                                                 <a href="/antigens/kwitansi/{{Crypt::encrypt($row->id)}}" class="btn btn-primary btn-sm shadow "><i class="nav-icon icon-docs"> KWITANSI</i> </a>
                                                
                                                 
