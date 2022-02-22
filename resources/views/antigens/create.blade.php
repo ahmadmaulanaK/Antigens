@@ -249,21 +249,22 @@
                                     <div class="col-md-9">
                                         <select id="multiple-select" name="spesimen" class="form-control" size="5"
                                             multiple="">
+                                            <option value="Swab Nasofaring"
+                                            {{ old('spesimen') == 'Swab Nasofaring' ? 'selected':'' }}>Swab
+                                            Nasofaring</option>
+                                        <option value="Swab Orofaring"
+                                            {{ old('spesimen') == 'Swab Orofaring' ? 'selected':'' }}>Swab Orofaring
+                                        </option>
+                                        <option value="Swab Orofaring&Nasofaring"
+                                            {{ old('spesimen') == 'Swab Orofaring&Nasofaring' ? 'selected':'' }}>
+                                            Swab Orofaring&Nasofaring</option>
                                             <option value="Nasal" {{ old('spesimen') == 'Nasal' ? 'selected':'' }}>Nasal
                                             </option>
                                             <option value="Saliva" {{ old('spesimen') == 'Saliva' ? 'selected':'' }}>Saliva
                                             </option>
                                             <option value="Darah" {{ old('spesimen') == 'Darah' ? 'selected':'' }}>Darah
                                             </option>
-                                            <option value="Swab Nasofaring"
-                                                {{ old('spesimen') == 'Swab Nasofaring' ? 'selected':'' }}>Swab
-                                                Nasofaring</option>
-                                            <option value="Swab Orofaring"
-                                                {{ old('spesimen') == 'Swab Orofaring' ? 'selected':'' }}>Swab Orofaring
-                                            </option>
-                                            <option value="Swab Orofaring&Nasofaring"
-                                                {{ old('spesimen') == 'Swab Orofaring&Nasofaring' ? 'selected':'' }}>
-                                                Swab Orofaring&Nasofaring</option>
+                                           
 
                                         </select>
                                         <p class="text-danger">{{ $errors->first('spesimen') }}</p>
