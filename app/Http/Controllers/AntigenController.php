@@ -32,6 +32,8 @@ class AntigenController extends Controller
 {
     public function index()
     {
+
+       
         $id = Auth::user()->id;
         $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->orWhere('user_id', 1)->orderBy('created_at', 'DESC')->simplePaginate(500);
         return view('antigens.index', compact('Antigen'));
@@ -107,7 +109,7 @@ class AntigenController extends Controller
         $user_id = Auth()->user()->id;
 
         $antigen = Antigen::create([
-            'noreg' => Str::random(5),
+            'noreg' => substr(str_shuffle("0123456789"), 0, 5),
             'hasil' => $request->hasil,
             'spesimen' => $request->spesimen,
 

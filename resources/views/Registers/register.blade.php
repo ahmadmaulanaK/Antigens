@@ -15,12 +15,16 @@
     <div class="row m-3 justify-content-center ">
         <div class=" mt-5 col-lg-5 col-md-5 col-sm-12 ">
       
-
+            <div class="row ">
+                <div class="col ">
+                    <img src="{{ asset('assets/img/branch/bandung.png') }}" width="140" height="" style="margin-left: 205px;  " class="mb-4">
+                </div>
+            </div>
         <h1>Pendaftaran</h1>
         <form action="{{ route('pendaftaran.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <p class="text-muted">Pemeriksaan Antigen Bandung</p>
-
+          
             @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
 
@@ -157,13 +161,17 @@
             <button type="submit" class="btn btn-block btn-success float-right">Register</button>
         </form>
             <div class="mt-5 container">
-                <div class="row justify-content-center">
+
+             
+                <div class="row  ">
                        
-                    <div class="col ">
-                        <img src="{{ asset('assets/img/branch/bandung.png') }}" width="150" height="">
-                    </div>
-                    <div class="col ">
-                        <img src="{{ asset('assets/img/logofix.png') }}" width="180" height="">
+                    {{-- <div class="col-sm-3 bg-dark">
+                        <img src="{{ asset('assets/img/branch/bandung.png') }}" width="10" height="">
+                    </div> --}}
+                   
+                  
+                    <div class="col-sm-3 justify-content-center ">
+                        <img src="{{ asset('assets/img/logofix.png') }}" width="170" height="" style="margin-left: 205px;  " class="">
                     </div>
                 </div>
                

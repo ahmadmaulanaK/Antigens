@@ -64,7 +64,7 @@
                                             <th>Titik Tes</th>
                                             <th>Hasil</th>
                                             <th>Cabang</th>
-                                            <th>Created At</th>
+                                            <th>Dibuat</th>
                                             <th>Admin Input</th>
                                             <th>Swabber</th>
 
@@ -115,7 +115,7 @@
                                             <td>Perlu diproses</td>
                                             
                                             {{-- <td>{{ $row->cabang->name }} </td> --}}
-                                            <td>{{ $row->created_at->format('d F, Y H:i') }} </td>
+                                            <td>{{ $row->created_at->format(' H:i') }} </td>
                                             <td >{{ $row->user->name }}</td> 
                                             <td >perlu diproses</td> 
                                            
@@ -175,7 +175,7 @@
                                            <td>{{ $row->titik->name }}</td>
                                            <td>{{ $row->hasil }} </td>
                                            <td>{{ $row->cabang->name }} </td>
-                                           <td>{{ $row->created_at->format('d F, Y H:i') }} </td>
+                                           <td>{{ $row->created_at->format(' H:i') }} WIB </td>
                                            <td >{{ $row->user->name }}</td> 
                                           
                                            

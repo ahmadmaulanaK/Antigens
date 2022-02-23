@@ -61,7 +61,7 @@
                                             <th>Jenis Test</th>
                                             <th>Hasil</th>
                                             <th>cabang</th>
-                                            <th>Created At</th>
+                                            <th>Dibuat</th>
                                             <th>Admin Input</th>
                                             <th>Swabber</th>
 
@@ -96,7 +96,7 @@
                                            <td>{{ $row->category->name }} </td>
                                            <td>{{ $row->hasil }} </td>
                                            <td>{{ $row->cabang->name }} </td>
-                                           <td>{{ $row->created_at->format('d F, Y H:i') }} </td>
+                                           <td>{{ $row->created_at->format(' H:i') }} WIB</td>
                                            <td >{{ $row->user->name }}</td> 
                                           
                                            
