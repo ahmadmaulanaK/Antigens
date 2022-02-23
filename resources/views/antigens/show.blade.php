@@ -393,7 +393,7 @@
                 </div>
                 <div class="row">
 
-                    <div class="col" style="margin-left:20px"> <img src="{{ asset('assets/img/layanana2.png') }}" width="100%" height=""></div>
+                    <div class="col" style="margin-left:20px"> <img src="{{ asset('assets/img/layanan2.png') }}" width="100%" height=""></div>
                 </div>
                 <div class="row">
 
