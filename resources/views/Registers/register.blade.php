@@ -10,9 +10,9 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bg-light">
     <div class="row m-3 justify-content-center ">
-        <div class=" mt-5 col-lg-5 col-md-5 col-sm-12 bg-light">
+        <div class=" mt-5 col-lg-5 col-md-5 col-sm-12 ">
       
 
         <h1>Pendaftaran</h1>
