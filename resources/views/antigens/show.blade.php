@@ -213,7 +213,7 @@
                         <td style="width:50%">{{$antigen->customer->NIK}}</td>
                     </tr>
                     <tr>
-                        <td class="textt">Tempat,Tanggal Lahir</td>
+                        <td class="textt">Tanggal Lahir</td>
                         <td>:</td>
                         <td>{{$antigen->customer->TTL}}</td>
                     </tr>

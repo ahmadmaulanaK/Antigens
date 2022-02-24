@@ -75,7 +75,7 @@ class PendaftaranController extends Controller
 
 
         $antigen = Antigen::create([
-            'noreg' => Str::random(5),
+            'noreg' =>substr(str_shuffle("0123456789"), 0, 5),
             'hasil' => '',
             'spesimen' => '',
 
@@ -108,7 +108,9 @@ class PendaftaranController extends Controller
 
         DB::rollback();
 
-        return redirect(route('pendaftaran.index'))->with(['success' => 'Data berhasil di tambahkan!']);
+        
+        return redirect()->route('pendaftaran.show', [$antigen->noreg])->with(['success' => 'Data anda berhasil ditambahkan, silahkan konfirmasi kepetugas bersangkutan !']);
+      
     }
 
     /**
@@ -117,9 +119,14 @@ class PendaftaranController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+
+   
+
+    public function show($noreg)
     {
-        //
+      
+        $antigen = Antigen::where('noreg', $noreg)->first();
+        return view('Registers.finish', compact('antigen'));
     }
 
     /**

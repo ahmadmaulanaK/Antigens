@@ -49,6 +49,7 @@ Route::resource('price', \App\Http\Controllers\PriceController::class)
     ->middleware('auth');
 
 Route::resource('pendaftaran', \App\Http\Controllers\PendaftaranController::class);
+Route::get('/pendaftaran/finish', [PendaftaranController::class, 'finish'])->middleware('auth');
 // Route::get('/pendaftaran/{noreg}', [PendaftaranController::class,'checkoutFinish'])->name('pendaftaran.finish');
 // Route::get('/checkout/{invoice}', 'Ecommerce\CartController@checkoutFinish')->name('front.finish_checkout');
 

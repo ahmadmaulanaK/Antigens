@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Antigen Bandung</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@4.1.0/dist/css/coreui.min.css" rel="stylesheet" integrity="sha384-J2WCKfhPxbtZAT+USOoPNCnZVozpAaGtaH/LUcSKXjdCXN85i5fGMTy1Agp8HChK" crossorigin="anonymous">
@@ -13,18 +13,32 @@
 
 <body class="bg-light">
     <div class="row m-3 justify-content-center ">
-        <div class=" mt-5 col-lg-5 col-md-5 col-sm-12 ">
+        <div class=" mt-5 col-lg-5 col-md-5 col-sm-12 bg-white ">
       
             <div class="row ">
-                <div class="col ">
-                    <img src="{{ asset('assets/img/branch/bandung.png') }}" width="140" height="" style="margin-left: 205px;  " class="mb-4">
+                <div class="col-4">
+
+                    <img src="{{ asset('assets/img/header.png') }}" width="350px" height="100%">
+
+                </div>
+                <div class="col-4">
+
+
+
+                </div>
+                <div class="col-4">
+                    <br>
+                    <br>
+                    <br>
+                  
                 </div>
             </div>
-        <h1>Pendaftaran</h1>
+          
+        <h1 class="text-center">Pendaftaran</h1>
         <form action="{{ route('pendaftaran.store') }}" method="post" enctype="multipart/form-data">
             @csrf
-            <p class="text-muted">Pemeriksaan Antigen Bandung</p>
-          
+            <p class="text-muted text-center">Pemeriksaan Antigen Bandung</p>
+          <hr>
             @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
 
@@ -75,7 +89,7 @@
                    </div>
                    <label for="basic-url">Jenis Kelamin</label>
                    <div class="col">
-                      <select class="custom-select" id="inputGroupSelect01">
+                      <select name="jenis_kelamin" class="custom-select" id="inputGroupSelect01">
                         <option value="">Pilih....</option>
                         <option value="Perempuan" {{ old('jenis_kelamin') == 'Perempuan' ? 'selected':'' }}>
                             Perempuan
@@ -150,7 +164,7 @@
                 </div>
 
                 <div class="card mt-3">
-                    <div class="card-body" style='text-align:justify;font-size:10px;'>
+                    <div class="card-body" style='text-align:justify;font-size:11px;'>
                         Untuk hasil tes PCR & Tes Antigen Home Service akan dikirimkan melalui Whatsapp atau
                         email yang tertera didalam informed consent ini, Hasil pemeriksaan hanya berlaku
                         pada saat pemeriksaan dilakukan
@@ -160,22 +174,7 @@
             </div>
             <button type="submit" class="btn btn-block btn-success float-right">Register</button>
         </form>
-            <div class="mt-5 container">
-
-             
-                <div class="row  ">
-                       
-                    {{-- <div class="col-sm-3 bg-dark">
-                        <img src="{{ asset('assets/img/branch/bandung.png') }}" width="10" height="">
-                    </div> --}}
-                   
-                  
-                    <div class="col-sm-3 justify-content-center ">
-                        <img src="{{ asset('assets/img/logofix.png') }}" width="170" height="" style="margin-left: 205px;  " class="">
-                    </div>
-                </div>
-               
-            </div>
+            
           
           
         </div>
