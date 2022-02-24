@@ -109,8 +109,8 @@
                                             <td>{{ $row->customer->name }} </td>
                                             <td>{{ $row->customer->jenis_kelamin }} </td>
                                             <td>{{ $row->category->name }} </td>
-                                            {{-- <td class="bg-primary">{{ $row->titik->name }}</td> --}}
-                                            <td>Perlu diproses</td>
+                                            <td class="bg-primary">{{ $row->titik->name }}</td>
+                                            {{-- <td>Perlu diproses</td> --}}
                                             <td>Perlu diproses</td>
                                             <td>Perlu diproses</td>
                                             
