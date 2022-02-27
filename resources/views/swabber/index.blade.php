@@ -53,7 +53,7 @@
                                     <a href="{{route('swabbers.edit', $swabber)}}" class="btn btn-primary btn-sm">
                                         Edit
                                     </a>
-                                    <button class="btn btn-danger btn-sm ">Hapus</button>
+                                    {{-- <button class="btn btn-danger btn-sm ">Hapus</button> --}}
                                 </form>
                               </td>
                           </tr>
