@@ -68,7 +68,7 @@
                 <input type="text" class="form-control" placeholder="" name="name" value="{{ old('Name') }}">
                 <br> <p class="text-danger">{{ $errors->first('name') }}</p>
             </div>
-            <label for="basic-url">Email Aktip</label>
+            <label for="basic-url">Email Aktif</label>
             <div class="input-group mb-3">
                
                 <input type="text" class="form-control" placeholder="" name="email" value="{{ old('email') }}">

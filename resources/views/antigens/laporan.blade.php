@@ -61,8 +61,10 @@
                                 </div>
                             </div> --}}
                           
+                            Halaman : {{ $Antigen->currentPage() }} <br/>
+                            Jumlah Data : {{ $Antigen->total() }} <br/>
+                           
                                 <div class="input-group-append">
-                                  
                             <!-- TABLE UNTUK MENAMPILKAN DATA PRODUK -->
                             <div class="table-responsive">
                                
@@ -179,7 +181,9 @@
                                                <a href="/antigens/cetak/{{Crypt::encrypt($row->id)}}" class="btn btn-warning btn-sm shadow "><i class="nav-icon icon-docs"> CETAK</i> </a>
                                                <a href="/antigens/kwitansi/{{Crypt::encrypt($row->id)}}" class="btn btn-primary btn-sm shadow "><i class="nav-icon icon-docs"> KWITANSI</i> </a>
                                               
-                                               
+                                               @if($row->user_id == 18)
+                                               <a href="{{ route('antigens.edit', $row->id) }}" class="btn btn-sm btn-dark shadow "><i class="nav-icon icon-note"></i> Edit</a>
+                                               @endif
                                               
                                            </td>
                                            <td>
@@ -200,12 +204,21 @@
                             </div>
                 
                         </div>
+
+                       
+
+                        <div class="row bg-info">
+                            <div class="col">
+                                {{-- {{ $Antigen->links() }} --}}
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        {{ $Antigen->links() }}
+        {{-- {{ $Antigen->links() }} --}}
     </div>
 </main>
 @endsection

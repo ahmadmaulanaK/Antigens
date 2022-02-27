@@ -194,7 +194,7 @@ class AntigenController extends Controller
     {
         $id = Auth::user()->id;
 
-        $Antigen = Antigen::where('user_id', $id)->orderBy('created_at', 'DESC')->simplePaginate(500);
+        $Antigen = Antigen::where('user_id', $id)->orderBy('created_at', 'DESC')->Paginate(500);
         if(request('search')){
             $Antigen->where('hasil', 'like', '%' .request('search') . '%');
         }
