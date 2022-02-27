@@ -102,7 +102,7 @@
                                                     @csrf
                                                     @method('DELETE')
                                                    
-                                                    <button class="btn btn-danger btn-sm">Hapus</button>
+                                                    {{-- <button class="btn btn-danger btn-sm">Hapus</button> --}}
                                                 </form>
                                                 <a href="{{ route('users.edit', $val->id) }}" class="btn btn-warning btn-sm mt-2">Edit</a>
                                             </td>
