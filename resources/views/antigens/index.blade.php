@@ -180,7 +180,7 @@
                                           
                                            
                                            
-                                           {{-- <td>{{ $row->swabber->name }}</td>    --}}
+                                           <td>{{ $row->swabber->name }}</td>   
                                            {{-- <td>{{ $row->district->city->name }}</a></td> --}}
                                            
                                            <!-- KARENA BERISI HTML MAKA KITA GUNAKAN { !! UNTUK MENCETAK DATA -->
