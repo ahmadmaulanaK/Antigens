@@ -35,7 +35,10 @@ class AntigenController extends Controller
 
        
         $id = Auth::user()->id;
-        $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->orWhere('user_id', 1)->orderBy('created_at', 'DESC')->Paginate(20);
+        $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->orWhere('user_id', 1)->orderBy('created_at', 'DESC')->Paginate(10);
+        if(request('search')){
+            $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->where('noreg', 'like', '%' .request('search') . '%')->Paginate(20);
+        }
         return view('antigens.index', compact('Antigen'));
     }
 
@@ -192,12 +195,16 @@ class AntigenController extends Controller
 
     public function  report()
     {
+
+
         $id = Auth::user()->id;
 
         $Antigen = Antigen::where('user_id', $id)->orderBy('created_at', 'DESC')->Paginate(20);
         if(request('search')){
-            $Antigen->where('hasil', 'like', '%' .request('search') . '%');
+            $Antigen = Antigen::where('noreg', 'like', '%' .request('search') . '%')->Paginate(20);
         }
+
+        // dd($Antigen);
         // $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->orWhere('cabang_id', 1)->orWhere('user_id', 6)->orderBy('created_at', 'ASC')->simplePaginate(10);
         return view('antigens.laporan', compact('Antigen'));
     }

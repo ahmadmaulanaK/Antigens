@@ -36,14 +36,17 @@
 
                             <!-- BUAT FORM UNTUK PENCARIAN, METHODNYA ADALAH GET -->
                            
-                            <!--<form action="{{ route('antigens.index') }}" method="get">-->
-                            <!--    <div class="input-group mb-3 col-md-3 float-right">-->
-                            <!--        <input type="text" name="q" class="form-control" placeholder="Cari..." value="{{ request()->q }}">-->
-                            <!--        <div class="input-group-append">-->
-                            <!--            <button class="btn btn-secondary" type="button">Cari</button>-->
-                            <!--        </div>-->
-                            <!--    </div>-->
-                            <!--</form>-->
+                            <div class="row justify-content-center ">
+                                <div class="col-md-4">
+                                    <form action="{{route('antigens.index')}}">
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="search" class="form-control" placeholder="Masukan No Registrasi" value="{{ request('search')}}">
+                                        <button class="btn btn-success" type="submit">Cari</button>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+                           
                             Halaman : {{ $Antigen->currentPage() }} <br/>
                             Jumlah Data : {{ $Antigen->total() }} <br/>
                             

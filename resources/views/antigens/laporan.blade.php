@@ -54,12 +54,13 @@
                                 <div class="col-md-4">
                                     <form action="/antigens/report">
                                     <div class="input-group mb-3">
-                                        <input type="text" name="search" class="form-control" placeholder="Cari..." value="{{ request('search')}}">
+                                        <input type="text" name="search" class="form-control" placeholder="Masukan Noregistrasi" value="{{ request('search')}}">
                                         <button class="btn btn-success" type="submit">Cari</button>
                                     </div>
                                 </form>
                                 </div>
                             </div> --}}
+                           
                             Halaman : {{ $Antigen->currentPage() }} <br/>
                             Jumlah Data : {{ $Antigen->total() }} <br/>
                           
