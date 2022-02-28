@@ -44,7 +44,9 @@
                             <!--        </div>-->
                             <!--    </div>-->
                             <!--</form>-->
-                          
+                            Halaman : {{ $Antigen->currentPage() }} <br/>
+                            Jumlah Data : {{ $Antigen->total() }} <br/>
+                            
                             <!-- TABLE UNTUK MENAMPILKAN DATA PRODUK -->
                             <div class="table-responsive">
                                

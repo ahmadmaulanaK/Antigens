@@ -241,6 +241,7 @@
                                         <option value="Negatif" {{($antigen->hasil === 'Negatif') ? 'Selected' : ''}}>Negatif</option>
                                         <option value="Sameday" {{($antigen->hasil === 'Sameday') ? 'Selected' : ''}}>Sameday</option>
                                         <option value="H(+1)" {{($antigen->hasil === 'H(+1)') ? 'Selected' : ''}}>H+1</option>
+                                        <option value="CITO" {{($antigen->hasil === 'CITO') ? 'Selected' : ''}}>CITO</option>
                                        
 
                                     </select>

@@ -8,7 +8,7 @@
 <main class="main">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">Home</li>
-        <li class="breadcrumb-item active">Antigen Bandung</li>
+        <li class="breadcrumb-item active">Antigen Bandungg</li>
     </ol>
     <div class="container-fluid">
         <div class="animated fadeIn">
@@ -60,10 +60,9 @@
                                 </form>
                                 </div>
                             </div> --}}
-                          
                             Halaman : {{ $Antigen->currentPage() }} <br/>
                             Jumlah Data : {{ $Antigen->total() }} <br/>
-                           
+                          
                                 <div class="input-group-append">
                             <!-- TABLE UNTUK MENAMPILKAN DATA PRODUK -->
                             <div class="table-responsive">
@@ -202,17 +201,19 @@
                                     </tbody>
                                 </table>
                             </div>
-                
+                           
                         </div>
-
-                       
-
                         <div class="row bg-info">
                             <div class="col">
                                 {{-- {{ $Antigen->links() }} --}}
                                 
                             </div>
                         </div>
+                       
+                        {{ $Antigen->links() }}
+                       
+
+                      
                     </div>
                 </div>
             </div>

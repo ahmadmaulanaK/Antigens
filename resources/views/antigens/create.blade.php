@@ -233,6 +233,7 @@
                                             <option value="Negatif" {{old('hasil') == 'Negatif' ? 'selected':'' }}>Negatif</option>
                                             <option value="Sameday" {{old('hasil') == 'Sameday' ? 'selected':'' }}>Sameday</option>
                                             <option value="H(+1)" {{old('hasil') == 'H(+1)' ? 'selected':'' }}>H+1</option>
+                                            <option value="CITO" {{old('hasil') == 'CITO' ? 'selected':'' }}>CITO</option>
                                            
     
                                         </select>
