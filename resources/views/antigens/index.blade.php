@@ -93,7 +93,7 @@
                                                  @csrf
                                                  @method('DELETE')
                                              
-                                                  <button class="btn btn-dark  btn-sm shadow"><i class="nav-icon icon-trash"></i> Hapus</button>
+                                                  {{-- <button class="btn btn-dark  btn-sm shadow"><i class="nav-icon icon-trash"></i> Hapus</button> --}}
                                                  
                                              </form>
                                          </td>
