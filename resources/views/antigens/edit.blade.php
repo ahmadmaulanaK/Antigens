@@ -105,7 +105,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-6">
+                                    {{-- <div class="col-6">
                                         <label for="basic-url">Tanggal Lahir</label>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
@@ -116,7 +116,7 @@
                                                 placeholder="12/08/2008" aria-describedby="basic-addon3"
                                                 value="{{ old('TTL', $antigen->customer->TTL) }}">
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-6">
                                         <label for="email">Jenis Kelamin </label>
                                         <select name="jenis_kelamin" id="jenis_kelamin" class="form-control" >

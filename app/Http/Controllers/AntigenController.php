@@ -35,10 +35,12 @@ class AntigenController extends Controller
 
        
         $id = Auth::user()->id;
-        $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->orWhere('user_id', 1)->orderBy('created_at', 'DESC')->Paginate(10);
+        // $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->orWhere('user_id', 1)->orderBy('created_at', 'DESC')->Paginate(10);
+        $Antigen = Antigen::where('user_id', $id)->where('created_at', '>=', date('Y-m-d') . ' 00:00:00')->orWhere('user_id', 1)->orderBy('created_at', 'DESC')->Paginate(10);
         if(request('search')){
             $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->where('noreg', 'like', '%' .request('search') . '%')->Paginate(20);
         }
+      
         return view('antigens.index', compact('Antigen'));
     }
 
@@ -80,7 +82,7 @@ class AntigenController extends Controller
             'NIK' => 'required|string|max:100',
             'phone_number' => 'required',
             'email' => 'required',
-            'TTL' => 'required',
+            // 'TTL' => 'required',
             'jenis_kelamin' => 'required',
             'address' => 'required',
             'titik_id' => 'required',
@@ -104,7 +106,7 @@ class AntigenController extends Controller
             'email' => $request->email,
             'phone_number' => $request->phone_number,
             'jenis_kelamin' => $request->jenis_kelamin,
-            'TTL' => $request->TTL,
+            'TTL' => '-',
             'address' => $request->address,
             'district_id' => 1,
         ]);
@@ -215,7 +217,7 @@ class AntigenController extends Controller
         $id = Auth::user()->id;
 
         $totalSwabHarian = DB::table('antigens')->where('user_id', $id)->where('created_at', '>=', date('Y-m-d') . ' 00:00:00')->get();
-        $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->get();
+        $Antigen = Antigen::where('user_id', $id)->where('created_at', '>=', date('Y-m-d') . ' 00:00:00')->get();
 
         // $Metode = Payment::where('user_id', $id)->whereDay('created_at', now()->day)->get();
         $user_id = Auth()->user()->name;
@@ -229,20 +231,22 @@ class AntigenController extends Controller
         $t = DB::table('antigens')
             ->select('hasil', DB::raw('count(*) as total'))
             ->where('user_id', $id)
-            ->whereDay('created_at', now()->day)
+            ->whereDate('created_at', '>=', date('Y-m-d') . ' 00:00:00')
             ->groupBy('hasil')
             ->get();
+
+           
         $HomeVisit = DB::table('antigens')
             ->select('pelayanan', DB::raw('count(*) as TotalHomeVisit'))
             ->where('user_id', $id)
-            ->whereDay('created_at', now()->day)
+            ->whereDate('created_at', '>=', date('Y-m-d') . ' 00:00:00')
             ->groupBy('pelayanan')
             ->get();
 
         $p = DB::table('antigens')
             ->select('pelayanan', DB::raw('count(*) as total'))
             ->where('user_id', $id)
-            ->whereDay('created_at', now()->day)
+            ->whereDate('antigens.created_at', Carbon::today())
             ->groupBy('pelayanan')
             ->get();
 
@@ -251,57 +255,57 @@ class AntigenController extends Controller
             ->join('payments', 'antigens.payment_id', '=', 'payments.id')
             ->join('prices', 'antigens.price_id', '=', 'prices.id')
             ->where('user_id', $id)
-            ->whereDay('antigens.created_at', now()->day)
+            ->whereDate('antigens.created_at', Carbon::today())
             ->groupBy('payments.metode_payment')
             ->get();
         $jml_harga_all =  DB::table('antigens')
             ->select(DB::raw('sum(prices.harga) as jml_harga_1'))
             ->join('prices', 'antigens.price_id', '=', 'prices.id')
             ->where('user_id', $id)
-            ->whereDay('antigens.created_at', now()->day)
+            ->whereDate('antigens.created_at', Carbon::today())
             ->get();
 
         $swabber_qtt = DB::table('antigens')
             ->select('swabbers.name', DB::raw('count(antigens.swabber_id) as jml_swabber'))
             ->join('swabbers', 'antigens.swabber_id', '=', 'swabbers.id')
             ->where('user_id', $id)
-            ->whereDay('antigens.created_at', now()->day)
+            ->whereDate('antigens.created_at', Carbon::today())
             ->groupBy('swabbers.name')
             ->get();
         $titik_loc = DB::table('antigens')
             ->select('titiks.name', DB::raw('count(antigens.titik_id) as jml_titik'))
             ->join('titiks', 'antigens.titik_id', '=', 'titiks.id')
             ->where('user_id', $id)
-            ->whereDay('antigens.created_at', now()->day)
+            ->whereDate('antigens.created_at', Carbon::today())
             ->groupBy('titiks.name')
             ->get();
         $category_qtt = DB::table('antigens')
             ->select('categories.name', DB::raw('count(antigens.category_id) as jml_category'))
             ->join('categories', 'antigens.category_id', '=', 'categories.id')
             ->where('user_id', $id)
-            ->whereDay('antigens.created_at', now()->day)
+            ->whereDate('antigens.created_at', Carbon::today())
             ->groupBy('categories.name')
             ->get();
         $jenkel = DB::table('antigens')
             ->select('customers.jenis_kelamin', DB::raw('count(antigens.customer_id) as jml_jenkel'))
             ->join('customers', 'antigens.customer_id', '=', 'customers.id')
             ->where('user_id', $id)
-            ->whereDay('antigens.created_at', now()->day)
+            ->whereDate('antigens.created_at', Carbon::today())
             ->groupBy('customers.jenis_kelamin')
             ->get();
         $cabangs = DB::table('antigens')
             ->select('cabangs.name', DB::raw('count(antigens.cabang_id) as jumlah'))
             ->join('cabangs', 'antigens.cabang_id', '=', 'cabangs.id')
             ->where('user_id', $id)
-            ->whereDay('antigens.created_at', now()->day)
+            ->whereDate('antigens.created_at', Carbon::today())
             ->groupBy('cabangs.name')
             ->get();
 
-        $pengeluaran = Pengeluaran::where('user_id', $id)->whereDay('created_at', now()->day)->orderBy('created_at', 'ASC')->simplePaginate(10);
+        $pengeluaran = Pengeluaran::where('user_id', $id)->whereDate('antigens.created_at', Carbon::today())->orderBy('created_at', 'ASC')->simplePaginate(10);
         $jml_pengeluaran = DB::table('pengeluarans')
             ->select('jumlah')
             ->where('user_id', $id)
-            ->whereDay('created_at', now()->day)
+            ->whereDate('created_at', Carbon::today())
             ->sum('jumlah');
 
 
@@ -335,7 +339,7 @@ class AntigenController extends Controller
             'NIK' => 'required|string|max:100',
             'phone_number' => 'required',
             'email' => 'required',
-            'TTL' => 'required',
+            // 'TTL' => 'required',
             'jenis_kelamin' => 'required',
             'address' => 'required',
             'titik_id' => 'required',
@@ -359,7 +363,7 @@ class AntigenController extends Controller
             'email' => $request->email,
             'phone_number' => $request->phone_number,
             'jenis_kelamin' => $request->jenis_kelamin,
-            'TTL' => $request->TTL,
+            'TTL' => '-',
             'address' => $request->address,
             'district_id' => 1,
 

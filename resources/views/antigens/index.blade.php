@@ -180,7 +180,7 @@
                                            <td>{{ $row->titik->name }}</td>
                                            <td>{{ $row->hasil }} </td>
                                            <td>{{ $row->cabang->name }} </td>
-                                           <td>{{ $row->created_at->format(' H:i') }} WIB </td>
+                                           <td>{{ $row->created_at->format('d F, Y H:i') }} WIB </td>
                                            <td >{{ $row->user->name }}</td> 
                                           
                                            
