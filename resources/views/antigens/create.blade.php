@@ -98,7 +98,7 @@
                                 </div>
 
                                 <div class="row">
-                                    {{-- <div class="col-6">
+                                    <div class="col-6">
 
                                         <label for="start">Tanggal Lahir</label><br>
 
@@ -107,7 +107,7 @@
 
                                             <p class="text-danger">{{ $errors->first('TTL') }}</p>
 
-                                    </div> --}}
+                                    </div>
                                     <div class="col-6">
                                         <label for="email">Jenis Kelamin </label>
                                         <select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
