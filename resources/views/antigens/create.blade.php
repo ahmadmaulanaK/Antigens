@@ -277,8 +277,8 @@
                                     <select name="hasil_IgG" class="form-control">
                                         <option value="-">Hasil IgG
                                         </option>
-                                        <option value="Reaktif">Reaktip</option>
-                                        <option value="Non-reaktip">Non-reaktip
+                                        <option value="Reaktif">Reaktif</option>
+                                        <option value="Non-reaktip">Non-reaktif
                                         </option>
 
                                     </select>
@@ -289,8 +289,8 @@
                                     <select name="hasil_IgM" class="form-control">
                                         <option value="-">Hasil IgM
                                         </option>
-                                        <option value="Reaktip">Reaktip</option>
-                                        <option value="Non-reaktip">Non-reaktip
+                                        <option value="Reaktip">Reaktif</option>
+                                        <option value="Non-reaktip">Non-reaktif
                                         </option>
 
                                     </select>

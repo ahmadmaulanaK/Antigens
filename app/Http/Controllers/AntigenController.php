@@ -314,7 +314,7 @@ class AntigenController extends Controller
         $Metode = Payment::orderBy('metode_payment', 'ASC')->get();
         $price = Price::orderBy('harga', 'ASC')->get();
         $swabber = Swabber::all();
-        $category = Category::orderBy('name', 'DESC')->get();
+        $category = Category::orderBy('name', 'ASC')->get();
         $antigen = Antigen::findOrFail($id);
         $Branch = cabang::orderBy('created_at', 'DESC')->get();
         return view('antigens.edit', compact('Branch', 'price', 'Metode', 'titik', 'antigen', 'swabber', 'category'));

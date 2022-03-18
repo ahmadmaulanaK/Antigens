@@ -269,8 +269,8 @@
                                 <select name="hasil_IgG" class="form-control" >
                                     <option value="-">Hasil IgG
                                     </option>
-                                    <option value="Reaktif" {{($antigen->hasil_IgG === 'Reaktif') ? 'Selected' : ''}}>Reaktip</option>
-                                    <option value="Non-reaktip" {{($antigen->hasil_IgG === 'Non-reaktip') ? 'Selected' : ''}}>Non-reaktip
+                                    <option value="Reaktif" {{($antigen->hasil_IgG === 'Reaktif') ? 'Selected' : ''}}>Reaktif</option>
+                                    <option value="Non-reaktif" {{($antigen->hasil_IgG === 'Non-reaktif') ? 'Selected' : ''}}>Non-reaktif
                                     </option>
 
                                 </select>
@@ -281,8 +281,8 @@
                                 <select name="hasil_IgM" class="form-control" >
                                     <option value="-">Hasil IgM
                                     </option>
-                                    <option value="Reaktip" {{($antigen->hasil_IgM === 'Reaktip') ? 'Selected' : ''}}>Reaktip</option>
-                                    <option value="Non-reaktip" {{($antigen->hasil_IgM === 'Non-reaktip') ? 'Selected' : ''}}>Non-reaktip
+                                    <option value="Reaktif" {{($antigen->hasil_IgM === 'Reaktif') ? 'Selected' : ''}}>Reaktif</option>
+                                    <option value="Non-reaktif" {{($antigen->hasil_IgM === 'Non-reaktif') ? 'Selected' : ''}}>Non-reaktif
                                     </option>
 
                                 </select>
