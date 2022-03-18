@@ -37,6 +37,16 @@
                             @if (session('error'))
                                 <div class="alert alert-danger">{{ session('error') }}</div>
                             @endif
+                            {{-- <div class="row justify-content-center ">
+                                <div class="col-md-4">
+                                    <form action="/antigens/report">
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="search" class="form-control" placeholder="Masukan Nama" value="{{ request('search')}}">
+                                        <button class="btn btn-success" type="submit">Cari</button>
+                                    </div>
+                                </form>
+                                </div>
+                            </div> --}}
                             <!-- JIKA TERDAPAT FLASH SESSION, MAKA TAMPILAKAN -->
 
                             <!-- BUAT FORM UNTUK PENCARIAN, METHODNYA ADALAH GET -->

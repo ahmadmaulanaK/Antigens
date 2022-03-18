@@ -201,10 +201,14 @@ class AntigenController extends Controller
 
         $id = Auth::user()->id;
 
-        $Antigen = Antigen::where('user_id', $id)->orderBy('created_at', 'DESC')->Paginate(20);
-        if(request('search')){
-            $Antigen = Antigen::where('noreg', 'like', '%' .request('search') . '%')->Paginate(20);
-        }
+        $Antigen = Antigen::orderBy('created_at', 'DESC')->Paginate(20);
+        // if(request('search')){
+        //     $Antigen = Customer::where('name', 'like', '%' .request('search') . '%')->Paginate(20);
+        // }
+
+        // if(request('search')){
+        //     $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->where('noreg', 'like', '%' .request('search') . '%')->Paginate(20);
+        // }
 
         // dd($Antigen);
         // $Antigen = Antigen::where('user_id', $id)->whereDay('created_at', now()->day)->orWhere('cabang_id', 1)->orWhere('user_id', 6)->orderBy('created_at', 'ASC')->simplePaginate(10);
