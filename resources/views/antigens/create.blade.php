@@ -41,6 +41,7 @@
 
 
                                     </div>
+                                    
                                     <div class="col">
 
                                         <div class="card" style="width: 18rem;">
@@ -98,7 +99,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-3">
 
                                         <label for="start">Tanggal Lahir</label><br>
 
@@ -108,7 +109,9 @@
                                             <p class="text-danger">{{ $errors->first('TTL') }}</p>
 
                                     </div>
-                                    <div class="col-6">
+                                
+                                   
+                                    <div class="col-3">
                                         <label for="email">Jenis Kelamin </label>
                                         <select name="jenis_kelamin" id="jenis_kelamin" class="form-control">
                                             <option value="">Pilih....</option>
@@ -121,6 +124,18 @@
                                         </select>
 
                                         <p class="text-danger">{{ $errors->first('jenis_kelamin') }}</p>
+                                    </div>
+                                    <div class="col-3">
+
+                                       
+
+                                        <label for="appt">Pilih Jam Pemeriksaan:</label>
+
+                                        <input type="time" id="appt" name="time"
+                                               >
+                                        <br>
+                                        <small>Perhatikan AM serta PM</small>
+
                                     </div>
                                 </div>
 

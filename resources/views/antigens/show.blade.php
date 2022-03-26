@@ -231,11 +231,17 @@
                         <td>:</td>
                         <td style="width:50%">{{$antigen->customer->NIK}}</td>
                     </tr>
+                    @if ($antigen->customer->TTL == null)
+                        
+                    @else
                     <tr>
                         <td class="textt">Tanggal Lahir</td>
                         <td>:</td>
                         <td>{{$antigen->customer->TTL}}</td>
                     </tr>
+                    @endif
+
+                    
                     <tr>
                         <td class="textt">Jenis Kelamin</td>
                         <td>:</td>
@@ -258,7 +264,13 @@
                     <tr>
                         <td class="textt">Tanggal Periksa</td>
                         <td>:</td>
+                        {{-- <td>{{ $antigen->created_at->format('d F, Y | H:i ') }}WIB</td> --}}
+                        @if ($antigen->time == null)
                         <td>{{ $antigen->created_at->format('d F, Y | H:i ') }}WIB</td>
+                        @else
+                        <td>{{ $antigen->created_at->format('d F, Y  ') }}|{{$antigen->time}} WIB</td>
+                        @endif
+                        
 
 
                         <td></td>

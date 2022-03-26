@@ -82,7 +82,7 @@ class AntigenController extends Controller
             'NIK' => 'required|string|max:100',
             'phone_number' => 'required',
             'email' => 'required',
-            'TTL' => 'required',
+            // 'TTL' => 'required',
             'jenis_kelamin' => 'required',
             'address' => 'required',
             'titik_id' => 'required',
@@ -124,6 +124,7 @@ class AntigenController extends Controller
             'rujukan_IgG' => 'Non-Reaktif',
             'rujukan_IgM' => 'Non-Reaktif',
             'pelayanan' => $request->pelayanan,
+            'time' => $request->time,
             // 'district_id' => $request->district_id,
             'user_id' => $user_id,
             'swabber_id' => $request->swabber_id,
@@ -136,6 +137,8 @@ class AntigenController extends Controller
             'price_id' => $request->price_id,
 
         ]);
+
+       
 
         DB::commit();
         DB::rollback();
@@ -305,12 +308,12 @@ class AntigenController extends Controller
             ->groupBy('cabangs.name')
             ->get();
 
-        $pengeluaran = Pengeluaran::where('user_id', $id)->whereDate('antigens.created_at', Carbon::today())->orderBy('created_at', 'ASC')->simplePaginate(10);
-        $jml_pengeluaran = DB::table('pengeluarans')
-            ->select('jumlah')
-            ->where('user_id', $id)
-            ->whereDate('created_at', Carbon::today())
-            ->sum('jumlah');
+            $pengeluaran = Pengeluaran::where('user_id', $id)->where('created_at', '>=', date('Y-m-d') . ' 00:00:00')->orderBy('created_at', 'ASC')->simplePaginate(10);
+            $jml_pengeluaran = DB::table('pengeluarans')
+                ->select('jumlah')
+                ->where('user_id', $id)
+                ->where('created_at', '>=', date('Y-m-d') . ' 00:00:00')
+                ->sum('jumlah');
 
 
         return view('antigens.report', compact('HomeVisit', 'jml_pengeluaran', 'pengeluaran', 'cabangs', 'jenkel', 'category_qtt', 'titik_loc', 'swabber_qtt', 'jml_harga_all', 'payment', 'p', 't', 'user_id', 'nowTimeDate', 'totalSwabHarian', 'id', 'Antigen'));
